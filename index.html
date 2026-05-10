@@ -1,9 +1,1339 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WLED to XLights — Accurate LED Mapping for xLights</title>
+  <meta name="description" content="Convert your WLED LEDs to a 3D xLights model. Skip the manual editing. Accurate LED mapping using a standard iPhone — LiDAR not required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & tokens ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --text:      #1d1d1f;
+      --muted:     #6e6e73;
+      --accent:    #0071e3;
+      --accent2:   #34c759;
+      --warn:      #ff9f0a;
+      --danger:    #ff3b30;
+      --radius-sm: 16px;
+      --radius-md: 28px;
+      --radius-lg: 40px;
+      --shadow:    0 4px 32px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 64px rgba(0,0,0,0.14);
+      --transition: 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Skip link (accessibility) ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      text-decoration: none;
+      z-index: 9999;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ── Sticky nav ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,245,247,0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 2rem;
+    }
+
+    .site-nav__inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .site-nav__logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .site-nav__links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .site-nav__links a {
+      display: block;
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      border-radius: 8px;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .site-nav__links a:hover,
+    .site-nav__links a:focus-visible {
+      color: var(--accent);
+      background: rgba(0,113,227,0.07);
+      outline: none;
+    }
+
+    .site-nav__cta {
+      background: var(--accent);
+      color: #fff !important;
+      border-radius: 20px;
+      padding: 0.4rem 1rem !important;
+      transition: opacity var(--transition), transform var(--transition) !important;
+    }
+
+    .site-nav__cta:hover { opacity: 0.88; transform: scale(1.03); }
+
+    /* ── Section layout ── */
+    .section {
+      padding: 100px 2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-body {
+      font-size: 1.0625rem;
+      color: var(--muted);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      background: linear-gradient(160deg, #0a0a0f 0%, #0d1a2e 50%, #0a1a10 100%);
+      color: #fff;
+      padding: 140px 2rem 120px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0,113,227,0.35) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 80% 110%, rgba(52,199,89,0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__tagline {
+      font-size: clamp(0.875rem, 2vw, 1rem);
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 1.25rem;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero__title {
+      font-size: clamp(3rem, 9vw, 6rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .hero__title span {
+      background: linear-gradient(120deg, #34c759, #0071e3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero__hook {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(255,255,255,0.72);
+      max-width: 620px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.65;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.875rem 1.75rem;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform var(--transition), opacity var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(0,113,227,0.4);
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .btn:hover { transform: translateY(-2px); opacity: 0.92; }
+    .btn-primary:hover { box-shadow: 0 12px 40px rgba(0,113,227,0.5); }
+
+    /* ── Hero phone mockup strip ── */
+    .hero__phones {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 6rem;
+      animation: fadeUp 0.7s 0.4s ease both;
+      flex-wrap: wrap;
+    }
+
+    /* ── Phone bezel ── */
+    .phone-bezel {
+      position: relative;
+      width: 240px;
+      flex-shrink: 0;
+    }
+
+    .phone-bezel__frame {
+      background: #1a1a1a;
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 2px 0 1px rgba(255,255,255,0.12),
+        0 32px 80px rgba(0,0,0,0.6),
+        inset 0 0 0 1px rgba(0,0,0,0.8);
+    }
+
+    .phone-bezel__screen {
+      background: #111;
+      border-radius: 34px;
+      overflow: hidden;
+      aspect-ratio: 9/19.5;
+      position: relative;
+    }
+
+    .phone-bezel__notch {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90px;
+      height: 28px;
+      background: #1a1a1a;
+      border-radius: 0 0 18px 18px;
+      z-index: 2;
+    }
+
+    .phone-bezel__screen img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .phone-bezel__placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(160deg, #1a2540, #0d2010);
+      color: rgba(255,255,255,0.35);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-align: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .phone-bezel__placeholder svg {
+      width: 32px;
+      height: 32px;
+      opacity: 0.4;
+    }
+
+    .phone-bezel__caption {
+      text-align: center;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.45);
+      margin-top: 1rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* tilted hero phones */
+    .hero__phones .phone-bezel:nth-child(1) { transform: rotate(-5deg) translateY(20px); }
+    .hero__phones .phone-bezel:nth-child(2) { transform: rotate(0deg) translateY(0px); }
+    .hero__phones .phone-bezel:nth-child(3) { transform: rotate(5deg) translateY(20px); }
+
+    /* ── Elevator pitch ── */
+    #pitch {
+      background: var(--surface);
+    }
+
+    .pitch__inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    /* ── Features ── */
+    #features {
+      background: var(--bg);
+    }
+
+    .features-grid {
+      display: grid;
+      gap: 80px;
+      margin-top: 80px;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .feature-row.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature-row:nth-child(even) .feature-row__phone {
+      order: 2;
+    }
+
+    .feature-row:nth-child(even) .feature-row__text {
+      order: 1;
+    }
+
+    .feature-row__phone {
+      display: flex;
+      justify-content: center;
+    }
+
+    .feature-row__text h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-row__text p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .feature-row__text li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* Inline feature phone is slightly smaller */
+    .feature-row .phone-bezel {
+      width: 210px;
+    }
+
+    /* ── Feature cards grid (secondary features) ── */
+    .feature-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      box-shadow: var(--shadow);
+      transition: transform var(--transition), box-shadow var(--transition);
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .feature-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .feature-card__icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, rgba(0,113,227,0.12), rgba(52,199,89,0.12));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .feature-card h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── How it works ── */
+    #how-it-works {
+      background: var(--surface);
+    }
+
+    .workflow {
+      margin-top: 60px;
+    }
+
+    .workflow__phase {
+      margin-bottom: 60px;
+    }
+
+    .workflow__phase-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .workflow__steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .step-card {
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .step-card.visible { opacity: 1; transform: translateY(0); }
+
+    .step-card__num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-card p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom:1.25em;
+    }
+
+    /* Quality tier pills */
+    .quality-tiers {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .tier-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 100px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .tier-pill::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .tier-green  { background: rgba(52,199,89,0.12);  color: #1a7a35; }
+    .tier-green::before  { background: #34c759; }
+    .tier-yellow { background: rgba(255,214,10,0.15); color: #7a6000; }
+    .tier-yellow::before { background: #ffd60a; }
+    .tier-orange { background: rgba(255,159,10,0.15); color: #7a4a00; }
+    .tier-orange::before { background: var(--warn); }
+    .tier-red    { background: rgba(255,59,48,0.12);  color: #7a1010; }
+    .tier-red::before    { background: var(--danger); }
+
+    /* xlights import steps */
+    .numbered-list {
+      list-style: none;
+      counter-reset: steps;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .numbered-list li {
+      counter-increment: steps;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .numbered-list li::before {
+      content: counter(steps);
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-top: 0.15rem;
+    }
+
+    .numbered-list li span {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .numbered-list strong { color: var(--text); }
+
+
+    .icon-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .icon-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .icon-list img {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    /* ── Export / using section ── */
+    #export {
+      background: var(--bg);
+    }
+
+    /* ── Requirements ── */
+    #requirements {
+      background: var(--surface);
+    }
+
+    .req-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .req-card {
+      background: var(--bg);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .req-card.visible { opacity: 1; transform: translateY(0); }
+
+    .req-card__icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      line-height: 1;
+      margin-top: 0.1rem;
+    }
+
+    .req-card h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .req-card p {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* ── Tips ── */
+    #tips {
+      background: var(--bg);
+    }
+
+    .tips-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .tips-col h3 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.01em;
+    }
+
+    .tip-item {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateX(-16px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .tip-item.visible { opacity: 1; transform: translateX(0); }
+
+    .tip-item__dot {
+      flex-shrink: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 0.55rem;
+    }
+
+    .limitations-col .tip-item__dot { background: var(--warn); }
+
+    .tip-item p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .tip-item strong { color: var(--text); }
+
+    /* ── Privacy ── */
+    #privacy {
+      background: #0a0a0f;
+      color: #fff;
+    }
+
+    #privacy .section-label { color: var(--accent2); }
+
+    #privacy .section-title { color: #fff; }
+
+    .privacy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .privacy-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .privacy-card.visible { opacity: 1; transform: translateY(0); }
+
+    .privacy-card__icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+    .privacy-card h4 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .privacy-card p {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #0a0a0f;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .site-nav__links { display: none; }
+      .pitch__inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .feature-row { grid-template-columns: 1fr; gap: 2.5rem; }
+      .feature-row:nth-child(even) .feature-row__phone { order: unset; }
+      .feature-row:nth-child(even) .feature-row__text  { order: unset; }
+      .tips-cols { grid-template-columns: 1fr; }
+      .hero__phones { gap: 1rem; }
+      .hero__phones .phone-bezel { width: 170px; }
+      .hero__phones .phone-bezel:nth-child(1),
+      .hero__phones .phone-bezel:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+
 <body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ══ Navigation ══ -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav__inner">
+      <a href="#hero" class="site-nav__logo" aria-label="WLED to XLights — Home">WLED to XLights</a>
+      <ul class="site-nav__links" role="list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#export">Using Your Export</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+        <li><a href="#download" class="site-nav__cta">Download</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ══ Hero ══ -->
+    <section id="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero__tagline">iOS App</p>
+        <h1 class="hero__title" id="hero-title">
+          WLED to<br><span>XLights</span>
+        </h1>
+        <p class="hero__hook">
+          Accurate LED mapping of WLED instances to xLights without manual editing, using a standard iPhone — LiDAR not required.
+        </p>
+        <div class="hero__cta-group">
+          <a href="#download" class="btn btn-primary" id="download">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l4 4 4-4M12 8v8"/></svg>
+            Download on the App Store
+          </a>
+          <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
+        </div>
+
+        <!-- Hero phone mockups -->
+        <div class="hero__phones" role="img" aria-label="App screenshots showing the WLED to XLights workflow">
+          <div class="phone-bezel">
+            <div class="phone-bezel__frame">
+              <div class="phone-bezel__screen">
+                <div class="phone-bezel__notch" aria-hidden="true"></div>
+                  <div class="phone-bezel__screen">
+                  <div class="phone-bezel__notch"></div>
+                  <img src="resources/screenshot/connect.jpeg" alt="App screenshot showing the controller connect screen with mDNS discovery list">
+                </div>
+              </div>
+            </div>
+            <p class="phone-bezel__caption">Connect</p>
+          </div>
+
+          <div class="phone-bezel">
+            <div class="phone-bezel__frame">
+              <div class="phone-bezel__screen">
+                <div class="phone-bezel__notch"></div>
+                  <img src="resources/screenshot/ar.jpeg" alt="App screenshot showing the controller connect screen with mDNS discovery list">
+                </div>
+            </div>
+            <p class="phone-bezel__caption">Scan</p>
+          </div>
+
+          <div class="phone-bezel">
+            <div class="phone-bezel__frame">
+              <div class="phone-bezel__screen">
+                <div class="phone-bezel__notch" aria-hidden="true"></div>
+                  <div class="phone-bezel__screen">
+                  <div class="phone-bezel__notch"></div>
+                  <img src="resources/screenshot/preview.jpeg" alt="App screenshot showing the controller connect screen with mDNS discovery list">
+                </div>
+              </div>
+            </div>
+            <p class="phone-bezel__caption">Preview &amp; Export</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Elevator Pitch ══ -->
+    <section id="pitch" class="section" aria-labelledby="pitch-title">
+      <div class="container">
+        <div class="pitch__inner">
+          <div>
+            <span class="section-label">The Problem</span>
+            <h2 class="section-title" id="pitch-title">Manual LED mapping is painful</h2>
+            <p class="section-body">
+              XLights can model standard LED structures, but custom LED layouts and designs are difficult to model. Recording LED positions by hand is tedious, error-prone, and the single biggest barrier to building accurate xLights models for LEDs not conforming to standard objects.
+            </p>
+          </div>
+          <div>
+            <span class="section-label">The Solution</span>
+            <h2 class="section-title">Walk. Scan. Import.</h2>
+            <p class="section-body">
+              WLED to XLights removes that barrier: walk around your LED installation with an iPhone, and the app uses gray-code AR scanning — no LiDAR required — to automatically detect each LED's 3D position and encode its address in the chain. The result is a <code>.xmodel</code> file you can import directly into xLights.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Features ══ -->
+    <section id="features" class="section" aria-labelledby="features-title">
+      <div class="container">
+        <span class="section-label">Features</span>
+        <h2 class="section-title" id="features-title">Everything you need.<br>Nothing you don't.</h2>
+
+        <!-- Primary features with phone mockups -->
+        <div class="features-grid" role="list">
+
+          <article class="feature-row" role="listitem" aria-labelledby="feat-discovery-title">
+            <div class="feature-row__phone">
+              <div class="phone-bezel">
+                <div class="phone-bezel__frame">
+                  <div class="phone-bezel__screen">
+                    <div class="phone-bezel__notch" aria-hidden="true"></div>
+                    
+                     <div class="phone-bezel__screen">
+                      <div class="phone-bezel__notch"></div>
+                      <video
+                        src="resources/video/discovery.mp4"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                        style="width:100%; height:100%; object-fit:cover; display:block;"
+                        aria-label="Screen recording of the AR scan in progress, showing gray-code pattern cycling across LEDs">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-row__text">
+              <h3 id="feat-discovery-title">Automatic mDNS Discovery</h3>
+              <p>The app finds WLED controllers on your local network without manual IP entry. Save multiple named configurations and switch between them with a tap. Manage multiple WLED instances and select which segments to include per controller — selections persisted across launches.</p>
+            </div>
+          </article>
+
+          <article class="feature-row" role="listitem" aria-labelledby="feat-scan-title">
+            <div class="feature-row__phone">
+              <div class="phone-bezel">
+                <div class="phone-bezel__frame">
+                  <div class="phone-bezel__screen">
+                    <div class="phone-bezel__notch" aria-hidden="true"></div>
+                    <div class="phone-bezel__placeholder" aria-label="Screenshot placeholder: Gray-code AR scanning in progress">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+                      AR Scan — Live Camera View
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-row__text">
+              <h3 id="feat-scan-title">Gray-Code AR Scanning</h3>
+              <p>Optimised binary frame scanning efficiently processes WLED instances with up to 1,024 individual LEDs. ARKit world tracking provides accurate camera pose without LiDAR — works on any iPhone, not just Pro models.</p>
+            </div>
+          </article>
+
+          <article class="feature-row" role="listitem" aria-labelledby="feat-quality-title">
+            <div class="feature-row__phone">
+              <div class="phone-bezel">
+                <div class="phone-bezel__frame">
+                  <div class="phone-bezel__screen">
+                    <div class="phone-bezel__notch" aria-hidden="true"></div>
+                    <div class="phone-bezel__placeholder" aria-label="Screenshot placeholder: RANSAC quality tier overlay on LED model">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                      Quality Tier Overlay
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-row__text">
+              <h3 id="feat-quality-title">RANSAC Outlier Rejection with 4-Tier Quality Feedback</h3>
+              <p>Each LED is independently scored using RANSAC to filter poor observations. Quality is displayed per LED so you know exactly where to rescan:</p>
+              <div class="quality-tiers" role="list" aria-label="LED quality tiers">
+                <span class="tier-pill tier-green"  role="listitem">Good triangulation</span>
+                <span class="tier-pill tier-yellow" role="listitem">More scans needed</span>
+                <span class="tier-pill tier-orange" role="listitem">Poor triangulation</span>
+                <span class="tier-pill tier-red"    role="listitem">Interpolated</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="feature-row" role="listitem" aria-labelledby="feat-preview-title">
+            <div class="feature-row__phone">
+              <div class="phone-bezel">
+                <div class="phone-bezel__frame">
+                  <div class="phone-bezel__screen">
+                    <div class="phone-bezel__notch" aria-hidden="true"></div>
+                     <div class="phone-bezel__screen">
+                      <div class="phone-bezel__notch"></div>
+                      <video
+                        src="resources/video/3dpreview.mp4"
+                        autoplay
+                        loop
+                        muted
+                        playsinline
+                        style="width:100%; height:100%; object-fit:cover; display:block;"
+                        aria-label="Screen recording of the AR scan in progress, showing gray-code pattern cycling across LEDs">
+                      </video>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="feature-row__text">
+              <h3 id="feat-preview-title">3D Preview with Interactive LED Editor</h3>
+              <p>Review reconstructed LED positions in an interactive view — pan, zoom, and rotate freely. Axis-constrained drag handles let you move individual LED positions, or delete a computed position and use an interpolated estimate from neighbouring LEDs instead. </p>
+              <br>
+              <span class="section-label">View Options...</span>
+              <ul class="icon-list">
+                <li>
+                  <img src="resources/icons/wire-toggle.png" alt="Wire Visualisation Toggle">
+                  Toggle led wire visualisation on / off
+                </li>
+                <li>
+                  <img src="resources/icons/led-index-toggle.png" alt="LED indexes Toggle">
+                  Toggle led index numbers on / off
+                </li>
+                <li>
+                  <img src="resources/icons/quantize-model-toggle.png" alt="xmodel quantization Toggle">
+                  Toggle between scanned model and xlights format (quantized)
+                </li>
+              </ul>
+         
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Secondary feature cards -->
+        <div class="feature-cards" role="list" aria-label="Additional features">
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">⚙️</div>
+            <h4>Runtime Configuration</h4>
+            <p>Configurable settings for scan timings, LED scan colours, blob detection, and LED rejection — with a live AR overlay to tune detection before or during scanning session.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">💡</div>
+            <h4>Physical LED Status Display</h4>
+            <p>During scanning, tap the bulb icon to display each LED's quality status on the physical LEDs themselves — see at a glance which areas need more scanning passes.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">🔗</div>
+            <h4>Intelligent Interpolation</h4>
+            <p>LEDs that are not located during scanning are automatically estimated from their neighbours, keeping the model complete and physically consistent. The LED string topology is used to ensure interpolation is only performed within the same LED string.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">📋</div>
+            <h4>Reconstruction report</h4>
+            <p>A reconstruction report, summarises the scanning session results, providing metrics on the scanned object. The user can choose to perform more scans, preview, or perform the export to an .xmodel file </p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">📐</div>
+            <h4>Adjustable Model Resolution</h4>
+            <p>A cell resolution slider (0.25–20 cm) on the results page lets you balance model resolution against file size, with live RMS quantisation stats to guide your choice.</p>
+          </article>
+
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">📤</div>
+            <h4>xLights 3D Custom Model Export</h4>
+            <p>Export a <code>.xmodel</code> file using the standard iOS share sheet — save to Files, AirDrop to your Mac, or send anywhere iOS sharing supports.</p>
+          </article>
+
+          <!--
+          <article class="feature-card" role="listitem">
+            <div class="feature-card__icon" aria-hidden="true">📡</div>
+            <h4>UDP DNRGB Transport</h4>
+            <p>Select UDP DNRGB per WLED instance for faster LED control during scanning — ideal for large installations where speed matters. Requires WLED ≥0.14.</p>
+          </article>
+          -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ How It Works ══ -->
+    <section id="how-it-works" class="section" aria-labelledby="how-title">
+      <div class="container">
+        <span class="section-label">Workflow</span>
+        <h2 class="section-title" id="how-title">From LEDs to xLights<br>in five steps</h2>
+
+        <div class="workflow" aria-label="In-app workflow steps">
+
+          <div class="workflow__phase">
+            <p class="workflow__phase-title">In the App</p>
+            <div class="workflow__steps" role="list">
+
+              <div class="step-card" role="listitem">
+                <p class="step-card__num">Step 01</p>
+                <h4>Connect</h4>
+                <p>Open the app and tap to connect to a WLED controller. </p>
+                <p>Use mDNS discovery to connect automatically or manually enter WLED IP address.  </p>
+                <p>Save multiple named configurations for different installations. </p>
+                <p>Select which segments to include for multi-segment controllers.</p>
+              </div>
+
+              <div class="step-card" role="listitem">
+                <p class="step-card__num">Step 02</p>
+                <h4>Scan</h4>
+                <p>Tap "Scan new Object" </p>
+                <p>Move to a position where the LEDs are visible, then tap "Start Scan". </p>
+                <p>The scan cycles a binary pattern on the LEDs that are captured and analyzed.</p>
+                <p>Change viewpoint and repeat.</p>
+                <p>LEDs resolved from 2 or more scan positions are shown on a live AR overlay in real time.</p>
+                <!--
+                <div class="quality-tiers" aria-label="Quality indicators during scanning">
+                  <span class="tier-pill tier-green">Good</span>
+                  <span class="tier-pill tier-yellow">Warn</span>
+                  <span class="tier-pill tier-orange">Poor</span>
+                  <span class="tier-pill tier-red">Interpolated</span>
+                </div>
+                -->
+              </div>
+
+              <div class="step-card" role="listitem">
+                <p class="step-card__num">Step 03</p>
+                <h4>Report</h4>
+                <p>When scanning is complete the app summarises results, providing metrics on the scanned object. </p>
+                <p>Go back to rescan, proceed to preview, or export directly.</p>
+              </div>
+
+              <div class="step-card" role="listitem">
+                <p class="step-card__num">Step 04</p>
+                <h4>Preview</h4>
+                <p>Open the 3D preview to inspect results.</p>
+                <p>Use the transform gizmo to adjust it's position.</p>
+                <p>Delete the calculated position and replace with an interpolated position based on it's neighbours.</p>
+              </div>
+
+              <div class="step-card" role="listitem">
+                <p class="step-card__num">Step 05</p>
+                <h4>Export</h4>
+                <p>Tap the export button</p>
+                <p>Use the iOS share sheet to save the <code>.xmodel</code> file to the Files app or AirDrop it directly to your Mac.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="workflow__phase">
+            <p class="workflow__phase-title">Importing into xLights</p>
+            <ol class="numbered-list" aria-label="Steps to import the .xmodel file into xLights">
+              <li><span>Open xLights and go to the <strong>Layout</strong> tab.</span></li>
+              <li><span>Click the <strong>Import Model</strong> button in the toolbar.</span></li>
+              <li><span>Drag on the canvas to place the model's position in your layout, then release — a file picker opens.</span></li>
+              <li><span>Select the exported <strong>.xmodel</strong> file.</span></li>
+              <li><span>The model appears in your xLights layout as a Custom Model. Rename it and wire it to the correct controller and channel as usual.</span></li>
+            </ol>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Using Your Export ══ -->
+    <section id="export" class="section" aria-labelledby="export-title">
+      <div class="container">
+        <div class="pitch__inner">
+          <div>
+            <span class="section-label">Using Your Export</span>
+            <h2 class="section-title" id="export-title">A model built around your LEDs</h2>
+            <p class="section-body">
+              The <code>.xmodel</code> file produced by WLED to XLights encodes a 3D Custom Model — xLights' format for props where each pixel position is defined individually rather than as a grid or matrix.
+            </p>
+            <p class="section-body" style="margin-top:1rem;">
+              After importing, the model appears in the xLights layout with each LED at its reconstructed 3D position. You can drag and resize the model, assign it to a controller output, and sequence it like any other xLights model.
+            </p>
+            <p class="section-body" style="margin-top:1rem;">
+              The cell size set before export controls the resolution of the underlying grid. The export screen shows the RMS quantisation error so you can tune this before saving. The "grid" toggle on the preview screen lets you see the effect of quantisation on the model before exporting.
+            </p>
+          </div>
+          <div class="feature-row__phone" style="display:flex; justify-content:center;">
+            <div class="phone-bezel" style="width:240px;">
+              <div class="phone-bezel__frame">
+                <div class="phone-bezel__screen">
+                  <div class="phone-bezel__notch" aria-hidden="true"></div>
+
+                  <div class="phone-bezel__screen">
+                    <div class="phone-bezel__notch"></div>
+                    <img src="resources/screenshot/results.jpeg" alt="App screenshot showing the controller connect screen with mDNS discovery list">
+                  </div>
+            
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Requirements ══ -->
+    <section id="requirements" class="section" aria-labelledby="req-title">
+      <div class="container">
+        <span class="section-label">Requirements</span>
+        <h2 class="section-title" id="req-title">What you'll need</h2>
+
+        <div class="req-grid" role="list">
+          <div class="req-card" role="listitem">
+            <div class="req-card__icon" aria-hidden="true">📱</div>
+            <div>
+              <h4>Any iPhone with a Rear Camera</h4>
+              <p>LiDAR <strong>not</strong> required. WLED to XLights uses ARKit's Visual-Inertial Odometry (VIO) for camera pose, which works on all iPhones.</p>
+            </div>
+          </div>
+          <div class="req-card" role="listitem">
+            <div class="req-card__icon" aria-hidden="true">🍎</div>
+            <div>
+              <h4>iOS 26 or Later</h4>
+              <p>The app requires iOS 26 or later installed on your device.</p>
+            </div>
+          </div>
+          <div class="req-card" role="listitem">
+            <div class="req-card__icon" aria-hidden="true">💡</div>
+            <div>
+              <h4>WLED-Controlled Addressable LEDs</h4>
+              <p>LEDs must be individually addressable — not dumb strips or fixed-colour strings — and controlled by a WLED instance.</p>
+            </div>
+          </div>
+          <div class="req-card" role="listitem">
+            <div class="req-card__icon" aria-hidden="true">📶</div>
+            <div>
+              <h4>Shared Local Wi-Fi</h4>
+              <p>Your iPhone and the WLED controller must be on the same Wi-Fi network. No internet connection required — the app is fully offline.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Tips ══ -->
+    <section id="tips" class="section" aria-labelledby="tips-title">
+      <div class="container">
+        <span class="section-label">Tips &amp; Limitations</span>
+        <h2 class="section-title" id="tips-title">Get the best results</h2>
+
+        <div class="tips-cols">
+          <div>
+            <h3>Getting the Best Results</h3>
+            <ul role="list" aria-label="Tips for best results">
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Dim your ambient lighting during the scan</strong> — The LED detection looks for bright blobs against a darker background. Strong ambient light reduces contrast and can miss LEDs.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Adjust LED colour and detection settings</strong> — if detection is poor, open Settings and review blob detection. The live AR overlay shows detected LEDs so you can tune brightness and minimum blob size.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Maintain a consistent scanning distance</strong> — staying roughly 0.5–1.5 m from the LEDs throughout the scan improves 3D reconstruction accuracy.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Do multiple passes</strong> — the app retains the best-known position for each LED across passes. Target orange and red LEDs visible in the quality tier overlay.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Frame LEDs strategically</strong> — for large models or problem areas, frame specific sections of the LEDs to get better detection, rather than trying to capture everything at once.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Scan components of scene separately</strong> — Scan each item in your scene separately, smaller components (with fewer leds) scan faster, and separate components are better managed/aggregated in xlights layout.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Use segment selection for controllers with multiple components</strong> — if your WLED controller drives multiple components, segments can be used to select which component should be scanned.</p></li>
+            </ul>
+          </div>
+
+          <div class="limitations-col">
+            <h3>Honest Limitations</h3>
+            <ul role="list" aria-label="Known limitations">
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Lighting conditions affect detection</strong> — scanning in bright ambient light makes LED blobs harder to detect. This is the most common cause of low reconstruction quality.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Hold the phone still when scanning</strong> — scans take about 1 second. Hold steady, or use a tripod for best results. Excellent results can still be achieved hand-held.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Scanning distance affects accuracy</strong> — standing too close or too far reduces triangulation quality. Maintain a consistent distance throughout each pass.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>Different viewpoints improve triangulation</strong> — maximising the angle between successive scans improves accuracy. Avoid scanning repeatedly from the same position.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>LEDs must be individually addressable</strong> — the app works by cycling patterns on individual LEDs. Dumb strips, fixed-colour strings, or non-addressable LEDs cannot be scanned.</p></li>
+              <li class="tip-item"><div class="tip-item__dot" aria-hidden="true"></div><p><strong>LEDs must be point light sources</strong> — blob detection requires LEDs to be visible as distinct points. Heavily diffused LED light makes candidate detection unreliable.</p></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ Privacy ══ -->
+    <section id="privacy" class="section" aria-labelledby="privacy-title">
+      <div class="container">
+        <span class="section-label">Privacy</span>
+        <h2 class="section-title" id="privacy-title">Your data never leaves your device</h2>
+
+        <div class="privacy-grid" role="list">
+          <div class="privacy-card" role="listitem">
+            <div class="privacy-card__icon" aria-hidden="true">🚫</div>
+            <h4>No Personal Data Captured</h4>
+            <p>WLED to XLights captures no personal data whatsoever.</p>
+          </div>
+          <div class="privacy-card" role="listitem">
+            <div class="privacy-card__icon" aria-hidden="true">💾</div>
+            <h4>On-Device Storage Only</h4>
+            <p>The only information stored is WLED controller connection details (name and IP address), saved locally so you can reconnect without re-entering them.</p>
+          </div>
+          <div class="privacy-card" role="listitem">
+            <div class="privacy-card__icon" aria-hidden="true">📊</div>
+            <h4>No Analytics or Tracking</h4>
+            <p>No analytics. No tracking. No data leaves your device.</p>
+          </div>
+          <div class="privacy-card" role="listitem">
+            <div class="privacy-card__icon" aria-hidden="true">🌐</div>
+            <h4>Fully Offline</h4>
+            <p>The app works entirely on local Wi-Fi. No account, no cloud sync, no network calls outside your local network.</p>
+          </div>
+          <div class="privacy-card" role="listitem">
+            <div class="privacy-card__icon" aria-hidden="true">📷</div>
+            <h4>Camera Processed On-Device</h4>
+            <p>Camera and ARKit data is processed entirely on-device and is never stored or transmitted.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══ Footer ══ -->
+  <footer role="contentinfo">
+    <p>WLED to XLights — Convert your WLED LEDs to a 3D xLights model.</p>
+    <p style="margin-top:0.5rem;">App Store and iOS are trademarks of Apple Inc. WLED and xLights are independent open-source projects.</p>
+  </footer>
+
+  <!-- ══ Intersection Observer for scroll animations ══ -->
+  <script>
+    const animatedEls = document.querySelectorAll(
+      '.feature-row, .feature-card, .step-card, .req-card, .tip-item, .privacy-card'
+    );
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // Stagger siblings in same parent
+          const siblings = Array.from(entry.target.parentElement.children);
+          const idx = siblings.indexOf(entry.target);
+          entry.target.style.transitionDelay = `${idx * 60}ms`;
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    animatedEls.forEach(el => io.observe(el));
+  </script>
 
 </body>
 </html>
