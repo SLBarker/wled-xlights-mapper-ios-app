@@ -22,10 +22,16 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
   3. Both autoplay videos are not fetched on page load — they load only when scrolled near the viewport
   4. Copy reads correctly ("its" not "it's") and every image has accurate, unique alt text
 **Plans**: 3 plans
-Plans:
+
+**Wave 1**
 - [ ] 01-01-PLAN.md — Markup bug fixes (nested DOM, alt text, grammar)
+
+**Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 01-02-PLAN.md — Mobile responsive CSS + hamburger nav toggle
+
+**Wave 3** *(blocked on Wave 2 completion)*
 - [ ] 01-03-PLAN.md — Lazy video loading via IntersectionObserver
+
 **UI hint**: yes
 
 ### Phase 2: Hero Carousel
