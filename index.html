@@ -780,6 +780,99 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ── Hamburger toggle (mobile only) ── */
+    .site-nav__toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 0;
+      flex-shrink: 0;
+      transition: background var(--transition);
+    }
+
+    .site-nav__toggle:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* CSS transform X animation for hamburger bars */
+    .site-nav__toggle .nav-bar {
+      transition: transform var(--transition), opacity var(--transition);
+      transform-origin: center;
+    }
+
+    /* Open state: top bar rotates to form X top-left to bottom-right */
+    .site-nav--open .nav-bar--top {
+      transform: rotate(45deg) translate(4px, 4px);
+    }
+    /* Open state: middle bar fades out */
+    .site-nav--open .nav-bar--mid {
+      opacity: 0;
+    }
+    /* Open state: bottom bar rotates to form X bottom-left to top-right */
+    .site-nav--open .nav-bar--bot {
+      transform: rotate(-45deg) translate(4px, -4px);
+    }
+
+    /* ── Mobile nav drawer ── */
+    .site-nav__drawer {
+      display: none;
+      max-height: 0;
+      overflow: hidden;
+      background: rgba(245,245,247,0.97);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      transition: max-height var(--transition);
+    }
+
+    .site-nav__drawer--open {
+      max-height: 400px;
+    }
+
+    .site-nav__drawer ul {
+      list-style: none;
+      padding: 8px 0 16px 0;
+    }
+
+    .site-nav__drawer ul a {
+      display: block;
+      padding: 0.6rem 1.25rem;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .site-nav__drawer ul a:hover,
+    .site-nav__drawer ul a:focus-visible {
+      color: var(--accent);
+      background: rgba(0,113,227,0.07);
+      outline: none;
+    }
+
+    .site-nav__drawer ul a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+
+    .site-nav__drawer .site-nav__cta {
+      display: block;
+      margin: 8px 1.25rem 0;
+      border-radius: 20px;
+      background: var(--accent);
+      color: #fff !important;
+      text-align: center;
+      padding: 0.6rem 1.25rem !important;
+    }
+
     /* ── Responsive ── */
     @media (max-width: 768px) {
       .site-nav__links { display: none; }
@@ -792,6 +885,19 @@
       .hero__phones .phone-bezel { width: 170px; }
       .hero__phones .phone-bezel:nth-child(1),
       .hero__phones .phone-bezel:nth-child(3) { display: none; }
+
+      /* Section padding */
+      .section { padding: 64px 1.25rem; }
+
+      /* Grid single-column overrides */
+      .feature-cards   { grid-template-columns: 1fr; }
+      .workflow__steps { grid-template-columns: 1fr; }
+      .req-grid        { grid-template-columns: 1fr; }
+      .privacy-grid    { grid-template-columns: 1fr; }
+
+      /* Show hamburger, hide desktop links */
+      .site-nav__toggle { display: flex; }
+      .site-nav__drawer { display: block; }
     }
   </style>
 </head>
@@ -804,7 +910,7 @@
   <nav class="site-nav" aria-label="Site navigation">
     <div class="site-nav__inner">
       <a href="#hero" class="site-nav__logo" aria-label="WLED to XLights — Home">WLED to XLights</a>
-      <ul class="site-nav__links" role="list">
+      <ul class="site-nav__links" id="site-nav-menu" role="list">
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">How It Works</a></li>
         <li><a href="#export">Using Your Export</a></li>
@@ -813,8 +919,35 @@
         <li><a href="#privacy">Privacy</a></li>
         <li><a href="#download" class="site-nav__cta">Download</a></li>
       </ul>
+      <button
+        class="site-nav__toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="site-nav-menu"
+        type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="var(--text)" stroke-width="2" stroke-linecap="round"
+             aria-hidden="true">
+          <line x1="3" y1="6"  x2="21" y2="6"  class="nav-bar nav-bar--top"/>
+          <line x1="3" y1="12" x2="21" y2="12" class="nav-bar nav-bar--mid"/>
+          <line x1="3" y1="18" x2="21" y2="18" class="nav-bar nav-bar--bot"/>
+        </svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile nav drawer (shown only at ≤768px) -->
+  <div class="site-nav__drawer" id="site-nav-drawer" aria-hidden="true">
+    <ul role="list">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#export">Using Your Export</a></li>
+      <li><a href="#requirements">Requirements</a></li>
+      <li><a href="#tips">Tips</a></li>
+      <li><a href="#privacy">Privacy</a></li>
+      <li><a href="#download" class="site-nav__cta">Download</a></li>
+    </ul>
+  </div>
 
   <main id="main-content">
 
