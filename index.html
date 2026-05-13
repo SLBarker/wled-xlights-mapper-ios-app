@@ -1450,5 +1450,58 @@
     animatedEls.forEach(el => io.observe(el));
   </script>
 
+  <script>
+    /* ── Hamburger nav toggle ── */
+    (function () {
+      var toggle = document.querySelector('.site-nav__toggle');
+      var nav    = document.querySelector('.site-nav');
+      var drawer = document.getElementById('site-nav-drawer');
+
+      if (!toggle || !drawer) return;
+
+      var firstLink = drawer.querySelector('a');
+
+      function openMenu() {
+        nav.classList.add('site-nav--open');
+        drawer.classList.add('site-nav__drawer--open');
+        drawer.removeAttribute('aria-hidden');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Close navigation menu');
+        if (firstLink) firstLink.focus();
+      }
+
+      function closeMenu(returnFocus) {
+        nav.classList.remove('site-nav--open');
+        drawer.classList.remove('site-nav__drawer--open');
+        drawer.setAttribute('aria-hidden', 'true');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+        if (returnFocus) toggle.focus();
+      }
+
+      toggle.addEventListener('click', function () {
+        if (nav.classList.contains('site-nav--open')) {
+          closeMenu(false);
+        } else {
+          openMenu();
+        }
+      });
+
+      /* Close on any drawer link tap */
+      drawer.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          closeMenu(false);
+        });
+      });
+
+      /* Close on Escape */
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
+          closeMenu(true);
+        }
+      });
+    }());
+  </script>
+
 </body>
 </html>
