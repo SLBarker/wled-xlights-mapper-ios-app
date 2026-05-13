@@ -6,7 +6,7 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 
 ## Phases
 
-- [ ] **Phase 1: Mobile & Polish** - Make the page fully usable on mobile, fix all known bugs, and lazy-load videos
+- [x] **Phase 1: Mobile & Polish** - Make the page fully usable on mobile, fix all known bugs, and lazy-load videos *(completed 2026-05-13)*
 - [ ] **Phase 2: Hero Carousel** - Replace the static phone mockup strip with a sliding carousel
 - [ ] **Phase 3: Contact Section** - Add a styled Contact/Feedback section with a pre-filled mailto CTA
 
@@ -24,13 +24,13 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 **Plans**: 3 plans
 
 **Wave 1**
-- [ ] 01-01-PLAN.md — Markup bug fixes (nested DOM, alt text, grammar)
+- [x] 01-01-PLAN.md — Markup bug fixes (nested DOM, alt text, grammar)
 
-**Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 01-02-PLAN.md — Mobile responsive CSS + hamburger nav toggle
+**Wave 2**
+- [x] 01-02-PLAN.md — Mobile responsive CSS + hamburger nav toggle
 
-**Wave 3** *(blocked on Wave 2 completion)*
-- [ ] 01-03-PLAN.md — Lazy video loading via IntersectionObserver
+**Wave 3**
+- [x] 01-03-PLAN.md — Lazy video loading via IntersectionObserver
 
 **UI hint**: yes
 
@@ -60,6 +60,6 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Mobile & Polish | 0/3 | Not started | - |
+| 1. Mobile & Polish | 3/3 | Complete | 2026-05-13 |
 | 2. Hero Carousel | 0/? | Not started | - |
 | 3. Contact Section | 0/? | Not started | - |

@@ -21,8 +21,8 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 ### Active
 
-- [ ] Mobile-responsive layout — all sections usable and readable at phone width, no content clipped or hidden
-- [ ] Hamburger navigation — nav links accessible on mobile via a toggle menu
+- [x] Mobile-responsive layout — all sections usable and readable at phone width, no content clipped or hidden *(validated Phase 1)*
+- [x] Hamburger navigation — nav links accessible on mobile via a toggle menu *(validated Phase 1)*
 - [ ] Hero carousel — replace the horizontal fan/strip of phone mockups with a conventional sliding carousel using the same assets
 - [ ] Contact / feedback section — styled section with a mailto CTA allowing users to send app feedback
 
@@ -31,7 +31,6 @@ Every visitor who arrives on the page should come away understanding what the ap
 - Backend server or database — architecture must remain fully static
 - JavaScript frameworks (React, Vue, etc.) — keep vanilla JS only
 - Formspree / EmailJS — user decided against; mailto is sufficient for v1
-- Video lazy-loading / asset optimisation — not in current scope
 - App Store link wiring — no URL provided; placeholder will remain
 
 ## Context
@@ -77,4 +76,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-13 after initialization*
+*Last updated: 2026-05-13 — Phase 1 complete (mobile responsive, hamburger nav, lazy video, markup bugs fixed)*
