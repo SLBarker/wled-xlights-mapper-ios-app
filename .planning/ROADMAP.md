@@ -21,7 +21,11 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
   2. All page sections are readable with no clipped or overflowing content at 375px–768px widths
   3. Both autoplay videos are not fetched on page load — they load only when scrolled near the viewport
   4. Copy reads correctly ("its" not "it's") and every image has accurate, unique alt text
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 01-01-PLAN.md — Markup bug fixes (nested DOM, alt text, grammar)
+- [ ] 01-02-PLAN.md — Mobile responsive CSS + hamburger nav toggle
+- [ ] 01-03-PLAN.md — Lazy video loading via IntersectionObserver
 **UI hint**: yes
 
 ### Phase 2: Hero Carousel
@@ -50,6 +54,6 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Mobile & Polish | 0/? | Not started | - |
+| 1. Mobile & Polish | 0/3 | Not started | - |
 | 2. Hero Carousel | 0/? | Not started | - |
 | 3. Contact Section | 0/? | Not started | - |
