@@ -1042,7 +1042,7 @@
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
                     <video
-                      src="resources/video/discovery.mp4"
+                      data-src="resources/video/discovery.mp4"
                       autoplay
                       loop
                       muted
@@ -1113,7 +1113,7 @@
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
                     <video
-                      src="resources/video/3dpreview.mp4"
+                      data-src="resources/video/3dpreview.mp4"
                       autoplay
                       loop
                       muted
@@ -1499,6 +1499,30 @@
         if (e.key === 'Escape' && nav.classList.contains('site-nav--open')) {
           closeMenu(true);
         }
+      });
+    }());
+  </script>
+
+  <script>
+    /* ── Lazy video loading ── */
+    (function () {
+      var lazyVideos = document.querySelectorAll('video[data-src]');
+
+      if (!lazyVideos.length) return;
+
+      var lazyVideoObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var video = entry.target;
+            video.src = video.dataset.src;
+            video.load();
+            lazyVideoObserver.unobserve(video);
+          }
+        });
+      }, { rootMargin: '200px' });
+
+      lazyVideos.forEach(function (video) {
+        lazyVideoObserver.observe(video);
       });
     }());
   </script>
