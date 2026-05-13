@@ -42,7 +42,14 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
   1. The hero no longer shows a horizontal fan/strip — a single phone mockup is displayed at a time
   2. Prev/next arrow buttons and dot indicators are visible and advance the carousel
   3. On mobile, swiping left or right advances the carousel
-**Plans**: TBD
+**Plans**: 2 plans
+
+**Wave 1**
+- [ ] 02-01-PLAN.md — Remove old hero__phones CSS; add full hero-carousel CSS section
+
+**Wave 2**
+- [ ] 02-02-PLAN.md — Replace hero__phones HTML with 4-slide carousel markup + carousel JS IIFE
+
 **UI hint**: yes
 
 ### Phase 3: Contact Section
@@ -61,5 +68,5 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Mobile & Polish | 3/3 | Complete | 2026-05-13 |
-| 2. Hero Carousel | 0/? | Not started | - |
+| 2. Hero Carousel | 0/2 | Not started | - |
 | 3. Contact Section | 0/? | Not started | - |
