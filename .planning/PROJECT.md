@@ -23,8 +23,8 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 - [x] Mobile-responsive layout — all sections usable and readable at phone width, no content clipped or hidden *(validated Phase 1)*
 - [x] Hamburger navigation — nav links accessible on mobile via a toggle menu *(validated Phase 1)*
-- [ ] Hero carousel — replace the horizontal fan/strip of phone mockups with a conventional sliding carousel using the same assets
-- [ ] Contact / feedback section — styled section with a mailto CTA allowing users to send app feedback
+- [x] Hero carousel — replace the horizontal fan/strip of phone mockups with a conventional sliding carousel using the same assets *(validated Phase 2)*
+- [x] Contact / feedback section — styled section with a mailto CTA allowing users to send app feedback *(validated Phase 3)*
 
 ### Out of Scope
 
@@ -52,9 +52,10 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| mailto for contact section | No backend; Formspree/EmailJS ruled out by user | — Pending |
-| Carousel uses existing phone mockup assets | Avoids new design work; content already approved | — Pending |
-| Keep single-file architecture | Constraint from user; no build pipeline | — Pending |
+| mailto for contact section | No backend; Formspree/EmailJS ruled out by user | ✓ Implemented — wled.2.xlights@gmail.com with pre-filled subject |
+| Carousel uses existing phone mockup assets | Avoids new design work; content already approved | ✓ Implemented — 4-slide carousel with existing screenshots/video |
+| Keep single-file architecture | Constraint from user; no build pipeline | ✓ Maintained throughout all 3 phases |
+| Contact before Privacy in nav/page | User preference — natural flow before legal/privacy | ✓ Applied Phase 3 |
 
 ---
 
@@ -76,4 +77,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-13 — Phase 1 complete (mobile responsive, hamburger nav, lazy video, markup bugs fixed)*
+*Last updated: 2026-05-14 — Phase 3 complete. Milestone v1.0 done: all 3 phases complete (mobile responsive, hero carousel, contact section)*

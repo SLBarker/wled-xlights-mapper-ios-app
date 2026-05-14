@@ -25,9 +25,9 @@
 
 ### Contact
 
-- [ ] **CONT-01**: A Contact / Feedback section is added to the page, styled to match the existing design language
-- [ ] **CONT-02**: Section contains a "Send Feedback" CTA button that opens the user's email client via `mailto:`
-- [ ] **CONT-03**: `mailto:` link includes a pre-filled subject line: `Feedback for WLED xLights Mapper`
+- [x] **CONT-01**: A Contact / Feedback section is added to the page, styled to match the existing design language
+- [x] **CONT-02**: Section contains a "Send Feedback" CTA button that opens the user's email client via `mailto:`
+- [x] **CONT-03**: `mailto:` link includes a pre-filled subject line: `Feedback for WLED xLights Mapper`
 
 ## v2 Requirements
 
@@ -60,18 +60,18 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| MOBL-01 | Phase 1 | Pending |
-| MOBL-02 | Phase 1 | Pending |
-| MOBL-03 | Phase 1 | Pending |
-| MOBL-04 | Phase 1 | Pending |
-| MOBL-05 | Phase 1 | Pending |
-| PERF-01 | Phase 1 | Pending |
+| MOBL-01 | Phase 1 | Complete |
+| MOBL-02 | Phase 1 | Complete |
+| MOBL-03 | Phase 1 | Complete |
+| MOBL-04 | Phase 1 | Complete |
+| MOBL-05 | Phase 1 | Complete |
+| PERF-01 | Phase 1 | Complete |
 | HERO-01 | Phase 2 | Complete |
 | HERO-02 | Phase 2 | Complete |
 | HERO-03 | Phase 2 | Complete |
-| CONT-01 | Phase 3 | Pending |
-| CONT-02 | Phase 3 | Pending |
-| CONT-03 | Phase 3 | Pending |
+| CONT-01 | Phase 3 | Complete |
+| CONT-02 | Phase 3 | Complete |
+| CONT-03 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 12 total

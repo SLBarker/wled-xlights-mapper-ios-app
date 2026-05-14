@@ -8,7 +8,7 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 
 - [x] **Phase 1: Mobile & Polish** - Make the page fully usable on mobile, fix all known bugs, and lazy-load videos *(completed 2026-05-13)*
 - [x] **Phase 2: Hero Carousel** - Replace the static phone mockup strip with a sliding carousel *(completed 2026-05-14)*
-- [ ] **Phase 3: Contact Section** - Add a styled Contact/Feedback section with a pre-filled mailto CTA
+- [x] **Phase 3: Contact Section** - Add a styled Contact/Feedback section with a pre-filled mailto CTA *(completed 2026-05-14)*
 
 ## Phase Details
 
@@ -80,4 +80,4 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 |-------|----------------|--------|-----------|
 | 1. Mobile & Polish | 3/3 | Complete | 2026-05-13 |
 | 2. Hero Carousel | 2/2 | Complete | 2026-05-14 |
-| 3. Contact Section | 1/2 | In Progress | - |
+| 3. Contact Section | 2/2 | Complete | 2026-05-14 |
