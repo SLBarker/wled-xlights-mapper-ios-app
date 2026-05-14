@@ -19,9 +19,9 @@
 
 ### Hero Carousel
 
-- [ ] **HERO-01**: Hero section displays a conventional sliding carousel in place of the horizontal fan/strip of phone mockups
-- [ ] **HERO-02**: Carousel uses the existing phone mockup assets (same screenshots/videos) as carousel slides
-- [ ] **HERO-03**: Carousel includes prev/next controls and dot indicators; supports touch/swipe on mobile
+- [x] **HERO-01**: Hero section displays a conventional sliding carousel in place of the horizontal fan/strip of phone mockups
+- [x] **HERO-02**: Carousel uses the existing phone mockup assets (same screenshots/videos) as carousel slides
+- [x] **HERO-03**: Carousel includes prev/next controls and dot indicators; supports touch/swipe on mobile
 
 ### Contact
 
@@ -66,9 +66,9 @@
 | MOBL-04 | Phase 1 | Pending |
 | MOBL-05 | Phase 1 | Pending |
 | PERF-01 | Phase 1 | Pending |
-| HERO-01 | Phase 2 | Pending |
-| HERO-02 | Phase 2 | Pending |
-| HERO-03 | Phase 2 | Pending |
+| HERO-01 | Phase 2 | Complete |
+| HERO-02 | Phase 2 | Complete |
+| HERO-03 | Phase 2 | Complete |
 | CONT-01 | Phase 3 | Pending |
 | CONT-02 | Phase 3 | Pending |
 | CONT-03 | Phase 3 | Pending |
