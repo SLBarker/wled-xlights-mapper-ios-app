@@ -32,7 +32,7 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
   5. Download CTA hover produces `translateY(-2px)` lift and blue glow shadow
 
 Plans:
-- [ ] 04-01-PLAN.md — CSS + HTML: breakpoint 960px, CTA extracted to flex child with icon, hover style updated
+- [x] 04-01-PLAN.md — CSS + HTML: breakpoint 960px, CTA extracted to flex child with icon, hover style updated
 
 **Phase 5: Carousel Peek-View**
 - Goal: Rework carousel to show partial prev/next slides on both sides of the centred active slide
@@ -49,5 +49,5 @@ Plans:
 | 1. Mobile & Polish | v1.0 | 3/3 | Complete | 2026-05-13 |
 | 2. Hero Carousel | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
-| 4. Nav & Download CTA | v2.0 | 0/1 | Pending | — |
+| 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
 | 5. Carousel Peek-View | v2.0 | 0/— | Pending | — |
