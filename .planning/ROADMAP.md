@@ -4,6 +4,7 @@
 
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-05-14)
 - ✅ **v2.0 UI Polish** — Phases 4–5 (completed 2026-05-14)
+- 🔄 **v3.0 Interactive Workflow** — Phases 6–7 (in progress)
 
 ## Phases
 
@@ -18,33 +19,44 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 
 </details>
 
-### v2.0 UI Polish
+<details>
+<summary>✅ v2.0 UI Polish (Phases 4–5) — SHIPPED 2026-05-14</summary>
 
-**[x] Phase 4: Nav & Download CTA** — completed 2026-05-14
-- Goal: Fix nav wrapping, pin Download CTA always-visible in nav bar, add icon, match hero hover style
-- Requirements: NAV-01, NAV-02, NAV-03, UI-01
-- Plans: 1 plan
-- Success criteria:
-  1. Nav links do not wrap at any viewport width above the hamburger breakpoint
-  2. Hamburger toggle appears only at the breakpoint where wrapping would occur
-  3. Download CTA is visible in the nav bar at mobile widths alongside the hamburger toggle
-  4. Download CTA shows the download SVG icon
-  5. Download CTA hover produces `translateY(-2px)` lift and blue glow shadow
+- [x] Phase 4: Nav & Download CTA (1/1 plans) — completed 2026-05-14
+- [x] Phase 5: Carousel Peek-View (2/2 plans) — completed 2026-05-14
 
-Plans:
-- [x] 04-01-PLAN.md — CSS + HTML: breakpoint 960px, CTA extracted to flex child with icon, hover style updated
+</details>
 
-**[x] Phase 5: Carousel Peek-View** — completed 2026-05-14
-- Goal: Rework carousel to show partial prev/next slides on both sides of the centred active slide
-- Requirements: CAR-01, CAR-02
-- Success criteria:
-  1. Active slide is centred; partial views of adjacent slides are visible on both left and right
-  2. Arrows, dot indicators, touch swipe, and 4s auto-advance all work correctly with the new layout
-  3. Carousel renders correctly at mobile widths (single-file, no new dependencies)
+### v3.0 Interactive Workflow
 
-Plans:
-- [x] 05-01-PLAN.md — CSS: peek-view geometry (380px track-wrap, absolute arrows, slide opacity, mobile overrides)
-- [x] 05-02-PLAN.md — JS controller (goTo pixel offset, slide active class, boundary arrow visibility)
+- [ ] **Phase 6: Stepper Foundation** - CSS component architecture + HTML restructure of both workflow sections
+- [ ] **Phase 7: Stepper Interaction** - JS controller for expand/collapse, auto-expand on scroll, and keyboard accessibility
+
+## Phase Details
+
+### Phase 6: Stepper Foundation
+**Goal**: Both workflow sections render as a stepper component with all step titles visible and layout adapts correctly across devices
+**Depends on**: Nothing (first phase of v3.0 milestone)
+**Requirements**: STEP-01, STEP-05, STEP-06, STEP-07, STEP-08
+**Success Criteria** (what must be TRUE):
+  1. All step titles and numbers are visible at a glance without any user interaction in both "In the App" and "Importing into xLights" sections
+  2. Both sections use visually identical stepper markup and CSS — same component, same appearance
+  3. On desktop, the stepper renders as a horizontal rail of step titles above a detail panel area
+  4. On mobile, the stepper renders as a vertical list where each step header stacks above its content area
+  5. An "In the App" step with a configured screenshot shows the image in a phone bezel mockup beside the text; a step without a screenshot shows text at full width
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 7: Stepper Interaction
+**Goal**: Users can click any step to read its detail, with only one step open at a time and Step 1 pre-expanded on scroll entry
+**Depends on**: Phase 6
+**Requirements**: STEP-02, STEP-03, STEP-04
+**Success Criteria** (what must be TRUE):
+  1. Clicking or tapping any step title expands that step's detail content inline below the header
+  2. When a second step is opened the previously open step collapses — only one detail panel is visible at a time
+  3. When the section scrolls into the viewport, Step 1's detail is already expanded without any user action
+**Plans**: TBD
+**UI hint**: yes
 
 ## Progress
 
@@ -55,3 +67,5 @@ Plans:
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
+| 6. Stepper Foundation | v3.0 | 0/? | Not started | - |
+| 7. Stepper Interaction | v3.0 | 0/? | Not started | - |

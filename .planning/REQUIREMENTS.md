@@ -72,9 +72,9 @@ Deferred from v1/v2. Tracked but not in the current roadmap.
 | Requirement | Phase | Status |
 |-------------|-------|--------|
 | STEP-01 | Phase 6 | Pending |
-| STEP-02 | Phase 6 | Pending |
-| STEP-03 | Phase 6 | Pending |
-| STEP-04 | Phase 6 | Pending |
+| STEP-02 | Phase 7 | Pending |
+| STEP-03 | Phase 7 | Pending |
+| STEP-04 | Phase 7 | Pending |
 | STEP-05 | Phase 6 | Pending |
 | STEP-06 | Phase 6 | Pending |
 | STEP-07 | Phase 6 | Pending |
@@ -82,9 +82,9 @@ Deferred from v1/v2. Tracked but not in the current roadmap.
 
 **Coverage:**
 - v3.0 requirements: 8 total
-- Mapped to phases: 8
+- Mapped to phases: 8 (5 → Phase 6, 3 → Phase 7)
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-14*
-*Last updated: 2026-05-14 after v3.0 milestone definition*
+*Last updated: 2026-05-14 — traceability updated after roadmap phase split (6/7)*
