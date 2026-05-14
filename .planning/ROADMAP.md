@@ -20,7 +20,7 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 
 ### v2.0 UI Polish
 
-**Phase 4: Nav & Download CTA**
+**[x] Phase 4: Nav & Download CTA** — completed 2026-05-14
 - Goal: Fix nav wrapping, pin Download CTA always-visible in nav bar, add icon, match hero hover style
 - Requirements: NAV-01, NAV-02, NAV-03, UI-01
 - Plans: 1 plan
