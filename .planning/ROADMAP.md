@@ -23,12 +23,16 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 **Phase 4: Nav & Download CTA**
 - Goal: Fix nav wrapping, pin Download CTA always-visible in nav bar, add icon, match hero hover style
 - Requirements: NAV-01, NAV-02, NAV-03, UI-01
+- Plans: 1 plan
 - Success criteria:
   1. Nav links do not wrap at any viewport width above the hamburger breakpoint
   2. Hamburger toggle appears only at the breakpoint where wrapping would occur
   3. Download CTA is visible in the nav bar at mobile widths alongside the hamburger toggle
   4. Download CTA shows the download SVG icon
   5. Download CTA hover produces `translateY(-2px)` lift and blue glow shadow
+
+Plans:
+- [ ] 04-01-PLAN.md — CSS + HTML: breakpoint 960px, CTA extracted to flex child with icon, hover style updated
 
 **Phase 5: Carousel Peek-View**
 - Goal: Rework carousel to show partial prev/next slides on both sides of the centred active slide
@@ -45,5 +49,5 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 | 1. Mobile & Polish | v1.0 | 3/3 | Complete | 2026-05-13 |
 | 2. Hero Carousel | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
-| 4. Nav & Download CTA | v2.0 | 0/— | Pending | — |
+| 4. Nav & Download CTA | v2.0 | 0/1 | Pending | — |
 | 5. Carousel Peek-View | v2.0 | 0/— | Pending | — |
