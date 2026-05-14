@@ -3,28 +3,43 @@
 **Defined:** 2026-05-14
 **Core Value:** Every visitor should understand what the app does and be able to download it — convert curiosity into App Store taps.
 
-## v2.0 Requirements
+## v3.0 Requirements
 
-Requirements for the UI Polish milestone. Each maps to a roadmap phase.
+Requirements for the Interactive Workflow milestone. Each maps to a roadmap phase.
+
+### Stepper Component
+
+- [ ] **STEP-01**: User sees all step titles and numbers at a glance without scrolling or interacting — the full sequence is visible as an overview
+- [ ] **STEP-02**: User can click or tap any step to expand its detail content inline below the step header
+- [ ] **STEP-03**: Clicking a new step collapses the previously open step — only one step's detail is visible at a time
+- [ ] **STEP-04**: Step 1 is expanded by default when the section scrolls into the viewport
+- [ ] **STEP-05**: Both "In the App" and "Importing into xLights" use the same visual component and interaction pattern
+- [ ] **STEP-06**: Expanded "In the App" steps optionally display an app screenshot in a phone bezel mockup beside the detail text
+- [ ] **STEP-07**: Step detail layout adapts gracefully when no screenshot is configured — text fills the full available width
+- [ ] **STEP-08**: On desktop the stepper renders as a horizontal rail of step titles with a detail panel below; on mobile it collapses to a vertical accordion
+
+## v2.0 Requirements (completed)
+
+All v2.0 requirements shipped 2026-05-14.
 
 ### Carousel
 
-- [ ] **CAR-01**: Carousel shows partial views of the previous and next slides simultaneously on both sides of the active (centred) slide
-- [ ] **CAR-02**: Carousel navigation — arrows, dot indicators, touch swipe, and auto-advance — functions correctly with the peek-view layout
+- [x] **CAR-01**: Carousel shows partial views of the previous and next slides simultaneously on both sides of the active (centred) slide
+- [x] **CAR-02**: Carousel navigation — arrows, dot indicators, touch swipe, and auto-advance — functions correctly with the peek-view layout
 
 ### Navigation
 
-- [ ] **NAV-01**: Desktop navigation links never wrap onto a second line; the hamburger toggle appears at exactly the breakpoint where wrapping would otherwise occur
-- [ ] **NAV-02**: Download CTA remains visible in the nav bar at all viewport widths and is never moved into the hamburger drawer
-- [ ] **NAV-03**: Download CTA in the nav bar includes the download SVG icon (circle + down-arrow) matching the hero section button
+- [x] **NAV-01**: Desktop navigation links never wrap onto a second line; the hamburger toggle appears at exactly the breakpoint where wrapping would otherwise occur
+- [x] **NAV-02**: Download CTA remains visible in the nav bar at all viewport widths and is never moved into the hamburger drawer
+- [x] **NAV-03**: Download CTA in the nav bar includes the download SVG icon (circle + down-arrow) matching the hero section button
 
 ### UI Polish
 
-- [ ] **UI-01**: Download CTA hover in the nav bar applies `translateY(-2px)` lift and the blue glow box-shadow, matching the hero section button hover
+- [x] **UI-01**: Download CTA hover in the nav bar applies `translateY(-2px)` lift and the blue glow box-shadow, matching the hero section button hover
 
 ## Future Requirements
 
-Deferred from v1. Tracked but not in the current roadmap.
+Deferred from v1/v2. Tracked but not in the current roadmap.
 
 ### Performance
 
@@ -50,23 +65,26 @@ Deferred from v1. Tracked but not in the current roadmap.
 | External stylesheets | All CSS inline in `<style>` block |
 | App Store URL wiring | Blocked until URL is available |
 | Formspree / EmailJS | User decided against; mailto is sufficient |
+| Multiple steps open simultaneously | User chose exclusive stepper (one open at a time) |
 
 ## Traceability
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| NAV-01 | Phase 4 | Pending |
-| NAV-02 | Phase 4 | Pending |
-| NAV-03 | Phase 4 | Pending |
-| UI-01  | Phase 4 | Pending |
-| CAR-01 | Phase 5 | Pending |
-| CAR-02 | Phase 5 | Pending |
+| STEP-01 | Phase 6 | Pending |
+| STEP-02 | Phase 6 | Pending |
+| STEP-03 | Phase 6 | Pending |
+| STEP-04 | Phase 6 | Pending |
+| STEP-05 | Phase 6 | Pending |
+| STEP-06 | Phase 6 | Pending |
+| STEP-07 | Phase 6 | Pending |
+| STEP-08 | Phase 6 | Pending |
 
 **Coverage:**
-- v2.0 requirements: 6 total
-- Mapped to phases: 6
+- v3.0 requirements: 8 total
+- Mapped to phases: 8
 - Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-05-14*
-*Last updated: 2026-05-14 after v2.0 milestone definition*
+*Last updated: 2026-05-14 after v3.0 milestone definition*
