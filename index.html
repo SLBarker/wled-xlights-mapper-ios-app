@@ -243,16 +243,6 @@
     .btn:hover { transform: translateY(-2px); opacity: 0.92; }
     .btn-primary:hover { box-shadow: 0 12px 40px rgba(0,113,227,0.5); }
 
-    /* ── Hero phone mockup strip ── */
-    .hero__phones {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-top: 6rem;
-      animation: fadeUp 0.7s 0.4s ease both;
-      flex-wrap: wrap;
-    }
-
     /* ── Phone bezel ── */
     .phone-bezel {
       position: relative;
@@ -331,10 +321,94 @@
       letter-spacing: 0.04em;
     }
 
-    /* tilted hero phones */
-    .hero__phones .phone-bezel:nth-child(1) { transform: rotate(-5deg) translateY(20px); }
-    .hero__phones .phone-bezel:nth-child(2) { transform: rotate(0deg) translateY(0px); }
-    .hero__phones .phone-bezel:nth-child(3) { transform: rotate(5deg) translateY(20px); }
+    /* ── Hero carousel ── */
+    .hero-carousel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 6rem;
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+
+    .hero-carousel__viewport {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .hero-carousel__track-wrap {
+      overflow: hidden;
+      width: 240px;
+    }
+
+    .hero-carousel__track {
+      display: flex;
+      transition: transform var(--transition);
+      will-change: transform;
+    }
+
+    .hero-carousel__slide {
+      flex: 0 0 240px;
+      width: 240px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Arrow buttons */
+    .hero-carousel__arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      color: var(--accent);
+      transition: var(--transition);
+      flex-shrink: 0;
+    }
+
+    .hero-carousel__arrow:hover {
+      background: var(--accent);
+      color: var(--surface);
+      transform: scale(1.08);
+    }
+
+    .hero-carousel__arrow:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Dot indicators */
+    .hero-carousel__dots {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .hero-carousel__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: rgba(0,0,0,0.2);
+      transition: background var(--transition), transform var(--transition);
+      padding: 0;
+    }
+
+    .hero-carousel__dot--active {
+      background: var(--accent);
+      transform: scale(1.25);
+    }
 
     /* ── Elevator pitch ── */
     #pitch {
@@ -881,10 +955,8 @@
       .feature-row:nth-child(even) .feature-row__phone { order: unset; }
       .feature-row:nth-child(even) .feature-row__text  { order: unset; }
       .tips-cols { grid-template-columns: 1fr; }
-      .hero__phones { gap: 1rem; }
-      .hero__phones .phone-bezel { width: 170px; }
-      .hero__phones .phone-bezel:nth-child(1),
-      .hero__phones .phone-bezel:nth-child(3) { display: none; }
+      .hero-carousel { margin-top: 3rem; }
+      .hero-carousel__arrow { width: 36px; height: 36px; }
 
       /* Section padding */
       .section { padding: 64px 1.25rem; }
