@@ -8,26 +8,28 @@ A single-file static landing page (GitHub Pages) marketing the WLED to xLights M
 
 Every visitor who arrives on the page should come away understanding what the app does and be able to download it — the page must convert curiosity into App Store taps.
 
-## Current Milestone: v2.0 UI Polish
+## Current Milestone: v3.0 Interactive Workflow
 
-**Goal:** Improve carousel visual depth with peek-view, fix nav wrapping, and deliver a consistent always-visible Download CTA.
+**Goal:** Replace the static step cards and numbered list in the Workflow section with an interactive stepper UX that gives users an at-a-glance overview of the sequence and lets them explore any step's detail on demand.
 
 **Target features:**
-- Carousel peek-view (both adjacent slides partially visible)
-- Nav links never wrap; hamburger collapses at correct breakpoint
-- Download CTA pinned in nav bar at all widths; never in hamburger drawer
-- Download CTA gains icon and hero-matching hover style
+- Stepper rail showing all step titles at a glance (horizontal on desktop, vertical accordion on mobile)
+- Click any step to expand its detail; only one step open at a time
+- First step pre-expanded when the section scrolls into view
+- Both "In the App" and "Importing into xLights" use the same stepper component
+- Optional per-step screenshot (phone bezel mockup) in the expanded detail panel
 
 ## Current State
 
-**Shipped:** v1.0 MVP (2026-05-14)
+**Shipped:** v1.0 MVP (2026-05-14), v2.0 UI Polish (2026-05-14)
 
 - Mobile-responsive with hamburger nav, single-column grids, and accessible keyboard navigation
-- 4-slide hero carousel (arrows, dots, swipe, 4s auto-advance) replaces the original fan strip
+- 4-slide hero carousel with 3D depth peek-view (adjacent slides partially visible)
+- Nav links never wrap; Download CTA pinned in nav bar at all widths with icon and hover style
 - Contact/Feedback section with pre-filled mailto CTA
 - 13.3 MB of autoplay video deferred from page load via IntersectionObserver
-- All 5 known DOM/copy bugs resolved from initial codebase audit
-- 1,755 lines, single `index.html`, no build pipeline, GitHub Pages hosted
+- All known DOM/copy bugs resolved
+- ~1,800 lines, single `index.html`, no build pipeline, GitHub Pages hosted
 
 **Open:** App Store URL not yet available — `#download` CTA remains a placeholder link.
 
@@ -46,15 +48,23 @@ Every visitor who arrives on the page should come away understanding what the ap
 - ✓ Lazy video loading — 13.3 MB of MP4 video deferred until scroll proximity — v1.0
 - ✓ Hero carousel — 4-slide sliding carousel replaces horizontal fan/strip — v1.0
 - ✓ Contact / feedback section — styled section with mailto CTA for user feedback — v1.0
+- ✓ Carousel peek-view — both adjacent slides partially visible — v2.0
+- ✓ Carousel navigation works with peek layout — v2.0
+- ✓ Desktop nav links never wrap before hamburger triggers — v2.0
+- ✓ Download CTA always visible in nav bar at all widths — v2.0
+- ✓ Download CTA includes download icon in nav bar — v2.0
+- ✓ Download CTA hover matches hero section style — v2.0
 
-### Active (v2.0 targets)
+### Active (v3.0 targets)
 
-- [ ] Carousel peek-view — both adjacent slides partially visible (CAR-01)
-- [ ] Carousel navigation works with peek layout (CAR-02)
-- [ ] Desktop nav links never wrap before hamburger triggers (NAV-01)
-- [ ] Download CTA always visible in nav bar at all widths (NAV-02)
-- [ ] Download CTA includes download icon in nav bar (NAV-03)
-- [ ] Download CTA hover matches hero section style (UI-01)
+- [ ] User sees all step titles and numbers at a glance without interacting (STEP-01)
+- [ ] User can click/tap any step to expand its detail content inline (STEP-02)
+- [ ] Clicking a new step collapses the previously open step (STEP-03)
+- [ ] Step 1 is expanded by default when the section enters the viewport (STEP-04)
+- [ ] Both "In the App" and "Importing into xLights" use identical visual and interaction patterns (STEP-05)
+- [ ] Expanded "In the App" steps optionally show an app screenshot beside the text detail (STEP-06)
+- [ ] Step detail layout adapts gracefully when a step has no screenshot (text fills full width) (STEP-07)
+- [ ] Stepper rail displays horizontally on desktop; falls back to vertical accordion on mobile (STEP-08)
 
 ### Future (v3+)
 
@@ -75,9 +85,9 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 ## Context
 
-- Single deployable artifact: `index.html` (1,755 lines) with all CSS and JS inline
+- Single deployable artifact: `index.html` (~1,800 lines) with all CSS and JS inline
 - Assets in `resources/` (screenshots, icons, two autoplay MP4 videos)
-- `discovery.mov` (4.1 MB unused asset) still present in repo — should be removed before v2
+- Available screenshots: `connect.jpeg`, `ar.jpeg`, `preview.jpeg`, `results.jpeg` — map to "In the App" steps
 - App Store link placeholder `#download` remains until URL provided
 
 ## Constraints
@@ -93,10 +103,12 @@ Every visitor who arrives on the page should come away understanding what the ap
 |----------|-----------|---------|
 | mailto for contact section | No backend; Formspree/EmailJS ruled out by user | ✓ Implemented — wled.2.xlights@gmail.com with pre-filled subject |
 | Carousel uses existing phone mockup assets | Avoids new design work; content already approved | ✓ Implemented — 4-slide carousel with existing screenshots/video |
-| Keep single-file architecture | Constraint from user; no build pipeline | ✓ Maintained throughout all 3 phases |
+| Keep single-file architecture | Constraint from user; no build pipeline | ✓ Maintained throughout all phases |
 | Contact before Privacy in nav/page | User preference — natural flow before legal/privacy | ✓ Applied Phase 3 |
 | Drawer as sibling element, not mutation of desktop nav | Keeps desktop nav clean and mobile drawer independent | ✓ Established pattern |
 | data-src pattern for lazy video | Browser-native, no placeholder image needed | ✓ Clean deferral with 200px rootMargin pre-load buffer |
+| Stepper rail for workflow steps | User wants overview-first UX; horizontal rail gives sequence at a glance | Planned v3.0 |
+| Optional screenshot per step | Not every step has a relevant asset; layout adapts when absent | Planned v3.0 |
 
 ---
 
@@ -118,4 +130,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-14 — v2.0 milestone started, 6 requirements defined*
+*Last updated: 2026-05-14 — v3.0 milestone started, 8 requirements defined*
