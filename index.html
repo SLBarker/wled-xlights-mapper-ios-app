@@ -1724,7 +1724,7 @@
 
       function goTo(n) {
         current = ((n % total) + total) % total;
-        track.style.transform = `translateX(-${current * 100}%)`;
+        track.style.transform = `translateX(-${current * 240}px)`;
         dots.forEach((dot, i) => {
           const active = i === current;
           dot.classList.toggle('hero-carousel__dot--active', active);
@@ -1732,7 +1732,10 @@
         });
         slides.forEach((slide, i) => {
           slide.setAttribute('aria-hidden', i === current ? 'false' : 'true');
+          slide.classList.toggle('hero-carousel__slide--active', i === current);
         });
+        prevBtn.style.visibility = current === 0 ? 'hidden' : 'visible';
+        nextBtn.style.visibility = current === total - 1 ? 'hidden' : 'visible';
       }
 
       goTo(0);
