@@ -45,7 +45,7 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 **Plans**: 2 plans
 
 **Wave 1**
-- [ ] 02-01-PLAN.md — Remove old hero__phones CSS; add full hero-carousel CSS section
+- [x] 02-01-PLAN.md — Remove old hero__phones CSS; add full hero-carousel CSS section
 
 **Wave 2**
 - [ ] 02-02-PLAN.md — Replace hero__phones HTML with 4-slide carousel markup + carousel JS IIFE
