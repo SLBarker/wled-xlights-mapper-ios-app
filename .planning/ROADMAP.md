@@ -34,13 +34,17 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 Plans:
 - [x] 04-01-PLAN.md — CSS + HTML: breakpoint 960px, CTA extracted to flex child with icon, hover style updated
 
-**Phase 5: Carousel Peek-View**
+**Phase 5: Carousel Peek-View** (in progress)
 - Goal: Rework carousel to show partial prev/next slides on both sides of the centred active slide
 - Requirements: CAR-01, CAR-02
 - Success criteria:
   1. Active slide is centred; partial views of adjacent slides are visible on both left and right
   2. Arrows, dot indicators, touch swipe, and 4s auto-advance all work correctly with the new layout
   3. Carousel renders correctly at mobile widths (single-file, no new dependencies)
+
+Plans:
+- [x] 05-01-PLAN.md — CSS: peek-view geometry (380px track-wrap, absolute arrows, slide opacity, mobile overrides)
+- [ ] 05-02-PLAN.md — JS controller (goTo logic, auto-advance, touch swipe, dot sync)
 
 ## Progress
 
@@ -50,4 +54,4 @@ Plans:
 | 2. Hero Carousel | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
-| 5. Carousel Peek-View | v2.0 | 0/— | Pending | — |
+| 5. Carousel Peek-View | v2.0 | 1/2 | In Progress | — |

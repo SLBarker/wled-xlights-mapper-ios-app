@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v2.0
 milestone_name: UI Polish
-status: planning
-stopped_at: Phase 5 context gathered
-last_updated: "2026-05-14T17:39:43.790Z"
-last_activity: 2026-05-14 — Phase 4 complete (human verified)
+status: in-progress
+stopped_at: Phase 5 Plan 01 complete — ready for Plan 02 (JS controller)
+last_updated: "2026-05-14T18:00:00.000Z"
+last_activity: 2026-05-14 — Phase 5 Plan 01 complete (CSS peek-view geometry)
 progress:
   total_phases: 2
   completed_phases: 1
   total_plans: 3
-  completed_plans: 1
-  percent: 33
+  completed_plans: 2
+  percent: 67
 ---
 
 # Project State
@@ -26,9 +26,22 @@ See: .planning/PROJECT.md (updated 2026-05-14 for v2.0 milestone)
 ## Current Position
 
 Phase: 5 — Carousel Peek-View
-Plan: (not yet planned)
-Status: Phase 4 complete — ready to plan Phase 5
-Last activity: 2026-05-14 — Phase 4 complete (human verified)
+Plan: 02 — JS controller (next to execute)
+Status: Plan 01 CSS complete — ready to execute Plan 02
+Last activity: 2026-05-14 — Phase 5 Plan 01 complete (CSS peek-view geometry)
+
+## Decisions Made
+
+- Slide width kept at 240px — Plan 02 JS uses `translateX(-N * 240px)` offset
+- Arrow hover transform composed as `translateY(-50%) scale(1.08)` — prevents vertical jump on hover
+- overflow: hidden kept on track-wrap (not viewport) — arrows live in viewport stacking context above the clip
+- 13px desktop / 9px mobile arrow horizontal offsets (centres button over peek strip)
+
+## Performance Metrics
+
+| Phase | Plan | Duration | Tasks | Files |
+|-------|------|----------|-------|-------|
+| 05-carousel-peek-view | 01 | 10m | 2/2 | 1 |
 
 ## Deferred Items (Future v3+)
 
@@ -45,6 +58,6 @@ Last activity: 2026-05-14 — Phase 4 complete (human verified)
 
 ## Session Continuity
 
-Last session: 2026-05-14T13:05:51.055Z
-Stopped at: Phase 5 context gathered
-Resume with: /gsd-discuss-phase 5
+Last session: 2026-05-14T18:00:00.000Z
+Stopped at: Phase 5 Plan 01 complete — ready for Plan 02 (JS controller)
+Resume with: /gsd-execute-phase 5 (Plan 02)
