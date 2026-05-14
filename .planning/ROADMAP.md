@@ -60,7 +60,14 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
   1. A Contact/Feedback section is visible on the page, styled consistently with existing sections
   2. Tapping "Send Feedback" opens the visitor's email client addressed and ready to send
   3. The pre-filled email subject reads exactly: "Feedback for WLED xLights Mapper"
-**Plans**: TBD
+**Plans**: 2 plans
+
+**Wave 1**
+- [ ] 03-01-PLAN.md — Contact CSS block (scroll-reveal rules for `.contact-cta`)
+
+**Wave 2**
+- [ ] 03-02-PLAN.md — Contact HTML section + nav links + scroll-reveal selector update
+
 **UI hint**: yes
 
 ## Progress
@@ -69,4 +76,4 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 |-------|----------------|--------|-----------|
 | 1. Mobile & Polish | 3/3 | Complete | 2026-05-13 |
 | 2. Hero Carousel | 2/2 | Complete | 2026-05-14 |
-| 3. Contact Section | 0/? | Not started | - |
+| 3. Contact Section | 0/2 | Not started | - |
