@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-05-13)
 
 **Core value:** Every visitor should understand what the app does and be able to download it — convert curiosity into App Store taps.
-**Current focus:** Phase 1 — Mobile & Polish
+**Current focus:** Phase 2 — Hero Carousel
 
 ## Current Position
 
-Phase: 2 of 3 (Hero Carousel) — next up
-Plan: 0 of ? in next phase
-Status: Phase 1 complete — ready to plan Phase 2
-Last activity: 2026-05-13 — Phase 1 executed and verified (3/3 plans, human UAT approved)
+Phase: 2 of 3 (Hero Carousel) — ready to execute
+Plan: 0 of 2 in current phase
+Status: Phase 2 planned — ready to execute
+Last activity: 2026-05-14 — Phase 2 planned (2 plans, verification passed)
 
 Progress: [███░░░░░░░] 33%
 
@@ -68,6 +68,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-05-13
-Stopped at: Phase 1 complete — human UAT approved
-Resume with: /gsd-discuss-phase 2 (or /gsd-plan-phase 2)
+Last session: 2026-05-14
+Stopped at: Phase 2 planned — 2 plans in 2 waves, verification passed
+Resume with: /gsd-execute-phase 2
