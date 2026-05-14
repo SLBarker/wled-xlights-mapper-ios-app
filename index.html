@@ -108,14 +108,20 @@
     }
 
     .site-nav__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       background: var(--accent);
       color: #fff !important;
       border-radius: 20px;
       padding: 0.4rem 1rem !important;
-      transition: opacity var(--transition), transform var(--transition) !important;
+      transition: transform var(--transition), box-shadow var(--transition) !important;
     }
 
-    .site-nav__cta:hover { opacity: 0.88; transform: scale(1.03); }
+    .site-nav__cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 40px rgba(0,113,227,0.5);
+    }
 
     /* ── Section layout ── */
     .section {
@@ -954,18 +960,8 @@
       outline-offset: -2px;
     }
 
-    .site-nav__drawer .site-nav__cta {
-      display: block;
-      margin: 8px 1.25rem 0;
-      border-radius: 20px;
-      background: var(--accent);
-      color: #fff !important;
-      text-align: center;
-      padding: 0.6rem 1.25rem !important;
-    }
-
     /* ── Responsive ── */
-    @media (max-width: 768px) {
+    @media (max-width: 960px) {
       .site-nav__links { display: none; }
       .pitch__inner { grid-template-columns: 1fr; gap: 2.5rem; }
       .feature-row { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -1026,7 +1022,7 @@
     </div>
   </nav>
 
-  <!-- Mobile nav drawer (shown only at ≤768px) -->
+  <!-- Mobile nav drawer (shown only at ≤960px) -->
   <div class="site-nav__drawer" id="site-nav-drawer" aria-hidden="true">
     <ul role="list">
       <li><a href="#features">Features</a></li>
