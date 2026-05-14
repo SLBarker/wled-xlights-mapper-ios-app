@@ -382,18 +382,28 @@
       box-shadow: var(--shadow);
       color: var(--accent);
       transition: var(--transition);
-      flex-shrink: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
     }
 
     .hero-carousel__arrow:hover {
       background: var(--accent);
       color: var(--surface);
-      transform: scale(1.08);
+      transform: translateY(-50%) scale(1.08);
     }
 
     .hero-carousel__arrow:focus-visible {
       outline: 2px solid var(--accent);
       outline-offset: 2px;
+    }
+
+    #carousel-prev {
+      left: 13px;
+    }
+    #carousel-next {
+      right: 13px;
     }
 
     /* Dot indicators */
@@ -981,6 +991,9 @@
       .tips-cols { grid-template-columns: 1fr; }
       .hero-carousel { margin-top: 3rem; }
       .hero-carousel__arrow { width: 36px; height: 36px; }
+      .hero-carousel__track-wrap { width: 320px; }
+      #carousel-prev { left: 9px; }
+      #carousel-next { right: 9px; }
 
       /* Section padding */
       .section { padding: 64px 1.25rem; }
