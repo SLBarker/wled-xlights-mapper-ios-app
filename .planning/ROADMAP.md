@@ -63,7 +63,7 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 **Plans**: 2 plans
 
 **Wave 1**
-- [ ] 03-01-PLAN.md — Contact CSS block (scroll-reveal rules for `.contact-cta`)
+- [x] 03-01-PLAN.md — Contact CSS block (scroll-reveal rules for `.contact-cta`)
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 03-02-PLAN.md — Contact HTML section + nav links + scroll-reveal selector update
@@ -80,4 +80,4 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 |-------|----------------|--------|-----------|
 | 1. Mobile & Polish | 3/3 | Complete | 2026-05-13 |
 | 2. Hero Carousel | 2/2 | Complete | 2026-05-14 |
-| 3. Contact Section | 0/2 | Not started | - |
+| 3. Contact Section | 1/2 | In Progress | - |
