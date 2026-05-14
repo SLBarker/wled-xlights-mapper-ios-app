@@ -878,6 +878,12 @@
     }
 
     /* ── Hamburger toggle (mobile only) ── */
+    .site-nav__right {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     .site-nav__toggle {
       display: none;
       width: 44px;
@@ -1004,24 +1010,26 @@
         <li><a href="#contact">Contact</a></li>
         <li><a href="#privacy">Privacy</a></li>
       </ul>
-      <a href="#download" class="site-nav__cta">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l4 4 4-4M12 8v8"/></svg>
-        Download
-      </a>
-      <button
-        class="site-nav__toggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        aria-controls="site-nav-drawer"
-        type="button">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-             stroke="var(--text)" stroke-width="2" stroke-linecap="round"
-             aria-hidden="true">
-          <line x1="3" y1="6"  x2="21" y2="6"  class="nav-bar nav-bar--top"/>
-          <line x1="3" y1="12" x2="21" y2="12" class="nav-bar nav-bar--mid"/>
-          <line x1="3" y1="18" x2="21" y2="18" class="nav-bar nav-bar--bot"/>
-        </svg>
-      </button>
+      <div class="site-nav__right">
+        <a href="#download" class="site-nav__cta">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l4 4 4-4M12 8v8"/></svg>
+          Download
+        </a>
+        <button
+          class="site-nav__toggle"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="site-nav-drawer"
+          type="button">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+               stroke="var(--text)" stroke-width="2" stroke-linecap="round"
+               aria-hidden="true">
+            <line x1="3" y1="6"  x2="21" y2="6"  class="nav-bar nav-bar--top"/>
+            <line x1="3" y1="12" x2="21" y2="12" class="nav-bar nav-bar--mid"/>
+            <line x1="3" y1="18" x2="21" y2="18" class="nav-bar nav-bar--bot"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </nav>
 
