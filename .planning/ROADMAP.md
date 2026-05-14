@@ -3,7 +3,7 @@
 ## Milestones
 
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-05-14)
-- 🔄 **v2.0 UI Polish** — Phases 4–5 (in progress)
+- ✅ **v2.0 UI Polish** — Phases 4–5 (completed 2026-05-14)
 
 ## Phases
 
@@ -34,7 +34,7 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 Plans:
 - [x] 04-01-PLAN.md — CSS + HTML: breakpoint 960px, CTA extracted to flex child with icon, hover style updated
 
-**Phase 5: Carousel Peek-View** (in progress)
+**[x] Phase 5: Carousel Peek-View** — completed 2026-05-14
 - Goal: Rework carousel to show partial prev/next slides on both sides of the centred active slide
 - Requirements: CAR-01, CAR-02
 - Success criteria:
@@ -44,7 +44,7 @@ Plans:
 
 Plans:
 - [x] 05-01-PLAN.md — CSS: peek-view geometry (380px track-wrap, absolute arrows, slide opacity, mobile overrides)
-- [ ] 05-02-PLAN.md — JS controller (goTo logic, auto-advance, touch swipe, dot sync)
+- [x] 05-02-PLAN.md — JS controller (goTo pixel offset, slide active class, boundary arrow visibility)
 
 ## Progress
 
@@ -54,4 +54,4 @@ Plans:
 | 2. Hero Carousel | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
-| 5. Carousel Peek-View | v2.0 | 1/2 | In Progress | — |
+| 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
