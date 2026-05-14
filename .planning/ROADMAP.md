@@ -66,7 +66,7 @@ Three focused phases take the landing page from its current desktop-only, bug-ri
 - [x] 03-01-PLAN.md — Contact CSS block (scroll-reveal rules for `.contact-cta`)
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 03-02-PLAN.md — Contact HTML section + nav links + scroll-reveal selector update
+- [x] 03-02-PLAN.md — Contact HTML section + nav links + scroll-reveal selector update
 
 **Cross-cutting constraints:**
 - All edits target `index.html` only (single-file architecture)
