@@ -8,6 +8,16 @@ A single-file static landing page (GitHub Pages) marketing the WLED to xLights M
 
 Every visitor who arrives on the page should come away understanding what the app does and be able to download it — the page must convert curiosity into App Store taps.
 
+## Current Milestone: v2.0 UI Polish
+
+**Goal:** Improve carousel visual depth with peek-view, fix nav wrapping, and deliver a consistent always-visible Download CTA.
+
+**Target features:**
+- Carousel peek-view (both adjacent slides partially visible)
+- Nav links never wrap; hamburger collapses at correct breakpoint
+- Download CTA pinned in nav bar at all widths; never in hamburger drawer
+- Download CTA gains icon and hero-matching hover style
+
 ## Current State
 
 **Shipped:** v1.0 MVP (2026-05-14)
@@ -37,15 +47,24 @@ Every visitor who arrives on the page should come away understanding what the ap
 - ✓ Hero carousel — 4-slide sliding carousel replaces horizontal fan/strip — v1.0
 - ✓ Contact / feedback section — styled section with mailto CTA for user feedback — v1.0
 
-### Active (v2 targets)
+### Active (v2.0 targets)
 
-- [ ] Self-host Inter font subset — remove Google Fonts CDN dependency (PERF-02)
-- [ ] Compress video assets — 3dpreview.mp4 is 9.2 MB, significant on mobile (PERF-03)
-- [ ] Open Graph / social meta tags — og:title, og:description, og:image (DISC-01)
-- [ ] Favicon and Apple touch icon (DISC-02)
-- [ ] robots.txt and XML sitemap (DISC-03)
-- [ ] Privacy policy link in footer — required for App Store compliance (LEGL-01)
-- [ ] Wire App Store URL into `#download` CTA — blocked until URL is available
+- [ ] Carousel peek-view — both adjacent slides partially visible (CAR-01)
+- [ ] Carousel navigation works with peek layout (CAR-02)
+- [ ] Desktop nav links never wrap before hamburger triggers (NAV-01)
+- [ ] Download CTA always visible in nav bar at all widths (NAV-02)
+- [ ] Download CTA includes download icon in nav bar (NAV-03)
+- [ ] Download CTA hover matches hero section style (UI-01)
+
+### Future (v3+)
+
+- Self-host Inter font subset — remove Google Fonts CDN dependency (PERF-02)
+- Compress video assets — 3dpreview.mp4 is 9.2 MB, significant on mobile (PERF-03)
+- Open Graph / social meta tags — og:title, og:description, og:image (DISC-01)
+- Favicon and Apple touch icon (DISC-02)
+- robots.txt and XML sitemap (DISC-03)
+- Privacy policy link in footer — required for App Store compliance (LEGL-01)
+- Wire App Store URL into `#download` CTA — blocked until URL is available
 
 ### Out of Scope
 
@@ -99,4 +118,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-14 after v1.0 milestone — 3 phases complete, all 12 v1 requirements shipped*
+*Last updated: 2026-05-14 — v2.0 milestone started, 6 requirements defined*
