@@ -28,7 +28,7 @@
       --transition: 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-padding-top: 72px; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -345,14 +345,14 @@
 
     .hero-carousel__track-wrap {
       overflow: hidden;
-      width: 520px;
-      perspective: 1000px;
-      isolation: isolate;
+      width: clamp(340px, 75vw, 800px);
+      background: transparent;
     }
 
     .hero-carousel__track {
       position: relative;
       min-height: 540px;
+      background: transparent;
     }
 
     .hero-carousel__slide {
@@ -365,6 +365,7 @@
       align-items: center;
       transition: transform var(--transition), opacity var(--transition);
       transform-origin: center center;
+      background: transparent;
     }
 
     /* Arrow buttons */
@@ -399,10 +400,10 @@
     }
 
     #carousel-prev {
-      left: 38px;
+      left: -22px;
     }
     #carousel-next {
-      right: 38px;
+      right: -22px;
     }
 
     /* Dot indicators */
@@ -940,6 +941,10 @@
     /* ── Mobile nav drawer ── */
     .site-nav__drawer {
       display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
       max-height: 0;
       overflow: hidden;
       background: rgba(245,245,247,0.97);
@@ -990,7 +995,6 @@
       .tips-cols { grid-template-columns: 1fr; }
       .hero-carousel { margin-top: 3rem; }
       .hero-carousel__arrow { width: 36px; height: 36px; }
-      .hero-carousel__track-wrap { width: 340px; }
       #carousel-prev { left: 12px; }
       #carousel-next { right: 12px; }
 
@@ -1017,10 +1021,24 @@
   <!-- ══ Navigation ══ -->
   <nav class="site-nav" aria-label="Site navigation">
     <div class="site-nav__inner">
+      <button
+        class="site-nav__toggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="site-nav-drawer"
+        type="button">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="var(--text)" stroke-width="2" stroke-linecap="round"
+             aria-hidden="true">
+          <line x1="3" y1="6"  x2="21" y2="6"  class="nav-bar nav-bar--top"/>
+          <line x1="3" y1="12" x2="21" y2="12" class="nav-bar nav-bar--mid"/>
+          <line x1="3" y1="18" x2="21" y2="18" class="nav-bar nav-bar--bot"/>
+        </svg>
+      </button>
       <a href="#hero" class="site-nav__logo" aria-label="WLED to XLights — Home">WLED to XLights</a>
       <ul class="site-nav__links" id="site-nav-menu" role="list">
         <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
+        <li><a href="#how-it-works">Workflow</a></li>
         <li><a href="#export">Using Your Export</a></li>
         <li><a href="#requirements">Requirements</a></li>
         <li><a href="#tips">Tips</a></li>
@@ -1032,36 +1050,21 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l4 4 4-4M12 8v8"/></svg>
           Download
         </a>
-        <button
-          class="site-nav__toggle"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="site-nav-drawer"
-          type="button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
-               stroke="var(--text)" stroke-width="2" stroke-linecap="round"
-               aria-hidden="true">
-            <line x1="3" y1="6"  x2="21" y2="6"  class="nav-bar nav-bar--top"/>
-            <line x1="3" y1="12" x2="21" y2="12" class="nav-bar nav-bar--mid"/>
-            <line x1="3" y1="18" x2="21" y2="18" class="nav-bar nav-bar--bot"/>
-          </svg>
-        </button>
       </div>
     </div>
+    <!-- Mobile nav drawer -->
+    <div class="site-nav__drawer" id="site-nav-drawer" aria-hidden="true">
+      <ul role="list">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">Workflow</a></li>
+        <li><a href="#export">Using Your Export</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#tips">Tips</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#privacy">Privacy</a></li>
+      </ul>
+    </div>
   </nav>
-
-  <!-- Mobile nav drawer (shown only at ≤960px) -->
-  <div class="site-nav__drawer" id="site-nav-drawer" aria-hidden="true">
-    <ul role="list">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#how-it-works">How It Works</a></li>
-      <li><a href="#export">Using Your Export</a></li>
-      <li><a href="#requirements">Requirements</a></li>
-      <li><a href="#tips">Tips</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#privacy">Privacy</a></li>
-    </ul>
-  </div>
 
   <main id="main-content">
 
@@ -1637,15 +1640,12 @@
 
       if (!toggle || !drawer) return;
 
-      var firstLink = drawer.querySelector('a');
-
       function openMenu() {
         nav.classList.add('site-nav--open');
         drawer.classList.add('site-nav__drawer--open');
         drawer.removeAttribute('aria-hidden');
         toggle.setAttribute('aria-expanded', 'true');
         toggle.setAttribute('aria-label', 'Close navigation menu');
-        if (firstLink) firstLink.focus();
       }
 
       function closeMenu(returnFocus) {
@@ -1665,10 +1665,21 @@
         }
       });
 
-      /* Close on any drawer link tap */
+      /* Close on any drawer link tap, then scroll after drawer collapses */
       drawer.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
+        link.addEventListener('click', function (e) {
+          var href = this.getAttribute('href');
+          if (!href || href.charAt(0) !== '#') return;
+          e.preventDefault();
           closeMenu(false);
+          setTimeout(function () {
+            var target = document.querySelector(href);
+            if (target) {
+              var navOffset = document.querySelector('.site-nav').offsetHeight + 16;
+              var top = target.getBoundingClientRect().top + window.pageYOffset - navOffset;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+            }
+          }, 380);
         });
       });
 
@@ -1721,8 +1732,6 @@
       let   current   = 0;
       let   timer     = null;
 
-      const STEP = 260; /* slide width 240 + gap 20 */
-
       function setTrackHeight() {
         track.style.height = (slides[0] ? slides[0].offsetHeight : 540) + 'px';
       }
@@ -1738,6 +1747,8 @@
 
       function goTo(n) {
         current = ((n % total) + total) % total;
+        var halfWrap = track.parentElement.offsetWidth / 2;
+        var STEP = Math.max(halfWrap - 140, 240);
 
         slides.forEach(function (slide, i) {
           var d   = slideDelta(i);
@@ -1746,9 +1757,9 @@
           if (abs === 0) {
             tx = 0;        ry = 0;                sc = 1;    op = 1;   zi = 3;
           } else if (abs === 1) {
-            tx = d * STEP; ry = d > 0 ? -15 : 15; sc = 0.85; op = 0.5; zi = 2;
+            tx = d * STEP; ry = d > 0 ? 40 : -40; sc = 0.85; op = 0.65; zi = 2;
           } else {
-            tx = d * STEP; ry = d > 0 ? -30 : 30; sc = 0.7;  op = 0.2; zi = 1;
+            tx = d * STEP; ry = d > 0 ? -35 : 35; sc = 0.7;  op = 0;   zi = 1;
           }
           slide.style.transform = 'translateX(calc(-50% + ' + tx + 'px)) perspective(1000px) rotateY(' + ry + 'deg) scale(' + sc + ')';
           slide.style.opacity   = op;
@@ -1767,7 +1778,9 @@
       setTrackHeight();
       goTo(0);
 
-      function startTimer() { timer = setInterval(function () { goTo(current + 1); }, 4000); }
+      var hovering = false;
+
+      function startTimer() { if (!hovering) { timer = setInterval(function () { goTo(current + 1); }, 4000); } }
       function stopTimer()  { clearInterval(timer); timer = null; }
       startTimer();
 
@@ -1780,8 +1793,8 @@
 
       var carousel = track.closest('.hero-carousel');
       if (carousel) {
-        carousel.addEventListener('mouseenter', stopTimer);
-        carousel.addEventListener('mouseleave', startTimer);
+        carousel.addEventListener('mouseenter', function () { hovering = true;  stopTimer(); });
+        carousel.addEventListener('mouseleave', function () { hovering = false; startTimer(); });
       }
 
       window.addEventListener('resize', function () { setTrackHeight(); goTo(current); });
