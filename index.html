@@ -1041,38 +1041,91 @@
           <a href="#how-it-works" class="btn btn-ghost">See how it works</a>
         </div>
 
-        <!-- Hero phone mockups -->
-        <div class="hero__phones" role="img" aria-label="App screenshots showing the WLED to XLights workflow">
-          <div class="phone-bezel">
-            <div class="phone-bezel__frame">
-              <div class="phone-bezel__screen">
-                <div class="phone-bezel__notch" aria-hidden="true"></div>
-                <img src="resources/screenshot/connect.jpeg" alt="App screenshot showing the WLED controller connect screen with mDNS discovery list">
-              </div>
-            </div>
-            <p class="phone-bezel__caption">Connect</p>
-          </div>
+        <!-- Hero carousel -->
+        <div class="hero-carousel" role="region" aria-label="App screenshot carousel" aria-roledescription="carousel">
 
-          <div class="phone-bezel">
-            <div class="phone-bezel__frame">
-              <div class="phone-bezel__screen">
-                <div class="phone-bezel__notch" aria-hidden="true"></div>
-                <img src="resources/screenshot/ar.jpeg" alt="App screenshot showing the AR scanning view with gray-code pattern detection overlay">
-              </div>
-            </div>
-            <p class="phone-bezel__caption">Scan</p>
-          </div>
+          <div class="hero-carousel__viewport">
 
-          <div class="phone-bezel">
-            <div class="phone-bezel__frame">
-              <div class="phone-bezel__screen">
-                <div class="phone-bezel__notch" aria-hidden="true"></div>
-                <img src="resources/screenshot/preview.jpeg" alt="App screenshot showing the 3D LED preview with quality tier colour overlay">
-              </div>
-            </div>
-            <p class="phone-bezel__caption">Preview &amp; Export</p>
-          </div>
-        </div>
+            <!-- Prev arrow -->
+            <button class="hero-carousel__arrow" id="carousel-prev" aria-label="Previous slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Slides -->
+            <div class="hero-carousel__track-wrap">
+              <div class="hero-carousel__track" id="carousel-track">
+
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="1 of 4: Connect">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                        <img src="resources/screenshot/connect.jpeg" alt="App screenshot showing the WLED controller connect screen with mDNS discovery list">
+                      </div>
+                    </div>
+                    <p class="phone-bezel__caption">Connect</p>
+                  </div>
+                </div>
+
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="2 of 4: Scan">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                        <img src="resources/screenshot/ar.jpeg" alt="App screenshot showing the AR scanning view with gray-code pattern detection overlay">
+                      </div>
+                    </div>
+                    <p class="phone-bezel__caption">Scan</p>
+                  </div>
+                </div>
+
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="3 of 4: Preview &amp; Export">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                        <img src="resources/screenshot/preview.jpeg" alt="App screenshot showing the 3D LED preview with quality tier colour overlay">
+                      </div>
+                    </div>
+                    <p class="phone-bezel__caption">Preview &amp; Export</p>
+                  </div>
+                </div>
+
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 4: Results">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                        <img src="resources/screenshot/results.jpeg" alt="App screenshot showing the export results screen with LED position data">
+                      </div>
+                    </div>
+                    <p class="phone-bezel__caption">Results</p>
+                  </div>
+                </div>
+
+              </div><!-- /.hero-carousel__track -->
+            </div><!-- /.hero-carousel__track-wrap -->
+
+            <!-- Next arrow -->
+            <button class="hero-carousel__arrow" id="carousel-next" aria-label="Next slide">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+          </div><!-- /.hero-carousel__viewport -->
+
+          <!-- Dot indicators -->
+          <ol class="hero-carousel__dots" id="carousel-dots" aria-label="Carousel slide indicators">
+            <li><button class="hero-carousel__dot hero-carousel__dot--active" aria-label="Go to slide 1" aria-current="true"></button></li>
+            <li><button class="hero-carousel__dot" aria-label="Go to slide 2"></button></li>
+            <li><button class="hero-carousel__dot" aria-label="Go to slide 3"></button></li>
+            <li><button class="hero-carousel__dot" aria-label="Go to slide 4"></button></li>
+          </ol>
+
+        </div><!-- /.hero-carousel -->
       </div>
     </section>
 
