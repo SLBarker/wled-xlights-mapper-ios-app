@@ -1216,6 +1216,7 @@
       /* Panel body stacks vertically on mobile */
       .stepper__body {
         flex-direction: column;
+        align-items: center;
         gap: 16px;
       }
 
@@ -2058,12 +2059,14 @@
        * so CSS height:auto takes over (avoids fixed pixel height if content changes).
        */
       function openPanel(panel) {
+        panel.style.overflow = 'hidden';   // ensure clipped during animation
         panel.style.padding = '0 0 16px';  // set padding BEFORE measuring so scrollHeight includes it
         const h = panel.scrollHeight;
         panel.style.height = h + 'px';
         const onEnd = function () {
           panel.removeEventListener('transitionend', onEnd);
           panel.style.height = 'auto';      // keep panel open; do NOT clear to '' (falls back to CSS height:0)
+          panel.style.overflow = 'visible'; // allow bezel shadow to bleed out when fully open
         };
         panel.addEventListener('transitionend', onEnd);
       }
@@ -2074,6 +2077,7 @@
        * Clear inline style on transitionend — CSS height:0 takes over.
        */
       function closePanel(panel) {
+        panel.style.overflow = 'hidden';   // clip content during close animation
         // If panel has no explicit pixel height, snapshot current rendered height before transitioning to 0
         if (!panel.style.height || panel.style.height === '' || panel.style.height === 'auto') {
           panel.style.height = panel.scrollHeight + 'px';
@@ -2085,6 +2089,7 @@
         const onEnd = function () {
           panel.removeEventListener('transitionend', onEnd);
           panel.style.height = '';          // CSS height:0 takes over
+          panel.style.overflow = '';        // CSS overflow:hidden takes over
         };
         panel.addEventListener('transitionend', onEnd);
       }
@@ -2160,8 +2165,27 @@
           const firstHeader = stepper.querySelector('.stepper__item:first-child .stepper__header');
           if (!firstHeader) return;
 
-          // Only auto-expand if Step 1 is not already active (user may have pre-interacted)
-          if (firstHeader.classList.contains('stepper__header--active')) return;
+          // If step 1 is already active (set in HTML for desktop CSS), on mobile we
+          // still need to open its panel — CSS doesn't do it, JS hasn't run yet.
+          if (firstHeader.classList.contains('stepper__header--active')) {
+            if (window.innerWidth < 768) {
+              const panelId = firstHeader.getAttribute('aria-controls');
+              const panel = panelId ? document.getElementById(panelId) : null;
+              if (panel && (panel.style.height === '' || panel.style.height === '0' || panel.style.height === '0px')) {
+                panel.style.overflow = 'hidden';
+                panel.style.padding = '0 0 16px';
+                const h = panel.scrollHeight;
+                panel.style.height = h + 'px';
+                const onEnd = function () {
+                  panel.removeEventListener('transitionend', onEnd);
+                  panel.style.height = 'auto';
+                  panel.style.overflow = 'visible';
+                };
+                panel.addEventListener('transitionend', onEnd);
+              }
+            }
+            return;
+          }
 
           // Activate Step 1: deactivate any currently active header first
           const currentHeader = stepper.querySelector('.stepper__header--active');
@@ -2183,12 +2207,14 @@
             const panelId = firstHeader.getAttribute('aria-controls');
             const panel = panelId ? document.getElementById(panelId) : null;
             if (panel) {
+              panel.style.overflow = 'hidden';
               panel.style.padding = '0 0 16px';  // set padding BEFORE measuring so scrollHeight includes it
               const h = panel.scrollHeight;
               panel.style.height = h + 'px';
               const onEnd = function () {
                 panel.removeEventListener('transitionend', onEnd);
-                panel.style.height = 'auto';  // keep panel open; do NOT clear to ''
+                panel.style.height = 'auto';     // keep panel open; do NOT clear to ''
+                panel.style.overflow = 'visible';
               };
               panel.addEventListener('transitionend', onEnd);
             }
