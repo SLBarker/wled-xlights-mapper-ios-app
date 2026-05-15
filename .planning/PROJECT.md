@@ -21,7 +21,7 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 ## Current State
 
-**Shipped:** v1.0 MVP (2026-05-14), v2.0 UI Polish (2026-05-14)
+**Shipped:** v1.0 MVP (2026-05-14), v2.0 UI Polish (2026-05-14), v3.0 Phase 6 (2026-05-15)
 
 - Mobile-responsive with hamburger nav, single-column grids, and accessible keyboard navigation
 - 4-slide hero carousel with 3D depth peek-view (adjacent slides partially visible)
@@ -57,14 +57,14 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 ### Active (v3.0 targets)
 
-- [ ] User sees all step titles and numbers at a glance without interacting (STEP-01)
+- [x] User sees all step titles and numbers at a glance without interacting (STEP-01) — *Validated Phase 6*
 - [ ] User can click/tap any step to expand its detail content inline (STEP-02)
 - [ ] Clicking a new step collapses the previously open step (STEP-03)
 - [ ] Step 1 is expanded by default when the section enters the viewport (STEP-04)
-- [ ] Both "In the App" and "Importing into xLights" use identical visual and interaction patterns (STEP-05)
-- [ ] Expanded "In the App" steps optionally show an app screenshot beside the text detail (STEP-06)
-- [ ] Step detail layout adapts gracefully when a step has no screenshot (text fills full width) (STEP-07)
-- [ ] Stepper rail displays horizontally on desktop; falls back to vertical accordion on mobile (STEP-08)
+- [x] Both "In the App" and "Importing into xLights" use identical visual and interaction patterns (STEP-05) — *Validated Phase 6*
+- [x] Expanded "In the App" steps optionally show an app screenshot beside the text detail (STEP-06) — *Validated Phase 6*
+- [x] Step detail layout adapts gracefully when a step has no screenshot (text fills full width) (STEP-07) — *Validated Phase 6*
+- [x] Stepper rail displays horizontally on desktop; falls back to vertical accordion on mobile (STEP-08) — *Validated Phase 6*
 
 ### Future (v3+)
 
@@ -130,4 +130,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-14 — v3.0 milestone started, 8 requirements defined*
+*Last updated: 2026-05-15 — Phase 6 complete; stepper CSS/HTML/JS foundation shipped*

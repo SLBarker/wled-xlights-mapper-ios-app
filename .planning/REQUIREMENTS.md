@@ -9,14 +9,14 @@ Requirements for the Interactive Workflow milestone. Each maps to a roadmap phas
 
 ### Stepper Component
 
-- [ ] **STEP-01**: User sees all step titles and numbers at a glance without scrolling or interacting — the full sequence is visible as an overview
+- [x] **STEP-01**: User sees all step titles and numbers at a glance without scrolling or interacting — the full sequence is visible as an overview — *Validated Phase 6*
 - [ ] **STEP-02**: User can click or tap any step to expand its detail content inline below the step header
 - [ ] **STEP-03**: Clicking a new step collapses the previously open step — only one step's detail is visible at a time
 - [ ] **STEP-04**: Step 1 is expanded by default when the section scrolls into the viewport
-- [ ] **STEP-05**: Both "In the App" and "Importing into xLights" use the same visual component and interaction pattern
-- [ ] **STEP-06**: Expanded "In the App" steps optionally display an app screenshot in a phone bezel mockup beside the detail text
-- [ ] **STEP-07**: Step detail layout adapts gracefully when no screenshot is configured — text fills the full available width
-- [ ] **STEP-08**: On desktop the stepper renders as a horizontal rail of step titles with a detail panel below; on mobile it collapses to a vertical accordion
+- [x] **STEP-05**: Both "In the App" and "Importing into xLights" use the same visual component and interaction pattern — *Validated Phase 6*
+- [x] **STEP-06**: Expanded "In the App" steps optionally display an app screenshot in a phone bezel mockup beside the detail text — *Validated Phase 6*
+- [x] **STEP-07**: Step detail layout adapts gracefully when no screenshot is configured — text fills the full available width — *Validated Phase 6*
+- [x] **STEP-08**: On desktop the stepper renders as a horizontal rail of step titles with a detail panel below; on mobile it collapses to a vertical accordion — *Validated Phase 6*
 
 ## v2.0 Requirements (completed)
 
@@ -71,14 +71,14 @@ Deferred from v1/v2. Tracked but not in the current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| STEP-01 | Phase 6 | Pending |
+| STEP-01 | Phase 6 | ✓ Complete |
 | STEP-02 | Phase 7 | Pending |
 | STEP-03 | Phase 7 | Pending |
 | STEP-04 | Phase 7 | Pending |
-| STEP-05 | Phase 6 | Pending |
-| STEP-06 | Phase 6 | Pending |
-| STEP-07 | Phase 6 | Pending |
-| STEP-08 | Phase 6 | Pending |
+| STEP-05 | Phase 6 | ✓ Complete |
+| STEP-06 | Phase 6 | ✓ Complete |
+| STEP-07 | Phase 6 | ✓ Complete |
+| STEP-08 | Phase 6 | ✓ Complete |
 
 **Coverage:**
 - v3.0 requirements: 8 total
@@ -87,4 +87,4 @@ Deferred from v1/v2. Tracked but not in the current roadmap.
 
 ---
 *Requirements defined: 2026-05-14*
-*Last updated: 2026-05-14 — traceability updated after roadmap phase split (6/7)*
+*Last updated: 2026-05-15 — Phase 6 complete, STEP-01/05/06/07/08 validated*

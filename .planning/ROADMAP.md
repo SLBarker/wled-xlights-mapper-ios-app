@@ -29,7 +29,7 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 
 ### v3.0 Interactive Workflow
 
-- [ ] **Phase 6: Stepper Foundation** - CSS component architecture + HTML restructure of both workflow sections
+- [x] **Phase 6: Stepper Foundation** - CSS component architecture + HTML restructure of both workflow sections — completed 2026-05-15
 - [ ] **Phase 7: Stepper Interaction** - JS controller for expand/collapse, auto-expand on scroll, and keyboard accessibility
 
 ## Phase Details
@@ -70,5 +70,5 @@ Plans:
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
-| 6. Stepper Foundation | v3.0 | 2/2 | Verifying | 2026-05-15 |
+| 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 7. Stepper Interaction | v3.0 | 0/? | Not started | - |
