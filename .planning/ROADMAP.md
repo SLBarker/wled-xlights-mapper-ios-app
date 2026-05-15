@@ -44,7 +44,10 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
   3. On desktop, the stepper renders as a horizontal rail of step titles above a detail panel area
   4. On mobile, the stepper renders as a vertical list where each step header stacks above its content area
   5. An "In the App" step with a configured screenshot shows the image in a phone bezel mockup beside the text; a step without a screenshot shows text at full width
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 06-01-PLAN.md — CSS foundation: comment out old workflow CSS, add complete stepper BEM rules + 767px mobile block
+- [ ] 06-02-PLAN.md — HTML restructure: replace workflow block with two .stepper elements + update animatedEls JS selector
 **UI hint**: yes
 
 ### Phase 7: Stepper Interaction
@@ -67,5 +70,5 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 | 3. Contact Section | v1.0 | 2/2 | Complete | 2026-05-14 |
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
-| 6. Stepper Foundation | v3.0 | 0/? | Not started | - |
+| 6. Stepper Foundation | v3.0 | 0/2 | Not started | - |
 | 7. Stepper Interaction | v3.0 | 0/? | Not started | - |
