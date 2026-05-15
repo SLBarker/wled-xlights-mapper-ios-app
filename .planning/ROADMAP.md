@@ -58,7 +58,10 @@ Plans:
   1. Clicking or tapping any step title expands that step's detail content inline below the header
   2. When a second step is opened the previously open step collapses — only one detail panel is visible at a time
   3. When the section scrolls into the viewport, Step 1's detail is already expanded without any user action
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 07-01-PLAN.md — CSS cleanup + JS stepper controller: remove :first-child static open rule, add click/collapse handler, auto-expand IO, keyboard navigation
+- [ ] 07-02-PLAN.md — Human browser verification: confirm click expand/collapse, auto-expand on scroll, and arrow key focus cycling
 **UI hint**: yes
 
 ## Progress
@@ -71,4 +74,4 @@ Plans:
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
-| 7. Stepper Interaction | v3.0 | 0/? | Not started | - |
+| 7. Stepper Interaction | v3.0 | 0/2 | Not started | - |
