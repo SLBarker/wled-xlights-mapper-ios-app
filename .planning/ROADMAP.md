@@ -4,7 +4,7 @@
 
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-05-14)
 - ✅ **v2.0 UI Polish** — Phases 4–5 (completed 2026-05-14)
-- 🔄 **v3.0 Interactive Workflow** — Phases 6–7 (in progress)
+- ✅ **v3.0 Interactive Workflow** — Phases 6–7 (completed 2026-05-15)
 
 ## Phases
 
@@ -30,7 +30,7 @@ Full details: [.planning/milestones/v1.0-ROADMAP.md](.planning/milestones/v1.0-R
 ### v3.0 Interactive Workflow
 
 - [x] **Phase 6: Stepper Foundation** - CSS component architecture + HTML restructure of both workflow sections — completed 2026-05-15
-- [ ] **Phase 7: Stepper Interaction** - JS controller for expand/collapse, auto-expand on scroll, and keyboard accessibility
+- [x] **Phase 7: Stepper Interaction** - JS controller for expand/collapse, auto-expand on scroll, and keyboard accessibility — completed 2026-05-15
 
 ## Phase Details
 
@@ -61,7 +61,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 - [x] 07-01-PLAN.md — CSS cleanup + JS stepper controller: remove :first-child static open rule, add click/collapse handler, auto-expand IO, keyboard navigation
-- [ ] 07-02-PLAN.md — Human browser verification: confirm click expand/collapse, auto-expand on scroll, and arrow key focus cycling
+- [x] 07-02-PLAN.md — Human browser verification: confirm click expand/collapse, auto-expand on scroll, and arrow key focus cycling
 **UI hint**: yes
 
 ## Progress
@@ -74,4 +74,4 @@ Plans:
 | 4. Nav & Download CTA | v2.0 | 1/1 | Complete | 2026-05-14 |
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
-| 7. Stepper Interaction | v3.0 | 1/2 | In progress | - |
+| 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
