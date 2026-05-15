@@ -2063,8 +2063,7 @@
         panel.style.height = h + 'px';
         const onEnd = function () {
           panel.removeEventListener('transitionend', onEnd);
-          panel.style.height = '';          // returns to CSS height:auto
-          panel.style.padding = '';
+          panel.style.height = 'auto';      // keep panel open; do NOT clear to '' (falls back to CSS height:0)
         };
         panel.addEventListener('transitionend', onEnd);
         panel.style.padding = '0 0 16px';  // restore content padding during/after animation
@@ -2076,8 +2075,8 @@
        * Clear inline style on transitionend — CSS height:0 takes over.
        */
       function closePanel(panel) {
-        // If panel has no explicit height (just opened from auto), snapshot current rendered height
-        if (!panel.style.height || panel.style.height === '') {
+        // If panel has no explicit pixel height, snapshot current rendered height before transitioning to 0
+        if (!panel.style.height || panel.style.height === '' || panel.style.height === 'auto') {
           panel.style.height = panel.scrollHeight + 'px';
         }
         // Force a reflow so the browser registers the explicit height before transitioning to 0
@@ -2189,8 +2188,7 @@
               panel.style.height = h + 'px';
               const onEnd = function () {
                 panel.removeEventListener('transitionend', onEnd);
-                panel.style.height = '';
-                panel.style.padding = '';
+                panel.style.height = 'auto';  // keep panel open; do NOT clear to ''
               };
               panel.addEventListener('transitionend', onEnd);
               panel.style.padding = '0 0 16px';
