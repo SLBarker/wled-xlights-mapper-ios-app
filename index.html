@@ -2059,6 +2059,7 @@
        * so CSS height:auto takes over (avoids fixed pixel height if content changes).
        */
       function openPanel(panel) {
+        panel.style.padding = '0 0 16px';  // set padding BEFORE measuring so scrollHeight includes it
         const h = panel.scrollHeight;
         panel.style.height = h + 'px';
         const onEnd = function () {
@@ -2066,7 +2067,6 @@
           panel.style.height = 'auto';      // keep panel open; do NOT clear to '' (falls back to CSS height:0)
         };
         panel.addEventListener('transitionend', onEnd);
-        panel.style.padding = '0 0 16px';  // restore content padding during/after animation
       }
 
       /**
@@ -2184,6 +2184,7 @@
             const panelId = firstHeader.getAttribute('aria-controls');
             const panel = panelId ? document.getElementById(panelId) : null;
             if (panel) {
+              panel.style.padding = '0 0 16px';  // set padding BEFORE measuring so scrollHeight includes it
               const h = panel.scrollHeight;
               panel.style.height = h + 'px';
               const onEnd = function () {
@@ -2191,7 +2192,6 @@
                 panel.style.height = 'auto';  // keep panel open; do NOT clear to ''
               };
               panel.addEventListener('transitionend', onEnd);
-              panel.style.padding = '0 0 16px';
             }
           }
         });
