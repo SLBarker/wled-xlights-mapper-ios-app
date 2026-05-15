@@ -1212,16 +1212,6 @@
         transition: height var(--transition);
       }
 
-      /* First item open by default via CSS (Phase 7 will manage this via JS) */
-      .stepper__item:first-child .stepper__panel {
-        height: auto;
-        padding: 0 0 16px;
-      }
-
-      .stepper__item:first-child .stepper__header .stepper__badge {
-        background: var(--accent);
-      }
-
       /* Panel body stacks vertically on mobile */
       .stepper__body {
         flex-direction: column;
