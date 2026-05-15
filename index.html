@@ -1600,76 +1600,268 @@
         <span class="section-label">Workflow</span>
         <h2 class="section-title" id="how-title">From LEDs to xLights<br>in five steps</h2>
 
-        <div class="workflow" aria-label="In-app workflow steps">
+        <!-- ── In the App stepper ── -->
+        <p class="workflow__phase-title">In the App</p>
+        <div class="stepper" aria-label="In-app workflow steps">
 
-          <div class="workflow__phase">
-            <p class="workflow__phase-title">In the App</p>
-            <div class="workflow__steps" role="list">
-
-              <div class="step-card" role="listitem">
-                <p class="step-card__num">Step 01</p>
-                <h4>Connect</h4>
-                <p>Open the app and tap to connect to a WLED controller. </p>
-                <p>Use mDNS discovery to connect automatically or manually enter WLED IP address.  </p>
-                <p>Save multiple named configurations for different installations. </p>
-                <p>Select which segments to include for multi-segment controllers.</p>
-              </div>
-
-              <div class="step-card" role="listitem">
-                <p class="step-card__num">Step 02</p>
-                <h4>Scan</h4>
-                <p>Tap "Scan new Object" </p>
-                <p>Move to a position where the LEDs are visible, then tap "Start Scan". </p>
-                <p>The scan cycles a binary pattern on the LEDs that are captured and analyzed.</p>
-                <p>Change viewpoint and repeat.</p>
-                <p>LEDs resolved from 2 or more scan positions are shown on a live AR overlay in real time.</p>
-                <!--
-                <div class="quality-tiers" aria-label="Quality indicators during scanning">
-                  <span class="tier-pill tier-green">Good</span>
-                  <span class="tier-pill tier-yellow">Warn</span>
-                  <span class="tier-pill tier-orange">Poor</span>
-                  <span class="tier-pill tier-red">Interpolated</span>
+          <!-- Step 1: Connect (screenshot: connect.jpeg) -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header stepper__header--active"
+              aria-expanded="true"
+              aria-controls="panel-app-1"
+            >
+              <span class="stepper__badge" aria-hidden="true">1</span>
+              <span class="stepper__title">Connect</span>
+            </button>
+            <div class="stepper__panel" id="panel-app-1">
+              <div class="stepper__body">
+                <div class="stepper__media">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__notch"></div>
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <img src="resources/screenshot/connect.jpeg" alt="Connect screen showing WLED controller connection UI" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                -->
+                <div class="stepper__content">
+                  <h3>Connect</h3>
+                  <p>Open the app and tap to connect to a WLED controller.</p>
+                  <p>Use mDNS discovery to connect automatically or manually enter WLED IP address.</p>
+                  <p>Save multiple named configurations for different installations.</p>
+                  <p>Select which segments to include for multi-segment controllers.</p>
+                </div>
               </div>
-
-              <div class="step-card" role="listitem">
-                <p class="step-card__num">Step 03</p>
-                <h4>Report</h4>
-                <p>When scanning is complete the app summarises results, providing metrics on the scanned object. </p>
-                <p>Go back to rescan, proceed to preview, or export directly.</p>
-              </div>
-
-              <div class="step-card" role="listitem">
-                <p class="step-card__num">Step 04</p>
-                <h4>Preview</h4>
-                <p>Open the 3D preview to inspect results.</p>
-                <p>Use the transform gizmo to adjust its position.</p>
-                <p>Delete the calculated position and replace with an interpolated position based on its neighbours.</p>
-              </div>
-
-              <div class="step-card" role="listitem">
-                <p class="step-card__num">Step 05</p>
-                <h4>Export</h4>
-                <p>Tap the export button</p>
-                <p>Use the iOS share sheet to save the <code>.xmodel</code> file to the Files app or AirDrop it directly to your Mac.</p>
-              </div>
-
             </div>
           </div>
 
-          <div class="workflow__phase">
-            <p class="workflow__phase-title">Importing into xLights</p>
-            <ol class="numbered-list" aria-label="Steps to import the .xmodel file into xLights">
-              <li><span>Open xLights and go to the <strong>Layout</strong> tab.</span></li>
-              <li><span>Click the <strong>Import Model</strong> button in the toolbar.</span></li>
-              <li><span>Drag on the canvas to place the model's position in your layout, then release — a file picker opens.</span></li>
-              <li><span>Select the exported <strong>.xmodel</strong> file.</span></li>
-              <li><span>The model appears in your xLights layout as a Custom Model. Rename it and wire it to the correct controller and channel as usual.</span></li>
-            </ol>
+          <!-- Step 2: Scan (screenshot: ar.jpeg) -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-app-2"
+            >
+              <span class="stepper__badge" aria-hidden="true">2</span>
+              <span class="stepper__title">Scan</span>
+            </button>
+            <div class="stepper__panel" id="panel-app-2">
+              <div class="stepper__body">
+                <div class="stepper__media">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__notch"></div>
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <img src="resources/screenshot/ar.jpeg" alt="AR scan screen showing LED overlay in real time" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stepper__content">
+                  <h3>Scan</h3>
+                  <p>Tap "Scan new Object"</p>
+                  <p>Move to a position where the LEDs are visible, then tap "Start Scan".</p>
+                  <p>The scan cycles a binary pattern on the LEDs that are captured and analyzed.</p>
+                  <p>Change viewpoint and repeat.</p>
+                  <p>LEDs resolved from 2 or more scan positions are shown on a live AR overlay in real time.</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-        </div>
+          <!-- Step 3: Report (screenshot: results.jpeg) -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-app-3"
+            >
+              <span class="stepper__badge" aria-hidden="true">3</span>
+              <span class="stepper__title">Report</span>
+            </button>
+            <div class="stepper__panel" id="panel-app-3">
+              <div class="stepper__body">
+                <div class="stepper__media">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__notch"></div>
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <img src="resources/screenshot/results.jpeg" alt="Results screen showing scan metrics summary" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stepper__content">
+                  <h3>Report</h3>
+                  <p>When scanning is complete the app summarises results, providing metrics on the scanned object.</p>
+                  <p>Go back to rescan, proceed to preview, or export directly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Preview (screenshot: preview.jpeg) -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-app-4"
+            >
+              <span class="stepper__badge" aria-hidden="true">4</span>
+              <span class="stepper__title">Preview</span>
+            </button>
+            <div class="stepper__panel" id="panel-app-4">
+              <div class="stepper__body">
+                <div class="stepper__media">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__notch"></div>
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <img src="resources/screenshot/preview.jpeg" alt="3D preview screen with transform gizmo controls" loading="lazy">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="stepper__content">
+                  <h3>Preview</h3>
+                  <p>Open the 3D preview to inspect results.</p>
+                  <p>Use the transform gizmo to adjust its position.</p>
+                  <p>Delete the calculated position and replace with an interpolated position based on its neighbours.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Export (no screenshot — text-only) -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-app-5"
+            >
+              <span class="stepper__badge" aria-hidden="true">5</span>
+              <span class="stepper__title">Export</span>
+            </button>
+            <div class="stepper__panel" id="panel-app-5">
+              <div class="stepper__body stepper__body--text-only">
+                <div class="stepper__content">
+                  <h3>Export</h3>
+                  <p>Tap the export button</p>
+                  <p>Use the iOS share sheet to save the <code>.xmodel</code> file to the Files app or AirDrop it directly to your Mac.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.stepper (In the App) -->
+
+        <!-- ── Importing into xLights stepper ── -->
+        <p class="workflow__phase-title" style="margin-top: 64px;">Importing into xLights</p>
+        <div class="stepper" aria-label="Steps to import the .xmodel file into xLights">
+
+          <!-- Step 1: Open xLights -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header stepper__header--active"
+              aria-expanded="true"
+              aria-controls="panel-xlights-1"
+            >
+              <span class="stepper__badge" aria-hidden="true">1</span>
+              <span class="stepper__title">Open xLights</span>
+            </button>
+            <div class="stepper__panel" id="panel-xlights-1">
+              <div class="stepper__body stepper__body--text-only">
+                <div class="stepper__content">
+                  <h3>Open xLights</h3>
+                  <p>Open xLights and go to the <strong>Layout</strong> tab.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Import Model -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-xlights-2"
+            >
+              <span class="stepper__badge" aria-hidden="true">2</span>
+              <span class="stepper__title">Import Model</span>
+            </button>
+            <div class="stepper__panel" id="panel-xlights-2">
+              <div class="stepper__body stepper__body--text-only">
+                <div class="stepper__content">
+                  <h3>Import Model</h3>
+                  <p>Click the <strong>Import Model</strong> button in the toolbar.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Place Model -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-xlights-3"
+            >
+              <span class="stepper__badge" aria-hidden="true">3</span>
+              <span class="stepper__title">Place Model</span>
+            </button>
+            <div class="stepper__panel" id="panel-xlights-3">
+              <div class="stepper__body stepper__body--text-only">
+                <div class="stepper__content">
+                  <h3>Place Model</h3>
+                  <p>Drag on the canvas to place the model's position in your layout, then release — a file picker opens.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4: Select File -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-xlights-4"
+            >
+              <span class="stepper__badge" aria-hidden="true">4</span>
+              <span class="stepper__title">Select File</span>
+            </button>
+            <div class="stepper__panel" id="panel-xlights-4">
+              <div class="stepper__body stepper__body--text-only">
+                <div class="stepper__content">
+                  <h3>Select File</h3>
+                  <p>Select the exported <strong>.xmodel</strong> file.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5: Done -->
+          <div class="stepper__item">
+            <button
+              class="stepper__header"
+              aria-expanded="false"
+              aria-controls="panel-xlights-5"
+            >
+              <span class="stepper__badge" aria-hidden="true">5</span>
+              <span class="stepper__title">Done</span>
+            </button>
+            <div class="stepper__panel" id="panel-xlights-5">
+              <div class="stepper__body stepper__body--text-only">
+                <div class="stepper__content">
+                  <h3>Done</h3>
+                  <p>The model appears in your xLights layout as a Custom Model. Rename it and wire it to the correct controller and channel as usual.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.stepper (Importing into xLights) -->
       </div>
     </section>
 
