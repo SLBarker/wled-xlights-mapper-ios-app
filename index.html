@@ -697,18 +697,6 @@
 
     /* ── Stepper ── */
 
-    /* Base: scroll-reveal starting state (mirrors .step-card pattern) */
-    .stepper__item {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .stepper__item.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
     /* Desktop layout (>=768px): CSS Grid — items become layout-transparent */
     .stepper {
       display: grid;
@@ -716,6 +704,8 @@
       margin-top: 16px;
     }
 
+    /* display:contents removes the layout box — IntersectionObserver cannot observe
+       these elements on desktop, so scroll-reveal is mobile-only (see 767px block) */
     .stepper__item {
       display: contents;
     }
@@ -1169,9 +1159,18 @@
         margin-top: 0;
       }
 
+      /* Scroll-reveal lives here only: display:block makes IntersectionObserver work */
       .stepper__item {
         display: block;
         border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+
+      .stepper__item.visible {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /* Accordion header button */
