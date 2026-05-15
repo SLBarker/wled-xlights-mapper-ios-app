@@ -2134,6 +2134,113 @@
   </script>
 
   <script>
+    /* ── Stepper auto-expand + keyboard navigation ── */
+    (function () {
+      const steppers = document.querySelectorAll('.stepper');
+      if (!steppers.length) return;
+
+      /* ---- Auto-expand: open Step 1 when stepper first enters viewport ---- */
+      /*
+       * Per D-01: fire-once — after firing, unobserve the stepper element.
+       * Per D-02: observe each .stepper independently (not the parent section).
+       * Per D-03: dedicated IntersectionObserver, not the existing animation io.
+       * Threshold 0.15: fires when 15% of the stepper is visible.
+       *
+       * The observer calls activateStep from the click-handler script block.
+       * Because both scripts run synchronously before any user interaction,
+       * activateStep is defined on the window-scoped IIFE in the previous block.
+       * To avoid tight coupling, we duplicate the minimal logic here rather than
+       * relying on the previous IIFE's internals — the auto-expand only needs to
+       * activate Step 1.
+       */
+      const stepperAutoExpandIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          stepperAutoExpandIO.unobserve(entry.target);
+
+          const stepper = entry.target;
+          const firstHeader = stepper.querySelector('.stepper__item:first-child .stepper__header');
+          if (!firstHeader) return;
+
+          // Only auto-expand if Step 1 is not already active (user may have pre-interacted)
+          if (firstHeader.classList.contains('stepper__header--active')) return;
+
+          // Activate Step 1: deactivate any currently active header first
+          const currentHeader = stepper.querySelector('.stepper__header--active');
+          if (currentHeader) {
+            currentHeader.classList.remove('stepper__header--active');
+            currentHeader.setAttribute('aria-expanded', 'false');
+            const currentPanelId = currentHeader.getAttribute('aria-controls');
+            const currentPanel = currentPanelId ? document.getElementById(currentPanelId) : null;
+            if (currentPanel && window.innerWidth < 768) {
+              currentPanel.style.height = '0';
+            }
+          }
+
+          firstHeader.classList.add('stepper__header--active');
+          firstHeader.setAttribute('aria-expanded', 'true');
+
+          // Mobile: open the first panel with height animation
+          if (window.innerWidth < 768) {
+            const panelId = firstHeader.getAttribute('aria-controls');
+            const panel = panelId ? document.getElementById(panelId) : null;
+            if (panel) {
+              const h = panel.scrollHeight;
+              panel.style.height = h + 'px';
+              const onEnd = function () {
+                panel.removeEventListener('transitionend', onEnd);
+                panel.style.height = '';
+                panel.style.padding = '';
+              };
+              panel.addEventListener('transitionend', onEnd);
+              panel.style.padding = '0 0 16px';
+            }
+          }
+        });
+      }, { threshold: 0.15 });
+
+      steppers.forEach(function (stepper) {
+        stepperAutoExpandIO.observe(stepper);
+      });
+
+      /* ---- Keyboard navigation: arrow keys cycle focus between headers ---- */
+      /*
+       * Per D-07: direction determined at keydown time (not via resize listener).
+       *   window.innerWidth > 767 → left/right arrows
+       *   window.innerWidth <= 767 → up/down arrows
+       * Per D-08: arrow key moves FOCUS only — does NOT activate the header.
+       *   Enter/Space activate (native button behaviour).
+       * Per D-09: event delegation on .stepper container via closest('.stepper__header').
+       * Wraps at boundaries: right on last → first; left on first → last.
+       */
+      steppers.forEach(function (stepper) {
+        stepper.addEventListener('keydown', function (e) {
+          const btn = e.target.closest('.stepper__header');
+          if (!btn || !stepper.contains(btn)) return;
+
+          const desktop = window.innerWidth > 767;
+          const isNext = desktop ? e.key === 'ArrowRight' : e.key === 'ArrowDown';
+          const isPrev = desktop ? e.key === 'ArrowLeft'  : e.key === 'ArrowUp';
+
+          if (!isNext && !isPrev) return;
+          e.preventDefault(); // prevent page scroll on arrow keys
+
+          const headers = Array.from(stepper.querySelectorAll('.stepper__header'));
+          const idx = headers.indexOf(btn);
+          let nextIdx;
+          if (isNext) {
+            nextIdx = (idx + 1) % headers.length;          // wrap forward
+          } else {
+            nextIdx = (idx - 1 + headers.length) % headers.length; // wrap backward
+          }
+          headers[nextIdx].focus();
+        });
+      });
+
+    }());
+  </script>
+
+  <script>
     /* ── Hamburger nav toggle ── */
     (function () {
       var toggle = document.querySelector('.site-nav__toggle');
