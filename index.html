@@ -695,6 +695,154 @@
     .numbered-list strong { color: var(--text); } */
 
 
+    /* ── Stepper ── */
+
+    /* Base: scroll-reveal starting state (mirrors .step-card pattern) */
+    .stepper__item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .stepper__item.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Desktop layout (>=768px): CSS Grid — items become layout-transparent */
+    .stepper {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      margin-top: 16px;
+    }
+
+    .stepper__item {
+      display: contents;
+    }
+
+    /* Rail: headers land in grid row 1 */
+    .stepper__header {
+      grid-row: 1;
+      width: 100%;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      text-align: left;
+      color: var(--muted);
+      transition: border-color var(--transition), color var(--transition), background var(--transition);
+    }
+
+    .stepper__header:hover {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .stepper__header:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Active tab styles */
+    .stepper__header--active {
+      background: var(--surface);
+      border-bottom-color: var(--accent);
+      color: var(--text);
+    }
+
+    .stepper__header--active .stepper__badge {
+      background: var(--accent);
+    }
+
+    /* Step number badge */
+    .stepper__badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--muted);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Step title text in the rail button */
+    .stepper__title {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      line-height: 1.3;
+      text-align: left;
+    }
+
+    /* Panel: lands in grid row 2, spans all 5 columns, hidden by default */
+    .stepper__panel {
+      grid-row: 2;
+      grid-column: 1 / -1;
+      display: none;
+      background: var(--surface);
+      border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    /* Show the panel that immediately follows the active header
+       (works through display:contents — header and panel remain DOM siblings) */
+    .stepper__header--active + .stepper__panel {
+      display: block;
+    }
+
+    /* Panel body: flex row — media column beside text column */
+    .stepper__body {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    /* No-screenshot modifier: content fills full width */
+    .stepper__body--text-only .stepper__content {
+      flex: 1;
+    }
+
+    /* Media column: phone bezel slot */
+    .stepper__media {
+      flex-shrink: 0;
+      width: 240px;
+    }
+
+    /* Content column: step heading + description */
+    .stepper__content {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .stepper__content h3 {
+      font-size: 1.0625rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: var(--text);
+    }
+
+    .stepper__content p {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-bottom: 0.75em;
+    }
+
+    .stepper__content p:last-child {
+      margin-bottom: 0;
+    }
+
+
     .icon-list {
       list-style: none;
       padding: 0;
@@ -1010,6 +1158,82 @@
       /* Show hamburger, hide desktop links */
       .site-nav__toggle { display: flex; }
       .site-nav__drawer { display: block; }
+    }
+
+    /* ── Stepper: mobile accordion (<=767px) ── */
+    @media (max-width: 767px) {
+
+      /* Override desktop grid — restore normal block flow */
+      .stepper {
+        display: block;
+        margin-top: 0;
+      }
+
+      .stepper__item {
+        display: block;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      /* Accordion header button */
+      .stepper__header {
+        grid-row: unset;
+        width: 100%;
+        padding: 16px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: none;
+        border: none;
+        border-bottom: none;
+        cursor: pointer;
+        text-align: left;
+        color: var(--muted);
+      }
+
+      .stepper__header--active {
+        border-bottom: none;
+        background: none;
+      }
+
+      .stepper__header--active .stepper__title {
+        color: var(--text);
+      }
+
+      /* Panel: collapsed by default; Phase 7 JS will toggle open class */
+      .stepper__panel {
+        grid-row: unset;
+        grid-column: unset;
+        display: block;
+        height: 0;
+        overflow: hidden;
+        padding: 0;
+        margin-top: 0;
+        box-shadow: none;
+        border-radius: 0;
+        transition: height var(--transition);
+      }
+
+      /* First item open by default via CSS (Phase 7 will manage this via JS) */
+      .stepper__item:first-child .stepper__panel {
+        height: auto;
+        padding: 0 0 16px;
+      }
+
+      .stepper__item:first-child .stepper__header .stepper__badge {
+        background: var(--accent);
+      }
+
+      /* Panel body stacks vertically on mobile */
+      .stepper__body {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* Phone bezel: smaller, centred, stacked above text */
+      .stepper__media {
+        width: 180px;
+        margin: 0 auto 16px;
+      }
     }
   </style>
 </head>
