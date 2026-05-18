@@ -40,7 +40,7 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 
 ### v4.0 Discoverability, Compliance & Performance
 
-- [ ] **Phase 8: Discoverability & Legal** — Open Graph tags, favicon, Apple touch icon, privacy policy footer link
+- [x] **Phase 8: Discoverability & Legal** — Open Graph tags, favicon, Apple touch icon, privacy policy footer link — completed 2026-05-18
 - [ ] **Phase 9: Crawl Infrastructure** — robots.txt and XML sitemap
 - [ ] **Phase 10: Font Self-Hosting** — Inter font served from GitHub Pages; Google Fonts CDN removed
 
@@ -99,6 +99,6 @@ Plans:
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
-| 8. Discoverability & Legal | v4.0 | 0/2 | Not started | — |
+| 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
 | 9. Crawl Infrastructure | v4.0 | 0/? | Not started | — |
 | 10. Font Self-Hosting | v4.0 | 0/? | Not started | — |
