@@ -66,7 +66,9 @@ Full details: [.planning/milestones/v4.0-ROADMAP.md](.planning/milestones/v4.0-R
   3. Clicking or tapping either button does not navigate, scroll, or produce any action
   4. Both buttons appear visually distinct from active/clickable buttons (reduced opacity, cursor: not-allowed, hover animation suppressed)
   5. Both buttons remain keyboard-focusable — no accessibility regression (aria-disabled pattern preferred over removing tabindex)
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 11-01-PLAN.md — Convert nav pill + hero button to disabled "Coming Soon" CTAs with disabled-state CSS
 **UI hint**: yes
 
 ## Progress
