@@ -293,6 +293,15 @@
     .btn:hover { transform: translateY(-2px); opacity: 0.92; }
     .btn-primary:hover { box-shadow: 0 12px 40px rgba(0,113,227,0.5); }
 
+    [aria-disabled="true"] {
+      opacity: 0.6;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+    .site-nav__cta[aria-disabled="true"]:hover { transform: none; box-shadow: none; }
+    .btn[aria-disabled="true"]:hover { transform: none; opacity: 0.6; }
+    .btn-primary[aria-disabled="true"]:hover { box-shadow: none; }
+
     /* ── Phone bezel ── */
     .phone-bezel {
       position: relative;
@@ -1337,9 +1346,8 @@
         <li><a href="#privacy">Privacy</a></li>
       </ul>
       <div class="site-nav__right">
-        <a href="#download" class="site-nav__cta">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l4 4 4-4M12 8v8"/></svg>
-          Download
+        <a class="site-nav__cta" aria-disabled="true">
+          Coming Soon
         </a>
       </div>
     </div>
@@ -1369,9 +1377,8 @@
           Accurate LED mapping of WLED instances to xLights without manual editing, using a standard iPhone — LiDAR not required.
         </p>
         <div class="hero__cta-group">
-          <a href="#download" class="btn btn-primary" id="download">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/><path d="M8 12l4 4 4-4M12 8v8"/></svg>
-            Download on the App Store
+          <a class="btn btn-primary" aria-disabled="true">
+            Coming Soon
           </a>
         </div>
 
