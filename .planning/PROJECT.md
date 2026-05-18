@@ -28,6 +28,16 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 **Open:** App Store URL not yet available — `#download` CTA remains a placeholder link.
 
+## Current Milestone: v4.1 Coming Soon CTA
+
+**Goal:** Replace the broken `#download` placeholder with a clear "Coming Soon" disabled state across all download CTAs so visitors aren't confused by a non-functional button.
+
+**Target features:**
+- Change nav pill text from "Download" → "Coming Soon"
+- Change hero button text from "Download on the App Store" → "Coming Soon"
+- Make both CTAs non-interactive (no click/scroll, no broken anchor)
+- Apply a disabled visual style (reduced opacity, cursor: not-allowed, no hover animation)
+
 ## Milestone Status
 
 | Milestone | Status | Date |
@@ -36,12 +46,7 @@ Every visitor who arrives on the page should come away understanding what the ap
 | v2.0 UI Polish | ✅ Shipped | 2026-05-14 |
 | v3.0 Interactive Workflow | ✅ Shipped | 2026-05-15 |
 | v4.0 Discoverability, Compliance & Performance | ✅ Shipped | 2026-05-18 |
-| v5.0 | 📋 Not started | — |
-
-**Next milestone targets (candidates):**
-- CONT-01: Wire App Store URL into `#download` CTA (blocked until URL available from Apple)
-- PERF-03: Compress video assets (3dpreview.mp4 = 9.2 MB) — deferred until final video available
-- Any additional launch-readiness work once App Store URL lands
+| v4.1 Coming Soon CTA | 🚧 In progress | — |
 
 ## Requirements
 
@@ -78,10 +83,11 @@ Every visitor who arrives on the page should come away understanding what the ap
 - ✓ Steps without a screenshot show text at full width (STEP-07) — v3.0
 - ✓ Horizontal rail on desktop, vertical accordion on mobile (STEP-08) — v3.0
 
-### Active (v5.0 targets)
+### Active (v4.1 targets)
 
-- [ ] Wire App Store URL into `#download` CTA — blocked until URL is available from Apple (CONT-01)
-- [ ] Compress video assets — 3dpreview.mp4 is 9.2 MB, significant on mobile (PERF-03) — deferred until final video available
+- [ ] All download CTAs display "Coming Soon" text — nav + hero (CTA-01)
+- [ ] Download CTAs are non-interactive — no click/scroll behaviour (CTA-02)
+- [ ] Download CTAs have a visually distinct disabled appearance (CTA-03)
 
 ### Out of Scope
 
@@ -145,4 +151,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-18 after v4.0 milestone*
+*Last updated: 2026-05-18 — v4.1 milestone started*

@@ -1,17 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v4.0
-milestone_name: Discoverability Compliance and Performance
-status: complete
-stopped_at: Phase 10 complete
-last_updated: "2026-05-18T21:30:00.000Z"
-last_activity: 2026-05-18 -- Phase 10 executed and verified (v4.0 milestone complete)
+milestone: v4.1
+milestone_name: Coming Soon CTA
+status: planning
+last_updated: "2026-05-18T21:38:08.272Z"
+last_activity: 2026-05-18
 progress:
-  total_phases: 3
-  completed_phases: 3
-  total_plans: 5
-  completed_plans: 5
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -25,14 +24,10 @@ See: .planning/PROJECT.md (updated 2026-05-18 after v3.0 milestone)
 
 ## Current Position
 
-```
-Phase 8 [██████████] 100%   Phase 9 [██████████] 100%   Phase 10 [██████████] 100%
-```
-
-Phase: 10 — Font Self-Hosting
-Plan: 2/2 complete (10-01, 10-02)
-Status: Complete — v4.0 milestone complete
-Last activity: 2026-05-18 -- Phase 10 executed and verified
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-05-18 — Milestone v4.1 started
 
 ## Decisions Made
 
