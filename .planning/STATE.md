@@ -2,16 +2,16 @@
 gsd_state_version: 1.0
 milestone: v4.0
 milestone_name: Discoverability Compliance and Performance
-status: Ready to execute
-stopped_at: Phase 8 planned (2 plans ready)
+status: Executed
+stopped_at: Phase 8 executed — awaiting verification
 last_updated: "2026-05-18T00:00:00.000Z"
-last_activity: 2026-05-18 — Phase 8 planned (2 plans, 2 waves)
+last_activity: 2026-05-18 — Phase 8 executed (2/2 plans complete)
 progress:
   total_phases: 3
   completed_phases: 0
   total_plans: 2
-  completed_plans: 0
-  percent: 0
+  completed_plans: 2
+  percent: 33
 ---
 
 # Project State
@@ -30,9 +30,9 @@ Phase 8 [          ] 0%   Phase 9 [          ] 0%   Phase 10 [          ] 0%
 ```
 
 Phase: 8 — Discoverability & Legal
-Plan: 2 plans ready (08-01, 08-02)
-Status: Ready to execute
-Last activity: 2026-05-18 — Phase 8 planned (2 plans, 2 waves)
+Plan: 2/2 complete (08-01, 08-02)
+Status: Executed — awaiting verification
+Last activity: 2026-05-18 — Phase 8 executed (2/2 plans complete)
 
 ## Decisions Made
 
@@ -72,5 +72,5 @@ Items carried forward from v3.0 close:
 ## Session Continuity
 
 Last session: 2026-05-18T00:00:00.000Z
-Stopped at: Phase 8 planned — 2 plans ready
-Resume with: `/gsd:execute-phase 8`
+Stopped at: Phase 8 executed — run verifier
+Resume with: `/gsd:verify-work 8`

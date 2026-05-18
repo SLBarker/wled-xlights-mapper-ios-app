@@ -57,10 +57,10 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 **Plans**: 2 plans
 Plans:
 **Wave 1**
-- [ ] 08-01-PLAN.md — Social/discovery head tags (OG, Twitter card, canonical, favicon links) + favicon.svg + PNG favicon checkpoint
+- [x] 08-01-PLAN.md — Social/discovery head tags (OG, Twitter card, canonical, favicon links) + favicon.svg + PNG favicon checkpoint
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 08-02-PLAN.md — privacy.html page creation + footer Privacy Policy link in index.html
+- [x] 08-02-PLAN.md — privacy.html page creation + footer Privacy Policy link in index.html
 
 **Cross-cutting constraints:**
 - All CSS must remain inline in `<style>` blocks (no external stylesheets) — CLAUDE.md constraint
