@@ -2,11 +2,12 @@
 gsd_state_version: 1.0
 milestone: v4.1
 milestone_name: Coming Soon CTA
-status: planning
-last_updated: "2026-05-18T21:38:08.272Z"
-last_activity: 2026-05-18
+status: Defining requirements
+stopped_at: Phase 11 context gathered
+last_updated: "2026-05-18T21:45:54.470Z"
+last_activity: 2026-05-18 — Milestone v4.1 started
 progress:
-  total_phases: 0
+  total_phases: 1
   completed_phases: 0
   total_plans: 0
   completed_plans: 0
@@ -67,6 +68,6 @@ Items acknowledged at v4.0 milestone close (2026-05-18):
 
 ## Session Continuity
 
-Last session: 2026-05-18T22:00:00.000Z
-Stopped at: v4.0 milestone archived and closed
+Last session: 2026-05-18T21:45:54.461Z
+Stopped at: Phase 11 context gathered
 Resume with: `/gsd:new-milestone` — start planning v5.0
