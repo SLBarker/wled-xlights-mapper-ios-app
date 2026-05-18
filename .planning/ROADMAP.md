@@ -54,7 +54,10 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
   1. Sharing the page URL in iMessage, Twitter/X, Slack, or LinkedIn renders a preview card with the correct app title, description, and screenshot image
   2. Browser tab shows the WLED xLights Mapper favicon; iOS home-screen bookmark shows the Apple touch icon
   3. Page footer contains a visible, tappable privacy policy link
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 08-01-PLAN.md — Social/discovery head tags (OG, Twitter card, canonical, favicon links) + favicon.svg + PNG favicon checkpoint
+- [ ] 08-02-PLAN.md — privacy.html page creation + footer Privacy Policy link in index.html
 **UI hint**: yes
 
 ### Phase 9: Crawl Infrastructure
@@ -88,6 +91,6 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
-| 8. Discoverability & Legal | v4.0 | 0/? | Not started | — |
+| 8. Discoverability & Legal | v4.0 | 0/2 | Not started | — |
 | 9. Crawl Infrastructure | v4.0 | 0/? | Not started | — |
 | 10. Font Self-Hosting | v4.0 | 0/? | Not started | — |
