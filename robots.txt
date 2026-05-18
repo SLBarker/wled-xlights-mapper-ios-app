@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://slbarker.github.io/wled-xlights-mapper-ios-app/sitemap.xml
