@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — WLED to xLights Mapper</title>
+  <link rel="canonical" href="https://slbarker.github.io/wled-xlights-mapper-ios-app/privacy.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset & tokens ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #f5f5f7;
+      --surface:   #ffffff;
+      --text:      #1d1d1f;
+      --muted:     #6e6e73;
+      --accent:    #0071e3;
+      --accent2:   #34c759;
+      --warn:      #ff9f0a;
+      --danger:    #ff3b30;
+      --radius-sm: 16px;
+      --radius-md: 28px;
+      --radius-lg: 40px;
+      --shadow:    0 4px 32px rgba(0,0,0,0.08);
+      --shadow-lg: 0 16px 64px rgba(0,0,0,0.14);
+      --transition: 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(245,245,247,0.72);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 2rem;
+    }
+
+    .site-nav__inner {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+
+    .site-nav__logo {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .site-nav__back {
+      font-size: 0.8125rem;
+      color: var(--accent);
+      text-decoration: none;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      transition: opacity var(--transition);
+    }
+
+    .site-nav__back:hover { opacity: 0.75; }
+
+    .site-nav__back:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ── Main content ── */
+    main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.5rem;
+    }
+
+    .effective-date {
+      font-size: 0.875rem;
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    /* ── Privacy sections ── */
+    .privacy-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .privacy-section h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .privacy-section p {
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--text);
+    }
+
+    .privacy-section p + p {
+      margin-top: 0.75rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: #0a0a0f;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ Nav ══ -->
+  <nav class="site-nav" aria-label="Site navigation">
+    <div class="site-nav__inner">
+      <span class="site-nav__logo">WLED to xLights Mapper</span>
+      <a href="index.html"
+         class="site-nav__back"
+         aria-label="Back to WLED xLights Mapper landing page">← Back to landing page</a>
+    </div>
+  </nav>
+
+  <!-- ══ Main ══ -->
+  <main>
+    <h1>Privacy Policy</h1>
+    <p class="effective-date">Effective: 18 May 2026</p>
+
+    <!-- ══ Section 1 — No Server Communication ══ -->
+    <section class="privacy-section">
+      <h2>No Server Communication</h2>
+      <p>WLED to xLights Mapper does not send any data to any server. The app communicates only with your local WLED controller over your local Wi-Fi network. No information about your device, usage, or LED setup ever leaves your local network.</p>
+    </section>
+
+    <!-- ══ Section 2 — No Personal Data Storage ══ -->
+    <section class="privacy-section">
+      <h2>No Personal Data Storage</h2>
+      <p>WLED to xLights Mapper captures no personal data — no name, email address, location, or health information is collected or stored at any point.</p>
+      <p>The only information stored on your device is your WLED controller's connection details (name and IP address), saved locally so you can reconnect without re-entering them. This data never leaves your device.</p>
+    </section>
+
+    <!-- ══ Section 3 — No Analytics or Tracking ══ -->
+    <section class="privacy-section">
+      <h2>No Analytics or Tracking</h2>
+      <p>No analytics SDK, crash reporter, or advertising framework is included in the app. There is no tracking of usage patterns, sessions, or user behaviour. No data leaves your device for any measurement or reporting purpose.</p>
+    </section>
+
+    <!-- ══ Section 4 — No Internet Requirement ══ -->
+    <section class="privacy-section">
+      <h2>No Internet Requirement</h2>
+      <p>The app works entirely on your local Wi-Fi network. No account is required, there is no cloud sync, and no external API calls are made. You can use the app in a fully isolated network environment with no internet access.</p>
+    </section>
+
+    <!-- ══ Section 5 — Camera — Local Processing Only ══ -->
+    <section class="privacy-section">
+      <h2>Camera — Local Processing Only</h2>
+      <p>Camera and ARKit data is used to map LED positions and is processed entirely on your device. No images, video frames, or depth data are stored to disk or transmitted anywhere. Camera access is used only during an active scan session and is not used in the background.</p>
+    </section>
+
+    <!-- ══ Section 6 — Contact ══ -->
+    <section class="privacy-section">
+      <h2>Contact</h2>
+      <p>If you have any questions about this privacy policy or the app's data practices, you can reach the developer at <a href="mailto:wled.2.xlights@gmail.com" style="color: var(--accent);">wled.2.xlights@gmail.com</a>.</p>
+    </section>
+  </main>
+
+  <!-- ══ Footer ══ -->
+  <footer role="contentinfo">
+    <p>WLED to xLights Mapper</p>
+  </footer>
+
+</body>
+</html>
