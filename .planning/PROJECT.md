@@ -23,6 +23,18 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 **Open:** App Store URL not yet available — `#download` CTA remains a placeholder link.
 
+## Current Milestone: v4.0 Discoverability, Compliance & Performance
+
+**Goal:** Make the landing page findable, legally sound, and fast — closing all pre-launch gaps before the App Store URL lands.
+
+**Target features:**
+- Open Graph meta tags (og:title, og:description, og:image)
+- Favicon + Apple touch icon
+- robots.txt + XML sitemap
+- Privacy policy link in footer (App Store compliance)
+- Self-host Inter font subset (remove Google Fonts CDN)
+- Compress video assets (3dpreview.mp4 is 9.2 MB)
+
 ## Requirements
 
 ### Validated
@@ -121,4 +133,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-18 after v3.0 milestone*
+*Last updated: 2026-05-18 — v4.0 milestone started*

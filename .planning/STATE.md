@@ -1,17 +1,16 @@
 ---
 gsd_state_version: 1.0
-milestone: v3.0
-milestone_name: Interactive Workflow
-status: archived
-stopped_at: "v3.0 milestone archived — ready for v4.0 planning"
-last_updated: "2026-05-18T00:00:00.000Z"
-last_activity: 2026-05-18 — v3.0 milestone archived
+milestone: v4.0
+milestone_name: Discoverability Compliance and Performance
+status: planning
+last_updated: "2026-05-18T14:01:25.273Z"
+last_activity: 2026-05-18
 progress:
-  total_phases: 2
-  completed_phases: 2
-  total_plans: 4
-  completed_plans: 4
-  percent: 100
+  total_phases: 0
+  completed_phases: 0
+  total_plans: 0
+  completed_plans: 0
+  percent: 0
 ---
 
 # Project State
@@ -25,10 +24,10 @@ See: .planning/PROJECT.md (updated 2026-05-18 after v3.0 milestone)
 
 ## Current Position
 
-Status: v3.0 milestone archived — planning v4.0
-Last activity: 2026-05-18 — v3.0 milestone closed and archived
-
-Progress: [██████████] 100% — all v3.0 phases complete
+Phase: Not started (defining requirements)
+Plan: —
+Status: Defining requirements
+Last activity: 2026-05-18 — Milestone v4.0 started
 
 ## Decisions Made
 
