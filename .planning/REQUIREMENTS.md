@@ -44,17 +44,17 @@ Deferred to a future milestone. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DISC-01 | — | Pending |
-| DISC-02 | — | Pending |
-| DISC-03 | — | Pending |
-| LEGL-01 | — | Pending |
-| PERF-02 | — | Pending |
+| DISC-01 | Phase 8 | Pending |
+| DISC-02 | Phase 8 | Pending |
+| LEGL-01 | Phase 8 | Pending |
+| DISC-03 | Phase 9 | Pending |
+| PERF-02 | Phase 10 | Pending |
 
 **Coverage:**
 - v4.0 requirements: 5 total
-- Mapped to phases: 0 (pending roadmap)
-- Unmapped: 5 ⚠
+- Mapped to phases: 5 (100%) ✓
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-05-18*
-*Last updated: 2026-05-18 — v4.0 milestone start*
+*Last updated: 2026-05-18 — v4.0 roadmap created (Phases 8–10)*

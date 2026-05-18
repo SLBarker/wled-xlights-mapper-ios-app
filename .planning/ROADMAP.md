@@ -5,7 +5,7 @@
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-05-14)
 - ✅ **v2.0 UI Polish** — Phases 4–5 (shipped 2026-05-14)
 - ✅ **v3.0 Interactive Workflow** — Phases 6–7 (shipped 2026-05-15)
-- 📋 **v4.0** — Phases 8+ (planned)
+- 📋 **v4.0 Discoverability, Compliance & Performance** — Phases 8–10 (planned)
 
 ## Phases
 
@@ -38,9 +38,44 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 
 </details>
 
-### v4.0 (Planned)
+### v4.0 Discoverability, Compliance & Performance
 
-- [ ] Phase 8: TBD — define via `/gsd:new-milestone`
+- [ ] **Phase 8: Discoverability & Legal** — Open Graph tags, favicon, Apple touch icon, privacy policy footer link
+- [ ] **Phase 9: Crawl Infrastructure** — robots.txt and XML sitemap
+- [ ] **Phase 10: Font Self-Hosting** — Inter font served from GitHub Pages; Google Fonts CDN removed
+
+## Phase Details
+
+### Phase 8: Discoverability & Legal
+**Goal**: The page presents a rich social preview when shared and satisfies App Store compliance requirements
+**Depends on**: Nothing (all changes are additive to existing index.html head and footer)
+**Requirements**: DISC-01, DISC-02, LEGL-01
+**Success Criteria** (what must be TRUE):
+  1. Sharing the page URL in iMessage, Twitter/X, Slack, or LinkedIn renders a preview card with the correct app title, description, and screenshot image
+  2. Browser tab shows the WLED xLights Mapper favicon; iOS home-screen bookmark shows the Apple touch icon
+  3. Page footer contains a visible, tappable privacy policy link
+**Plans**: TBD
+**UI hint**: yes
+
+### Phase 9: Crawl Infrastructure
+**Goal**: Search engines can discover and index the page without restriction
+**Depends on**: Phase 8
+**Requirements**: DISC-03
+**Success Criteria** (what must be TRUE):
+  1. A `robots.txt` file is served at the root URL and contains `Allow: /` for all crawlers
+  2. A `sitemap.xml` file is served at the root URL and lists the canonical page URL with a `<loc>` entry
+  3. Fetching `robots.txt` and `sitemap.xml` directly in a browser returns valid content (no 404)
+**Plans**: TBD
+
+### Phase 10: Font Self-Hosting
+**Goal**: Inter typeface loads from GitHub Pages assets with no outbound request to Google Fonts
+**Depends on**: Phase 8
+**Requirements**: PERF-02
+**Success Criteria** (what must be TRUE):
+  1. Network panel on a hard-reload shows zero requests to `fonts.googleapis.com` or `fonts.gstatic.com`
+  2. Inter typeface renders visually identically to the previous Google Fonts version across desktop and mobile
+  3. Font files are present in `resources/fonts/` and referenced via a `@font-face` declaration in the inline `<style>` block
+**Plans**: TBD
 
 ## Progress
 
@@ -53,4 +88,6 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 | 5. Carousel Peek-View | v2.0 | 2/2 | Complete | 2026-05-14 |
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
-| 8+. v4.0 phases | v4.0 | — | Not started | — |
+| 8. Discoverability & Legal | v4.0 | 0/? | Not started | — |
+| 9. Crawl Infrastructure | v4.0 | 0/? | Not started | — |
+| 10. Font Self-Hosting | v4.0 | 0/? | Not started | — |
