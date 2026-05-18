@@ -833,6 +833,10 @@
       margin-bottom: 0;
     }
 
+    /* Chevron toggle icon — hidden on desktop, shown + animated on mobile */
+    .stepper__chevron {
+      display: none;
+    }
 
     .icon-list {
       list-style: none;
@@ -1181,6 +1185,7 @@
         padding: 16px 0;
         display: flex;
         align-items: center;
+        justify-content: space-between;
         gap: 8px;
         background: none;
         border: none;
@@ -1197,6 +1202,20 @@
 
       .stepper__header--active .stepper__title {
         color: var(--text);
+      }
+
+      /* Chevron: visible on mobile, rotates when panel is open */
+      .stepper__chevron {
+        display: block;
+        flex-shrink: 0;
+        margin-left: auto;
+        color: var(--muted);
+        transition: transform 0.3s ease, color 0.2s ease;
+      }
+
+      .stepper__header--active .stepper__chevron {
+        transform: rotate(180deg);
+        color: var(--accent);
       }
 
       /* Panel: collapsed by default; Phase 7 JS will toggle open class */
@@ -1602,6 +1621,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">1</span>
               <span class="stepper__title">Connect</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-1">
               <div class="stepper__body">
@@ -1635,6 +1655,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">2</span>
               <span class="stepper__title">Scan</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-2">
               <div class="stepper__body">
@@ -1669,6 +1690,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">3</span>
               <span class="stepper__title">Report</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-3">
               <div class="stepper__body">
@@ -1700,6 +1722,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">4</span>
               <span class="stepper__title">Preview</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-4">
               <div class="stepper__body">
@@ -1732,6 +1755,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">5</span>
               <span class="stepper__title">Export</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-5">
               <div class="stepper__body stepper__body--text-only">
@@ -1759,6 +1783,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">1</span>
               <span class="stepper__title">Open xLights</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-1">
               <div class="stepper__body stepper__body--text-only">
@@ -1779,6 +1804,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">2</span>
               <span class="stepper__title">Import Model</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-2">
               <div class="stepper__body stepper__body--text-only">
@@ -1799,6 +1825,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">3</span>
               <span class="stepper__title">Place Model</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-3">
               <div class="stepper__body stepper__body--text-only">
@@ -1819,6 +1846,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">4</span>
               <span class="stepper__title">Select File</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-4">
               <div class="stepper__body stepper__body--text-only">
@@ -1839,6 +1867,7 @@
             >
               <span class="stepper__badge" aria-hidden="true">5</span>
               <span class="stepper__title">Done</span>
+              <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-5">
               <div class="stepper__body stepper__body--text-only">
@@ -2042,6 +2071,14 @@
       const steppers = document.querySelectorAll('.stepper');
       if (!steppers.length) return;
 
+      // On mobile: start all panels collapsed — strip the --active class set in HTML for desktop CSS
+      if (window.innerWidth < 768) {
+        document.querySelectorAll('.stepper__header--active').forEach(function (h) {
+          h.classList.remove('stepper__header--active');
+          h.setAttribute('aria-expanded', 'false');
+        });
+      }
+
       /* ---- Helpers ---- */
 
       /**
@@ -2101,7 +2138,18 @@
        */
       function activateStep(stepper, newHeader) {
         const currentHeader = stepper.querySelector('.stepper__header--active');
-        if (currentHeader === newHeader) return; // already active — no-op
+
+        // On mobile: tapping the active header collapses it (toggle)
+        if (currentHeader === newHeader) {
+          if (!isDesktop()) {
+            currentHeader.classList.remove('stepper__header--active');
+            currentHeader.setAttribute('aria-expanded', 'false');
+            const panelId = currentHeader.getAttribute('aria-controls');
+            const panel = panelId ? document.getElementById(panelId) : null;
+            if (panel) closePanel(panel);
+          }
+          return;
+        }
 
         // Deactivate current
         if (currentHeader) {
@@ -2133,6 +2181,32 @@
         });
       });
 
+      /* ---- Resize: sync panel state when crossing the 768px breakpoint ---- */
+      var wasDesktop = window.innerWidth >= 768;
+      window.addEventListener('resize', function () {
+        var nowDesktop = window.innerWidth >= 768;
+        if (nowDesktop === wasDesktop) return; // no breakpoint crossing
+        wasDesktop = nowDesktop;
+
+        steppers.forEach(function (stepper) {
+          var activeHeader = stepper.querySelector('.stepper__header--active');
+          if (!activeHeader) return;
+          var panelId = activeHeader.getAttribute('aria-controls');
+          var panel = panelId ? document.getElementById(panelId) : null;
+          if (!panel) return;
+
+          if (nowDesktop) {
+            // Desktop: clear inline styles so CSS takes over
+            panel.style.height = '';
+            panel.style.overflow = '';
+            panel.style.padding = '';
+          } else {
+            // Mobile: open the active panel with JS-managed height
+            openPanel(panel);
+          }
+        });
+      });
+
     }());
   </script>
 
@@ -2160,6 +2234,7 @@
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
           stepperAutoExpandIO.unobserve(entry.target);
+          if (window.innerWidth < 768) return; // mobile starts fully collapsed
 
           const stepper = entry.target;
           const firstHeader = stepper.querySelector('.stepper__item:first-child .stepper__header');
