@@ -41,7 +41,7 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 ### v4.0 Discoverability, Compliance & Performance
 
 - [x] **Phase 8: Discoverability & Legal** — Open Graph tags, favicon, Apple touch icon, privacy policy footer link — completed 2026-05-18
-- [ ] **Phase 9: Crawl Infrastructure** — robots.txt and XML sitemap
+- [x] **Phase 9: Crawl Infrastructure** — robots.txt and XML sitemap — completed 2026-05-18
 - [ ] **Phase 10: Font Self-Hosting** — Inter font served from GitHub Pages; Google Fonts CDN removed
 
 ## Phase Details
@@ -78,7 +78,7 @@ Plans:
   3. Fetching `robots.txt` and `sitemap.xml` directly in a browser returns valid content (no 404)
 **Plans**: 1 plan
 Plans:
-- [ ] 09-01-PLAN.md — Open robots.txt to all crawlers + add Sitemap directive, create sitemap.xml with canonical URL, add link rel=sitemap to index.html head
+- [x] 09-01-PLAN.md — Open robots.txt to all crawlers + add Sitemap directive, create sitemap.xml with canonical URL, add link rel=sitemap to index.html head
 
 ### Phase 10: Font Self-Hosting
 **Goal**: Inter typeface loads from GitHub Pages assets with no outbound request to Google Fonts
@@ -102,5 +102,5 @@ Plans:
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
-| 9. Crawl Infrastructure | v4.0 | 0/1 | Not started | — |
+| 9. Crawl Infrastructure | v4.0 | 1/1 | Complete | 2026-05-18 |
 | 10. Font Self-Hosting | v4.0 | 0/? | Not started | — |
