@@ -91,7 +91,7 @@ Plans:
 **Plans**: 2 plans
 Plans:
 **Wave 1**
-- [ ] 10-01-PLAN.md — Download 4 Inter Latin WOFF2 files (weights 400/500/600/700) into resources/fonts/
+- [x] 10-01-PLAN.md — Download 4 Inter Latin WOFF2 files (weights 400/500/600/700) into resources/fonts/
 
 **Wave 2** *(blocked on Wave 1 completion)*
 - [ ] 10-02-PLAN.md — Remove Google Fonts links from index.html head, add 4 @font-face declarations to inline style block
@@ -109,4 +109,4 @@ Plans:
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
 | 9. Crawl Infrastructure | v4.0 | 1/1 | Complete | 2026-05-18 |
-| 10. Font Self-Hosting | v4.0 | 0/2 | Not started | — |
+| 10. Font Self-Hosting | v4.0 | 1/2 | In Progress|  |

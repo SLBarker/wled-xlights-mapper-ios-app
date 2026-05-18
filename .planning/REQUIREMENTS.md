@@ -17,7 +17,7 @@
 
 ### Performance
 
-- [ ] **PERF-02**: Inter typeface loads from GitHub Pages assets; no request is made to `fonts.googleapis.com` or `fonts.gstatic.com` on page load
+- [x] **PERF-02**: Inter typeface loads from GitHub Pages assets; no request is made to `fonts.googleapis.com` or `fonts.gstatic.com` on page load
 
 ## Future Requirements
 
@@ -48,7 +48,7 @@ Deferred to a future milestone. Tracked but not in current roadmap.
 | DISC-02 | Phase 8 | Pending |
 | LEGL-01 | Phase 8 | Pending |
 | DISC-03 | Phase 9 | Pending |
-| PERF-02 | Phase 10 | Pending |
+| PERF-02 | Phase 10 | Complete |
 
 **Coverage:**
 - v4.0 requirements: 5 total
