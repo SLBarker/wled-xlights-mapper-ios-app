@@ -104,14 +104,64 @@
 
 ---
 
+---
+
+## Milestone: v4.0 — Discoverability, Compliance & Performance
+
+**Shipped:** 2026-05-18
+**Phases:** 3 (Phases 8–10) | **Plans:** 5 | **Timeline:** 1 day (2026-05-18)
+
+### What Was Built
+
+- Open Graph + Twitter Card meta tags + og-image.png — rich social preview on share
+- WX monogram SVG/PNG favicon + Apple touch icon — visible in browser tabs and iOS home-screen bookmarks
+- Standalone privacy.html + footer link — App Store compliance satisfied
+- robots.txt opened to all crawlers, sitemap.xml created, sitemap discovery link in index.html head
+- 4 Inter Latin WOFF2 fonts (weights 400/500/600/700, ~24KB each) committed to resources/fonts/
+- @font-face declarations replace Google Fonts `<link>` tags — zero CDN requests on page load
+
+### What Worked
+
+- Split into 3 focused phases (Discoverability, Crawl, Fonts) kept each plan extremely scoped — Phase 9 was a single plan, Phase 10 cleanly split binary download from HTML wiring
+- Plan 10's documented fallback path for font source URLs worked perfectly — the v13 URL assumption was stale (actual was v20), but the API query fallback resolved it in seconds with no deviation recorded
+- Wave-based sequencing within phases (Wave 1 fonts → Wave 2 @font-face) prevented the executor from referencing files that didn't exist yet
+- All 5 requirements delivered in a single day with zero rework
+
+### What Was Inefficient
+
+- REQUIREMENTS.md traceability table left DISC-01/02/03/LEGL-01 as "Pending" after Phases 8 and 9 completed — milestone close required manual reconciliation (same pattern as v3.0 retrospective lesson 1)
+- privacy.html still loads Inter from Google Fonts CDN — Phase 10 only targeted index.html per PERF-02 scope, but this is a minor inconsistency that wasn't caught until close
+- 8 human-verification items carried forward from prior milestones accumulated alongside new Phase 10 items — the audit count is growing; these should be resolved with a proper browser testing pass before the next milestone
+
+### Patterns Established
+
+- Self-hosting font assets follows the existing `resources/` directory convention — `resources/fonts/` slots naturally alongside `resources/screenshot/`, `resources/video/`, `resources/icons/`
+- WOFF2-only + Latin-subset + font-display: swap is the correct minimal font declaration for this project
+- gwfh.mranftl.com API endpoint (not per-file URLs) is the reliable way to discover current Inter WOFF2 URLs — per-file version paths go stale
+
+### Key Lessons
+
+1. Requirements traceability checkboxes should be updated in the PLAN.md acceptance criteria, not as a separate follow-up step — same lesson as v3.0, not yet embedded
+2. When a phase touches a CDN-replacement concern (fonts), check if companion pages (privacy.html) are in scope for the same change — it was quick to add in-phase; post-close note is less clean
+3. Font source URL assumptions in plans should reference the API query path, not versioned per-file paths — versions change faster than plans do
+
+### Cost Observations
+
+- Very low cost milestone — no complex logic, mostly additive HTML/CSS changes and binary asset commits
+- Phase 10 was the most interesting plan technically (API fallback for font discovery) but executed in under 5 minutes per subagent
+- No model escalation needed — sonnet throughout
+
+---
+
 ## Cross-Milestone Trends
 
-| Metric | v1.0 | v3.0 |
-|--------|------|------|
-| Phases | 3 | 2 |
-| Plans | 7 | 4 |
-| Timeline | 1 day | 1 day |
-| Requirements shipped | 12/12 (100%) | 8/8 (100%) |
-| Plan rework needed | 0 | 0 |
-| Human checkpoints passed first attempt | 3/3 | 1/1 |
-| Bugs found in human verification | 0 | 2 |
+| Metric | v1.0 | v3.0 | v4.0 |
+|--------|------|------|------|
+| Phases | 3 | 2 | 3 |
+| Plans | 7 | 4 | 5 |
+| Timeline | 1 day | 1 day | 1 day |
+| Requirements shipped | 12/12 (100%) | 8/8 (100%) | 5/5 (100%) |
+| Plan rework needed | 0 | 0 | 0 |
+| Human checkpoints passed first attempt | 3/3 | 1/1 | 1/1 |
+| Bugs found in human verification | 0 | 2 | 0 |
+| Open artifact items at close | — | 7 | 8 |

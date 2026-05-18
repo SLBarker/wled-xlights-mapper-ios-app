@@ -5,7 +5,8 @@
 - ✅ **v1.0 MVP** — Phases 1–3 (shipped 2026-05-14)
 - ✅ **v2.0 UI Polish** — Phases 4–5 (shipped 2026-05-14)
 - ✅ **v3.0 Interactive Workflow** — Phases 6–7 (shipped 2026-05-15)
-- 📋 **v4.0 Discoverability, Compliance & Performance** — Phases 8–10 (planned)
+- ✅ **v4.0 Discoverability, Compliance & Performance** — Phases 8–10 (shipped 2026-05-18)
+- 📋 **v5.0** — Not yet planned
 
 ## Phases
 
@@ -38,63 +39,24 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 
 </details>
 
-### v4.0 Discoverability, Compliance & Performance
+<details>
+<summary>✅ v4.0 Discoverability, Compliance & Performance (Phases 8–10) — SHIPPED 2026-05-18</summary>
 
-- [x] **Phase 8: Discoverability & Legal** — Open Graph tags, favicon, Apple touch icon, privacy policy footer link — completed 2026-05-18
-- [x] **Phase 9: Crawl Infrastructure** — robots.txt and XML sitemap — completed 2026-05-18
-- [x] **Phase 10: Font Self-Hosting** — Inter font served from GitHub Pages; Google Fonts CDN removed (completed 2026-05-18)
+- [x] Phase 8: Discoverability & Legal (2/2 plans) — completed 2026-05-18
+- [x] Phase 9: Crawl Infrastructure (1/1 plans) — completed 2026-05-18
+- [x] Phase 10: Font Self-Hosting (2/2 plans) — completed 2026-05-18
 
-## Phase Details
+Full details: [.planning/milestones/v4.0-ROADMAP.md](.planning/milestones/v4.0-ROADMAP.md)
 
-### Phase 8: Discoverability & Legal
-**Goal**: The page presents a rich social preview when shared and satisfies App Store compliance requirements
-**Depends on**: Nothing (all changes are additive to existing index.html head and footer)
-**Requirements**: DISC-01, DISC-02, LEGL-01
-**Success Criteria** (what must be TRUE):
-  1. Sharing the page URL in iMessage, Twitter/X, Slack, or LinkedIn renders a preview card with the correct app title, description, and screenshot image
-  2. Browser tab shows the WLED xLights Mapper favicon; iOS home-screen bookmark shows the Apple touch icon
-  3. Page footer contains a visible, tappable privacy policy link
-**Plans**: 2 plans
-Plans:
-**Wave 1**
-- [x] 08-01-PLAN.md — Social/discovery head tags (OG, Twitter card, canonical, favicon links) + favicon.svg + PNG favicon checkpoint
+</details>
 
-**Wave 2** *(blocked on Wave 1 completion)*
-- [x] 08-02-PLAN.md — privacy.html page creation + footer Privacy Policy link in index.html
+### 📋 v5.0 (Not yet planned)
 
-**Cross-cutting constraints:**
-- All CSS must remain inline in `<style>` blocks (no external stylesheets) — CLAUDE.md constraint
-- Favicon accent color is `#0071e3` (the real `--accent` token), not `#2dd4bf` — UI-SPEC.md correction
-- privacy.html is an acceptable companion file per CLAUDE.md
-**UI hint**: yes
+Candidates for the next milestone:
+- CONT-01: Wire App Store URL into `#download` CTA (blocked until URL available)
+- PERF-03: Compress video assets (3dpreview.mp4 = 9.2 MB) — blocked until final video available
 
-### Phase 9: Crawl Infrastructure
-**Goal**: Search engines can discover and index the page without restriction
-**Depends on**: Phase 8
-**Requirements**: DISC-03
-**Success Criteria** (what must be TRUE):
-  1. A `robots.txt` file is served at the root URL and contains `Allow: /` for all crawlers
-  2. A `sitemap.xml` file is served at the root URL and lists the canonical page URL with a `<loc>` entry
-  3. Fetching `robots.txt` and `sitemap.xml` directly in a browser returns valid content (no 404)
-**Plans**: 1 plan
-Plans:
-- [x] 09-01-PLAN.md — Open robots.txt to all crawlers + add Sitemap directive, create sitemap.xml with canonical URL, add link rel=sitemap to index.html head
-
-### Phase 10: Font Self-Hosting
-**Goal**: Inter typeface loads from GitHub Pages assets with no outbound request to Google Fonts
-**Depends on**: Phase 8
-**Requirements**: PERF-02
-**Success Criteria** (what must be TRUE):
-  1. Network panel on a hard-reload shows zero requests to `fonts.googleapis.com` or `fonts.gstatic.com`
-  2. Inter typeface renders visually identically to the previous Google Fonts version across desktop and mobile
-  3. Font files are present in `resources/fonts/` and referenced via a `@font-face` declaration in the inline `<style>` block
-**Plans**: 2 plans
-Plans:
-**Wave 1**
-- [x] 10-01-PLAN.md — Download 4 Inter Latin WOFF2 files (weights 400/500/600/700) into resources/fonts/
-
-**Wave 2** *(blocked on Wave 1 completion)*
-- [x] 10-02-PLAN.md — Remove Google Fonts links from index.html head, add 4 @font-face declarations to inline style block
+Run `/gsd:new-milestone` to start planning.
 
 ## Progress
 
@@ -109,4 +71,4 @@ Plans:
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
 | 9. Crawl Infrastructure | v4.0 | 1/1 | Complete | 2026-05-18 |
-| 10. Font Self-Hosting | v4.0 | 2/2 | Complete   | 2026-05-18 |
+| 10. Font Self-Hosting | v4.0 | 2/2 | Complete | 2026-05-18 |

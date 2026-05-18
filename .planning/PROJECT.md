@@ -10,7 +10,7 @@ Every visitor who arrives on the page should come away understanding what the ap
 
 ## Current State
 
-**Shipped:** v1.0 MVP (2026-05-14), v2.0 UI Polish (2026-05-14), v3.0 Interactive Workflow (2026-05-15)
+**Shipped:** v1.0 MVP (2026-05-14), v2.0 UI Polish (2026-05-14), v3.0 Interactive Workflow (2026-05-15), v4.0 Discoverability, Compliance & Performance (2026-05-18)
 
 - Mobile-responsive with hamburger nav, single-column grids, and accessible keyboard navigation
 - 4-slide hero carousel with 3D depth peek-view (adjacent slides partially visible)
@@ -19,26 +19,39 @@ Every visitor who arrives on the page should come away understanding what the ap
 - Both "In the App" and "Importing into xLights" steppers use identical BEM component; "In the App" steps show phone bezel screenshots
 - Contact/Feedback section with pre-filled mailto CTA
 - 13.3 MB of autoplay video deferred from page load via IntersectionObserver
-- ~2,450 lines, single `index.html`, no build pipeline, GitHub Pages hosted
+- Open Graph + Twitter Card social sharing meta tags + og-image.png
+- WX favicon (SVG + PNG) + Apple touch icon
+- Standalone privacy policy page + footer link (App Store compliance)
+- robots.txt + XML sitemap + sitemap discovery link in index.html
+- Inter font self-hosted from resources/fonts/ — zero Google Fonts CDN requests
+- 2,581 lines, single `index.html`, no build pipeline, GitHub Pages hosted
 
 **Open:** App Store URL not yet available — `#download` CTA remains a placeholder link.
 
-## Current Milestone: v4.0 Discoverability, Compliance & Performance
+## Milestone Status
 
-**Goal:** Make the landing page findable, legally sound, and fast — closing all pre-launch gaps before the App Store URL lands.
+| Milestone | Status | Date |
+|-----------|--------|------|
+| v1.0 MVP | ✅ Shipped | 2026-05-14 |
+| v2.0 UI Polish | ✅ Shipped | 2026-05-14 |
+| v3.0 Interactive Workflow | ✅ Shipped | 2026-05-15 |
+| v4.0 Discoverability, Compliance & Performance | ✅ Shipped | 2026-05-18 |
+| v5.0 | 📋 Not started | — |
 
-**Target features:**
-- Open Graph meta tags (og:title, og:description, og:image)
-- Favicon + Apple touch icon
-- robots.txt + XML sitemap
-- Privacy policy link in footer (App Store compliance)
-- Self-host Inter font subset (remove Google Fonts CDN)
-- Compress video assets (3dpreview.mp4 is 9.2 MB)
+**Next milestone targets (candidates):**
+- CONT-01: Wire App Store URL into `#download` CTA (blocked until URL available from Apple)
+- PERF-03: Compress video assets (3dpreview.mp4 = 9.2 MB) — deferred until final video available
+- Any additional launch-readiness work once App Store URL lands
 
 ## Requirements
 
 ### Validated
 
+- ✓ Open Graph + Twitter Card social meta tags + og-image.png — rich social preview on share — v4.0
+- ✓ WX monogram favicon (SVG + PNG) + Apple touch icon — v4.0
+- ✓ Privacy policy page + footer link — App Store compliance (LEGL-01) — v4.0
+- ✓ robots.txt open to all crawlers + XML sitemap + sitemap discovery link — v4.0
+- ✓ Inter font self-hosted (WOFF2, Latin subset, weights 400/500/600/700) — Google Fonts CDN removed (PERF-02) — v4.0
 - ✓ Full landing page content rendered — hero, features, how-it-works, export, requirements, tips, privacy, footer — existing
 - ✓ Scroll-reveal entrance animations (IntersectionObserver) — existing
 - ✓ Apple-inspired design system (CSS tokens, Inter typeface, frosted-glass nav) — existing
@@ -65,15 +78,10 @@ Every visitor who arrives on the page should come away understanding what the ap
 - ✓ Steps without a screenshot show text at full width (STEP-07) — v3.0
 - ✓ Horizontal rail on desktop, vertical accordion on mobile (STEP-08) — v3.0
 
-### Active (v4.0 targets)
+### Active (v5.0 targets)
 
-- [ ] Wire App Store URL into `#download` CTA — blocked until URL is available
-- [ ] Open Graph / social meta tags — og:title, og:description, og:image (DISC-01)
-- [ ] Favicon and Apple touch icon (DISC-02)
-- [ ] robots.txt and XML sitemap (DISC-03)
-- [ ] Privacy policy link in footer — required for App Store compliance (LEGL-01)
-- [ ] Self-host Inter font subset — remove Google Fonts CDN dependency (PERF-02)
-- [ ] Compress video assets — 3dpreview.mp4 is 9.2 MB, significant on mobile (PERF-03)
+- [ ] Wire App Store URL into `#download` CTA — blocked until URL is available from Apple (CONT-01)
+- [ ] Compress video assets — 3dpreview.mp4 is 9.2 MB, significant on mobile (PERF-03) — deferred until final video available
 
 ### Out of Scope
 
@@ -112,6 +120,10 @@ Every visitor who arrives on the page should come away understanding what the ap
 | Phase split: CSS/HTML foundation then JS interaction | Static structure first, behavior layered on — cleanly separable concerns | ✓ Clean execution in v3.0 |
 | Two separate IIFEs for click vs auto-expand/keyboard | Independently committable, testable, revertable | ✓ Worked well in v3.0 |
 | Mobile accordion starts fully collapsed with chevron toggle | Better mobile UX — user controls what they read; saves vertical space | ✓ Shipped post-v3.0 close |
+| Favicon: dark bg `#0a0a0f` + `#0071e3` text for WX monogram | Consistent with design system tokens; not the teal `#2dd4bf` | ✓ Verified in Phase 8 UAT |
+| privacy.html as companion file (not inline in index.html) | App Store requires linkable URL; CLAUDE.md constraint targets CSS, not companion pages | ✓ Shipped v4.0 |
+| WOFF2-only @font-face, Latin subset, drop weight 300 | Weight 300 never used in CSS; WOFF2 supported by all target browsers; Latin sufficient for English content | ✓ Shipped v4.0 |
+| font-display: swap, no preload hints | Matches prior Google Fonts behavior; avoids bandwidth contention; swap alone is sufficient | ✓ Shipped v4.0 |
 
 ---
 
@@ -133,4 +145,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-05-18 — v4.0 milestone started*
+*Last updated: 2026-05-18 after v4.0 milestone*

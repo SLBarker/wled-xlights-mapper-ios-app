@@ -55,12 +55,12 @@ Last activity: 2026-05-18 -- Phase 10 executed and verified
 
 ## Deferred Items
 
-Items carried forward from v3.0 close:
+Items acknowledged at v4.0 milestone close (2026-05-18):
 
 | Category | Item | Status |
 |----------|------|--------|
-| Content | App Store URL for #download CTA | Blocked — awaiting URL |
-| Performance | Compress video assets (PERF-03) | Future milestone |
+| Content | CONT-01: App Store URL for #download CTA | Blocked — awaiting URL from Apple |
+| Performance | PERF-03: Compress video assets (3dpreview.mp4 = 9.2 MB) | Deferred — blocked until final video available |
 | uat_gap | Phase 04: 04-HUMAN-UAT.md — 5 pending browser-test scenarios | acknowledged |
 | uat_gap | Phase 05: 05-HUMAN-UAT.md — 5 pending browser-test scenarios | acknowledged |
 | uat_gap | Phase 06: 06-HUMAN-UAT.md — 2 pending browser-test scenarios | acknowledged |
@@ -68,9 +68,10 @@ Items carried forward from v3.0 close:
 | verification_gap | Phase 05: 05-VERIFICATION.md [human_needed visual checks] | acknowledged |
 | verification_gap | Phase 06: 06-VERIFICATION.md [human_needed visual checks] | acknowledged |
 | verification_gap | Phase 07: 07-VERIFICATION.md [manually verified in 07-02 plan, file not updated] | acknowledged |
+| verification_gap | Phase 10: 10-VERIFICATION.md [human_needed: browser network panel, visual render check] | acknowledged |
 
 ## Session Continuity
 
-Last session: 2026-05-18T21:30:00.000Z
-Stopped at: Phase 10 complete — v4.0 milestone complete
-Resume with: `/gsd:complete-milestone` or `/gsd:new-milestone`
+Last session: 2026-05-18T22:00:00.000Z
+Stopped at: v4.0 milestone archived and closed
+Resume with: `/gsd:new-milestone` — start planning v5.0

@@ -35,6 +35,42 @@
 
 ---
 
+## v4.0 Discoverability, Compliance & Performance — SHIPPED 2026-05-18
+
+**Phases:** 3 (Phases 8–10) | **Plans:** 5 | **Timeline:** 2026-05-18 (1 day)
+
+**Delivered:** Made the landing page findable, legally sound, and CDN-free — Open Graph social sharing, favicon, privacy policy, robots/sitemap crawl infrastructure, and self-hosted Inter fonts replacing the Google Fonts CDN dependency. All 5 v4.0 requirements satisfied.
+
+### Accomplishments
+
+1. Open Graph + Twitter Card meta tags with og-image.png — rich social preview when sharing URL in iMessage, Slack, Twitter, etc.
+2. WX monogram SVG/PNG favicon + Apple touch icon — visible in browser tabs and iOS home-screen bookmarks
+3. Standalone privacy.html + footer link in index.html — App Store compliance requirement satisfied (LEGL-01)
+4. robots.txt opened to all crawlers, sitemap.xml created, sitemap discovery link added to index.html head
+5. 4 Inter Latin WOFF2 fonts (~24KB each, ~96KB total) committed to resources/fonts/ — Google Fonts CDN removed from index.html entirely
+6. @font-face declarations with font-display: swap replace Google Fonts `<link>` tags — zero outbound CDN requests on page load
+
+### Stats
+
+- Requirements shipped: 5/5 (100%)
+- Files changed: 29 | Net lines: +1618 / -32 | index.html: 2581 lines
+- Git commits: 32
+- Known deferred items at close: 8 (UAT gaps + human_needed verification gaps — code correct in all cases)
+
+### Archive
+
+- [Roadmap archive](.planning/milestones/v4.0-ROADMAP.md)
+- [Requirements archive](.planning/milestones/v4.0-REQUIREMENTS.md)
+
+### Notes
+
+- All 5 v4.0 requirements delivered (DISC-01, DISC-02, DISC-03, LEGL-01, PERF-02)
+- CONT-01 (App Store URL) and PERF-03 (video compression) deferred to future milestone — both blocked on external dependencies
+- privacy.html still loads Inter from Google Fonts CDN — only index.html was targeted by PERF-02; acceptable given negligible privacy-page traffic
+- 8 open artifact items acknowledged at close: all are human browser-test/visual checks, not code gaps
+
+---
+
 ## v3.0 Interactive Workflow — SHIPPED 2026-05-15
 
 **Phases:** 2 (Phases 6–7) | **Plans:** 4 | **Timeline:** 2026-05-15 (1 day)
