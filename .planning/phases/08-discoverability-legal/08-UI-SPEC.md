@@ -57,12 +57,20 @@ Source: Existing footer CSS (index.html line 1023), iOS HIG touch target standar
 
 ## Typography
 
+Phase 8 introduces or touches exactly 3 font sizes. The table below is scoped to those sizes only.
+
 | Role | Size | Weight | Line Height |
 |------|------|--------|-------------|
 | Body | 16px (1rem) | 400 regular | 1.7 |
 | Label / small print | 13px (0.8125rem) | 400 regular | 1.5 |
-| Heading (section) | clamp(2rem–3rem) | 700 bold | 1.15 |
-| Display (hero) | clamp(3rem–6rem) | 700 bold | 1.05 |
+| Sub-heading (privacy.html sections) | 20px (1.25rem) | 700 bold | 1.3 |
+
+> Note: The site uses two additional display/heading sizes defined in existing CSS —
+> `clamp(2rem, 3rem)` for section headings and `clamp(3rem, 6rem)` for the hero display.
+> These are inherited from the site's existing stylesheet and are NOT introduced or modified
+> by Phase 8. They are excluded from this contract's declared sizes.
+
+**Declared weights: 400 regular and 700 bold only.**
 
 **Phase 8 specific elements:**
 
@@ -70,9 +78,9 @@ Source: Existing footer CSS (index.html line 1023), iOS HIG touch target standar
 |---------|------|--------|-------|
 | Footer Privacy Policy link | 13px (0.8125rem) | 400 regular | rgba(255,255,255,0.35) |
 | `privacy.html` body text | 16px (1rem) | 400 regular | `--text` (#1d1d1f) |
-| `privacy.html` section headings | 20px (1.25rem) | 600 semibold | `--text` (#1d1d1f) |
+| `privacy.html` section headings | 20px (1.25rem) | 700 bold | `--text` (#1d1d1f) |
 | `privacy.html` nav app name | 16px (1rem) | 700 bold | `--text` (#1d1d1f) |
-| `privacy.html` back link | 13px (0.8125rem) | 500 medium | `--accent` (#0071e3) |
+| `privacy.html` back link | 13px (0.8125rem) | 400 regular | `--accent` (#0071e3) |
 | SVG favicon "WX" text | 16px at viewBox scale | 700 bold | #0071e3 |
 
 Source: index.html body CSS (line 34–37), footer p CSS (line 1027–1030), nav brand CSS (line 79–80).
