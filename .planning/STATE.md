@@ -2,10 +2,10 @@
 gsd_state_version: 1.0
 milestone: v3.0
 milestone_name: Interactive Workflow
-status: milestone_complete
-stopped_at: "Phase 7 complete — v3.0 milestone shipped"
-last_updated: "2026-05-15T00:00:00.000Z"
-last_activity: 2026-05-15 — Phase 7 complete (2/2 plans, 9/9 verified)
+status: archived
+stopped_at: "v3.0 milestone archived — ready for v4.0 planning"
+last_updated: "2026-05-18T00:00:00.000Z"
+last_activity: 2026-05-18 — v3.0 milestone archived
 progress:
   total_phases: 2
   completed_phases: 2
@@ -18,19 +18,17 @@ progress:
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-05-14 for v3.0 milestone)
+See: .planning/PROJECT.md (updated 2026-05-18 after v3.0 milestone)
 
 **Core value:** Every visitor should understand what the app does and be able to download it — convert curiosity into App Store taps.
-**Current focus:** v3.0 Interactive Workflow — stepper UX for "In the App" and "Importing into xLights" sections
+**Current focus:** Planning next milestone (v4.0)
 
 ## Current Position
 
-Phase: Phase 7 — Stepper Interaction (complete)
-Plan: All plans complete
-Status: v3.0 milestone complete — all phases shipped
-Last activity: 2026-05-15 — Phase 7 complete (2/2 plans, 9/9 verified)
+Status: v3.0 milestone archived — planning v4.0
+Last activity: 2026-05-18 — v3.0 milestone closed and archived
 
-Progress: [█████░░░░░] 50% (1/2 phases complete)
+Progress: [██████████] 100% — all v3.0 phases complete
 
 ## Decisions Made
 
@@ -48,7 +46,9 @@ Progress: [█████░░░░░] 50% (1/2 phases complete)
 
 (none yet)
 
-## Deferred Items (Future v4+)
+## Deferred Items
+
+Items acknowledged and deferred at v3.0 milestone close on 2026-05-18:
 
 | Category | Item | Status |
 |----------|------|--------|
@@ -59,9 +59,16 @@ Progress: [█████░░░░░] 50% (1/2 phases complete)
 | Discovery | robots.txt + sitemap (DISC-03) | v4+ |
 | Legal | Privacy policy link (LEGL-01) | v4+ |
 | Content | App Store URL for #download CTA | Blocked — awaiting URL |
+| uat_gap | Phase 04: 04-HUMAN-UAT.md — 5 pending browser-test scenarios | acknowledged |
+| uat_gap | Phase 05: 05-HUMAN-UAT.md — 5 pending browser-test scenarios | acknowledged |
+| uat_gap | Phase 06: 06-HUMAN-UAT.md — 2 pending browser-test scenarios | acknowledged |
+| verification_gap | Phase 04: 04-VERIFICATION.md [human_needed visual checks] | acknowledged |
+| verification_gap | Phase 05: 05-VERIFICATION.md [human_needed visual checks] | acknowledged |
+| verification_gap | Phase 06: 06-VERIFICATION.md [human_needed visual checks] | acknowledged |
+| verification_gap | Phase 07: 07-VERIFICATION.md [manually verified in 07-02 plan, file not updated] | acknowledged |
 
 ## Session Continuity
 
-Last session: 2026-05-15
-Stopped at: v3.0 milestone complete
-Resume with: /gsd-progress to review or /gsd-new-milestone for v4.0
+Last session: 2026-05-18
+Stopped at: v3.0 milestone archived
+Resume with: /gsd-new-milestone for v4.0 planning

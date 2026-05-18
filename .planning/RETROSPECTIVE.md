@@ -54,13 +54,64 @@
 
 ---
 
+---
+
+## Milestone: v3.0 — Interactive Workflow
+
+**Shipped:** 2026-05-15
+**Phases:** 2 | **Plans:** 4 | **Timeline:** 1 day (2026-05-15)
+
+### What Was Built
+
+- BEM stepper CSS: 5-column CSS Grid rail on desktop (display:contents on items), height:0 accordion on mobile
+- HTML restructure: two .stepper blocks with 10 .stepper__item elements replace the old .workflow div; phone bezel screenshots wired to In the App steps 1–4
+- JS stepper controller: click-to-expand with mobile height animation, adjacent-step collapse, ARIA state management
+- Fire-once IntersectionObserver auto-expands Step 1 on viewport entry (threshold 0.15) without re-triggering
+- Arrow key focus cycling within each stepper container (direction-aware desktop/mobile)
+- Post-close: mobile chevron toggle, fully-collapsed start state, desktop↔mobile resize boundary sync
+
+### What Worked
+
+- Phase split (CSS/HTML in Phase 6, JS in Phase 7) was clean — Phase 7 could treat the DOM as stable; no markup changes were needed when wiring JS
+- Two-IIFE structure (click handler separate from auto-expand/keyboard) made each script independently committable and verifiable
+- Human verification plan (07-02) caught two real bugs that grep verification could not: height:'' → height:auto regression, and padding-before-measure requirement for jump-free animation
+- The BEM naming convention established in Phase 6 made Phase 7 zero-friction — all selector targets were pre-defined
+
+### What Was Inefficient
+
+- STEP-02/03/04 requirements in REQUIREMENTS.md were not ticked off after Phase 7 shipped — milestone close required manual reconciliation
+- VERIFICATION.md files not updated to "passed" after human sign-off in 07-02-SUMMARY.md — creates audit debt that gets flagged at close
+- Post-close enhancements (chevron toggle, collapsed start, resize sync) were unplanned but necessary — could have been included in the Phase 7 plan with a more thorough mobile UX review upfront
+
+### Patterns Established
+
+- `display:contents` stepper pattern: items are layout-transparent; headers land in grid-row:1, panels span grid-column:1/-1 in grid-row:2 via explicit declarations
+- Adjacent-sibling CSS for tab visibility: `.stepper__header--active + .stepper__panel { display: block }` works through display:contents
+- openPanel/closePanel height animation: snapshot scrollHeight AFTER setting padding, animate to px, then set to 'auto' on transitionend (NOT '' — that falls back to CSS height:0)
+- Fire-once IntersectionObserver: `unobserve(entry.target)` immediately after firing, before any state changes
+- IIFE-per-concern: each independent behavior (click, auto-expand, keyboard) gets its own IIFE — scoped, committable, testable independently
+
+### Key Lessons
+
+1. Require VERIFICATION.md and REQUIREMENTS.md updates as part of the final plan's acceptance criteria — not as separate follow-up work
+2. Mobile UX review should happen during discuss-phase, not post-execution — the chevron toggle and collapsed-start were obvious mobile UX improvements that weren't in scope until they were needed
+3. When a human verification plan finds bugs, the VERIFICATION.md should be updated to reflect passed status within that same plan
+
+### Cost Observations
+
+- Very fast milestone — 4 plans, 1 day, all within sonnet context
+- JS bugs found in human verification (not grep) confirm value of the human checkpoint plan for animation-dependent features
+
+---
+
 ## Cross-Milestone Trends
 
-| Metric | v1.0 |
-|--------|------|
-| Phases | 3 |
-| Plans | 7 |
-| Timeline | 1 day |
-| Requirements shipped | 12/12 (100%) |
-| Plan rework needed | 0 |
-| Human checkpoints passed first attempt | 3/3 |
+| Metric | v1.0 | v3.0 |
+|--------|------|------|
+| Phases | 3 | 2 |
+| Plans | 7 | 4 |
+| Timeline | 1 day | 1 day |
+| Requirements shipped | 12/12 (100%) | 8/8 (100%) |
+| Plan rework needed | 0 | 0 |
+| Human checkpoints passed first attempt | 3/3 | 1/1 |
+| Bugs found in human verification | 0 | 2 |
