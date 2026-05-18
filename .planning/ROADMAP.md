@@ -42,7 +42,7 @@ Full details: [.planning/milestones/v3.0-ROADMAP.md](.planning/milestones/v3.0-R
 
 - [x] **Phase 8: Discoverability & Legal** — Open Graph tags, favicon, Apple touch icon, privacy policy footer link — completed 2026-05-18
 - [x] **Phase 9: Crawl Infrastructure** — robots.txt and XML sitemap — completed 2026-05-18
-- [ ] **Phase 10: Font Self-Hosting** — Inter font served from GitHub Pages; Google Fonts CDN removed
+- [x] **Phase 10: Font Self-Hosting** — Inter font served from GitHub Pages; Google Fonts CDN removed (completed 2026-05-18)
 
 ## Phase Details
 
@@ -94,7 +94,7 @@ Plans:
 - [x] 10-01-PLAN.md — Download 4 Inter Latin WOFF2 files (weights 400/500/600/700) into resources/fonts/
 
 **Wave 2** *(blocked on Wave 1 completion)*
-- [ ] 10-02-PLAN.md — Remove Google Fonts links from index.html head, add 4 @font-face declarations to inline style block
+- [x] 10-02-PLAN.md — Remove Google Fonts links from index.html head, add 4 @font-face declarations to inline style block
 
 ## Progress
 
@@ -109,4 +109,4 @@ Plans:
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
 | 9. Crawl Infrastructure | v4.0 | 1/1 | Complete | 2026-05-18 |
-| 10. Font Self-Hosting | v4.0 | 1/2 | In Progress|  |
+| 10. Font Self-Hosting | v4.0 | 2/2 | Complete   | 2026-05-18 |
