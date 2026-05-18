@@ -76,7 +76,9 @@ Plans:
   1. A `robots.txt` file is served at the root URL and contains `Allow: /` for all crawlers
   2. A `sitemap.xml` file is served at the root URL and lists the canonical page URL with a `<loc>` entry
   3. Fetching `robots.txt` and `sitemap.xml` directly in a browser returns valid content (no 404)
-**Plans**: TBD
+**Plans**: 1 plan
+Plans:
+- [ ] 09-01-PLAN.md — Open robots.txt to all crawlers + add Sitemap directive, create sitemap.xml with canonical URL, add link rel=sitemap to index.html head
 
 ### Phase 10: Font Self-Hosting
 **Goal**: Inter typeface loads from GitHub Pages assets with no outbound request to Google Fonts
@@ -100,5 +102,5 @@ Plans:
 | 6. Stepper Foundation | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 7. Stepper Interaction | v3.0 | 2/2 | Complete | 2026-05-15 |
 | 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
-| 9. Crawl Infrastructure | v4.0 | 0/? | Not started | — |
+| 9. Crawl Infrastructure | v4.0 | 0/1 | Not started | — |
 | 10. Font Self-Hosting | v4.0 | 0/? | Not started | — |
