@@ -6,7 +6,7 @@
 - ✅ **v2.0 UI Polish** — Phases 4–5 (shipped 2026-05-14)
 - ✅ **v3.0 Interactive Workflow** — Phases 6–7 (shipped 2026-05-15)
 - ✅ **v4.0 Discoverability, Compliance & Performance** — Phases 8–10 (shipped 2026-05-18)
-- 🚧 **v4.1 Coming Soon CTA** — Phase 11 (in progress)
+- ✅ **v4.1 Coming Soon CTA** — Phase 11 (shipped 2026-05-18)
 
 ## Phases
 
@@ -50,9 +50,9 @@ Full details: [.planning/milestones/v4.0-ROADMAP.md](.planning/milestones/v4.0-R
 
 </details>
 
-### 🚧 v4.1 Coming Soon CTA
+### ✅ v4.1 Coming Soon CTA — SHIPPED 2026-05-18
 
-- [ ] **Phase 11: Coming Soon CTA** — Replace broken `#download` placeholder with a disabled "Coming Soon" state on all download CTAs
+- [x] **Phase 11: Coming Soon CTA** — Replace broken `#download` placeholder with a disabled "Coming Soon" state on all download CTAs
 
 ## Phase Details
 
@@ -68,7 +68,7 @@ Full details: [.planning/milestones/v4.0-ROADMAP.md](.planning/milestones/v4.0-R
   5. Both buttons remain keyboard-focusable — no accessibility regression (aria-disabled pattern preferred over removing tabindex)
 **Plans**: 1 plan
 Plans:
-- [ ] 11-01-PLAN.md — Convert nav pill + hero button to disabled "Coming Soon" CTAs with disabled-state CSS
+- [x] 11-01-PLAN.md — Convert nav pill + hero button to disabled "Coming Soon" CTAs with disabled-state CSS
 **UI hint**: yes
 
 ## Progress
@@ -85,4 +85,4 @@ Plans:
 | 8. Discoverability & Legal | v4.0 | 2/2 | Complete | 2026-05-18 |
 | 9. Crawl Infrastructure | v4.0 | 1/1 | Complete | 2026-05-18 |
 | 10. Font Self-Hosting | v4.0 | 2/2 | Complete | 2026-05-18 |
-| 11. Coming Soon CTA | v4.1 | 0/1 | Not started | - |
+| 11. Coming Soon CTA | v4.1 | 1/1 | Complete | 2026-05-18 |
