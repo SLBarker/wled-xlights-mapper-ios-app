@@ -1403,7 +1403,15 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/connect.jpeg" alt="App screenshot showing the WLED controller connect screen with mDNS discovery list">
+                        <video
+                          data-src="resources/video/discover-rename-connect.mp4"
+                          autoplay
+                          loop
+                          muted
+                          playsinline
+                          style="width:100%; height:100%; object-fit:cover; display:block;"
+                          aria-label="Screen recording of automatic mDNS controller discovery, naming and connection">
+                        </video>
                       </div>
                     </div>
                     <p class="phone-bezel__caption">Connect</p>
@@ -1415,10 +1423,38 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/ar.jpeg" alt="App screenshot showing the AR scanning view with gray-code pattern detection overlay">
-                      </div>
+                          <video
+                            data-src="resources/video/final-scan.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            style="width:100%; height:100%; object-fit:cover; display:block;"
+                            aria-label="Screen recording of a scan pass, showing AR overlay of LED's">
+                          </video>
+                        </div>
                     </div>
                     <p class="phone-bezel__caption">Scan</p>
+                  </div>
+                </div>
+                
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 4: Results">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                         <video
+                            data-src="resources/video/results.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            style="width:100%; height:100%; object-fit:cover; display:block;"
+                            aria-label="Screen recording of an example result report for a scan">
+                          </video>
+                       </div>
+                    </div>
+                    <p class="phone-bezel__caption">Results</p>
                   </div>
                 </div>
 
@@ -1427,24 +1463,21 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/preview.jpeg" alt="App screenshot showing the 3D LED preview with quality tier colour overlay">
-                      </div>
+                         <video
+                            data-src="resources/video/preview.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            style="width:100%; height:100%; object-fit:cover; display:block;"
+                            aria-label="Screen recording of a 3d preview of a scanned cone led object">
+                          </video>
+                        </div>
                     </div>
-                    <p class="phone-bezel__caption">Preview &amp; Export</p>
+                    <p class="phone-bezel__caption">Preview</p>
                   </div>
                 </div>
 
-                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 4: Results">
-                  <div class="phone-bezel">
-                    <div class="phone-bezel__frame">
-                      <div class="phone-bezel__screen">
-                        <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/results.jpeg" alt="App screenshot showing the export results screen with LED position data">
-                      </div>
-                    </div>
-                    <p class="phone-bezel__caption">Results</p>
-                  </div>
-                </div>
 
               </div><!-- /.hero-carousel__track -->
             </div><!-- /.hero-carousel__track-wrap -->
@@ -1508,7 +1541,7 @@
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
                     <video
-                      data-src="resources/video/discovery.mp4"
+                      data-src="resources/video/edited-connect-discover-segments.mp4"
                       autoplay
                       loop
                       muted
@@ -1532,10 +1565,15 @@
                 <div class="phone-bezel__frame">
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
-                    <div class="phone-bezel__placeholder" aria-label="Screenshot placeholder: Gray-code AR scanning in progress">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-                      AR Scan — Live Camera View
-                    </div>
+                    <video
+                      data-src="resources/video/incremental-cone-scanning-start.mov"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      aria-label="Screen recording of A scanning session, as each scan completes, the AR view builds incrementally generating a better 3d model of the LEDS">
+                    </video>
                   </div>
                 </div>
               </div>
@@ -1552,10 +1590,15 @@
                 <div class="phone-bezel__frame">
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
-                    <div class="phone-bezel__placeholder" aria-label="Screenshot placeholder: RANSAC quality tier overlay on LED model">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-                      Quality Tier Overlay
-                    </div>
+                   <video
+                      data-src="resources/video/ar-physical-led-status-display.mp4"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      aria-label="Screen recording showing scanning status on the physical LEDS, with filtering of status via UI">
+                    </video>
                   </div>
                 </div>
               </div>
@@ -1579,13 +1622,13 @@
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
                     <video
-                      data-src="resources/video/3dpreview.mp4"
+                      data-src="resources/video/preview-interpolate-export.mp4"
                       autoplay
                       loop
                       muted
                       playsinline
                       style="width:100%; height:100%; object-fit:cover; display:block;"
-                      aria-label="Screen recording of interactive 3D LED preview with pan, zoom, and rotate controls">
+                      aria-label="Screen recording of interactive 3D LED preview with pan, zoom, and rotate controls, select an LED to manually move, or simply delete calculated position and interpolate it's position using neighbours">
                     </video>
                   </div>
                 </div>
@@ -1694,7 +1737,15 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/connect.jpeg" alt="Connect screen showing WLED controller connection UI" loading="lazy">
+                        <video
+                          data-src="resources/video/edited-connect-discover-segments.mp4"
+                          autoplay
+                          loop
+                          muted
+                          playsinline
+                          style="width:100%; height:100%; object-fit:cover; display:block;"
+                          aria-label="Screen recording of automatic mDNS controller discovery, naming and connection">
+                        </video>
                       </div>
                     </div>
                   </div>
