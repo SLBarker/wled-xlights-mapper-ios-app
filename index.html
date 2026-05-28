@@ -890,6 +890,61 @@
       display: none;
     }
 
+    /* ── Stepper: desktop screenshot variant ── */
+    .stepper__body--with-screenshot {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stepper__body--with-screenshot .stepper__content {
+      flex: none;
+    }
+
+    .stepper__screenshot-frame {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 0 0 1px rgba(0,0,0,0.1);
+      background: #1e1e1e;
+    }
+
+    .stepper__screenshot-titlebar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 12px;
+      background: #3a3a3a;
+      border-bottom: 1px solid rgba(0,0,0,0.25);
+    }
+
+    .stepper__screenshot-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .stepper__screenshot-dot--red    { background: #ff5f57; }
+    .stepper__screenshot-dot--yellow { background: #febc2e; }
+    .stepper__screenshot-dot--green  { background: #28c840; }
+
+    .stepper__screenshot-title {
+      flex: 1;
+      text-align: center;
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin: 0 8px;
+    }
+
+    .stepper__screenshot-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .icon-list {
       list-style: none;
       padding: 0;
@@ -915,7 +970,7 @@
 
     /* ── Requirements ── */
     #requirements {
-      background: var(--surface);
+      background: var(--bg);
     }
 
     .req-grid {
@@ -926,7 +981,7 @@
     }
 
     .req-card {
-      background: var(--bg);
+      background: var(--surface);
       border-radius: var(--radius-sm);
       padding: 1.5rem;
       display: flex;
@@ -960,7 +1015,7 @@
 
     /* ── Tips ── */
     #tips {
-      background: var(--bg);
+      background: var(--surface);
     }
 
     .tips-cols {
@@ -1053,7 +1108,7 @@
 
     /* ── Contact ── */
     #contact {
-      background: var(--surface);
+      background: var(--bg);
     }
 
     .contact-cta {
@@ -1339,7 +1394,7 @@
       <ul class="site-nav__links" id="site-nav-menu" role="list">
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">Workflow</a></li>
-        <li><a href="#export">Using Your Export</a></li>
+        <!--<li><a href="#export">Using Your Export</a></li>-->
         <li><a href="#requirements">Requirements</a></li>
         <li><a href="#tips">Tips</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1356,7 +1411,7 @@
       <ul role="list">
         <li><a href="#features">Features</a></li>
         <li><a href="#how-it-works">Workflow</a></li>
-        <li><a href="#export">Using Your Export</a></li>
+       <!-- <li><a href="#export">Using Your Export</a></li> -->
         <li><a href="#requirements">Requirements</a></li>
         <li><a href="#tips">Tips</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -1398,7 +1453,19 @@
             <div class="hero-carousel__track-wrap">
               <div class="hero-carousel__track" id="carousel-track">
 
-                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="1 of 4: Connect">
+                 <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="1 of 5: Physical LED's">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                         <img src="resources/screenshot/cone-physical-photo.jpeg" alt="The Physical LED's to be modelled">
+                      </div>
+                    </div>
+                    <p class="phone-bezel__caption">Physical LEDs</p>
+                  </div>
+                </div>
+
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="2 of 5: Connect">
                   <div class="phone-bezel">
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
@@ -1418,7 +1485,7 @@
                   </div>
                 </div>
 
-                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="2 of 4: Scan">
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="3 of 5: Scan">
                   <div class="phone-bezel">
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
@@ -1438,7 +1505,7 @@
                   </div>
                 </div>
                 
-                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 4: Results">
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="4 of 5: Results">
                   <div class="phone-bezel">
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
@@ -1458,7 +1525,7 @@
                   </div>
                 </div>
 
-                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="3 of 4: Preview &amp; Export">
+                <div class="hero-carousel__slide" role="group" aria-roledescription="slide" aria-label="5 of 5: Preview &amp; Export">
                   <div class="phone-bezel">
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
@@ -1497,6 +1564,7 @@
             <li><button class="hero-carousel__dot" aria-label="Go to slide 2"></button></li>
             <li><button class="hero-carousel__dot" aria-label="Go to slide 3"></button></li>
             <li><button class="hero-carousel__dot" aria-label="Go to slide 4"></button></li>
+            <li><button class="hero-carousel__dot" aria-label="Go to slide 5"></button></li>
           </ol>
 
         </div><!-- /.hero-carousel -->
@@ -1509,7 +1577,7 @@
         <div class="pitch__inner">
           <div>
             <span class="section-label">The Problem</span>
-            <h2 class="section-title" id="pitch-title">Manual LED mapping is painful</h2>
+            <h2 class="section-title" id="pitch-title">Manual LED mapping</h2>
             <p class="section-body">
               XLights can model standard LED structures, but custom LED layouts and designs are difficult to model. Recording LED positions by hand is tedious, error-prone, and the single biggest barrier to building accurate xLights models for LEDs not conforming to standard objects.
             </p>
@@ -1522,14 +1590,13 @@
             </p>
           </div>
         </div>
-      </div>
     </section>
 
     <!-- ══ Features ══ -->
     <section id="features" class="section" aria-labelledby="features-title">
       <div class="container">
         <span class="section-label">Features</span>
-        <h2 class="section-title" id="features-title">Everything you need.<br>Nothing you don't.</h2>
+        <h2 class="section-title" id="features-title">Essential tools to make it simple.</h2>
 
         <!-- Primary features with phone mockups -->
         <div class="features-grid" role="list">
@@ -1566,7 +1633,7 @@
                   <div class="phone-bezel__screen">
                     <div class="phone-bezel__notch" aria-hidden="true"></div>
                     <video
-                      data-src="resources/video/incremental-cone-scanning-start.mov"
+                      data-src="resources/video/final-scan.mp4"
                       autoplay
                       loop
                       muted
@@ -1605,7 +1672,7 @@
             </div>
             <div class="feature-row__text">
               <h3 id="feat-quality-title">RANSAC Outlier Rejection with 4-Tier Quality Feedback</h3>
-              <p>Each LED is independently scored using RANSAC to filter poor observations. Quality is displayed per LED so you know exactly where to rescan:</p>
+              <p>Each LED is independently scored using RANSAC to filter poor observations. Quality is displayed per LED on the AR so you know exactly where to rescan. You can also turn on the status on the Physical LED's using the light bulb icon and filter the statuses you wish to see. </p>
               <div class="quality-tiers" role="list" aria-label="LED quality tiers">
                 <span class="tier-pill tier-green"  role="listitem">Good triangulation</span>
                 <span class="tier-pill tier-yellow" role="listitem">More scans needed</span>
@@ -1682,7 +1749,7 @@
 
           <article class="feature-card" role="listitem">
             <div class="feature-card__icon" aria-hidden="true">📋</div>
-            <h4>Reconstruction report</h4>
+            <h4>Reconstruction Report</h4>
             <p>A reconstruction report, summarises the scanning session results, providing metrics on the scanned object. The user can choose to perform more scans, preview, or perform the export to an .xmodel file </p>
           </article>
 
@@ -1713,7 +1780,7 @@
     <section id="how-it-works" class="section" aria-labelledby="how-title">
       <div class="container">
         <span class="section-label">Workflow</span>
-        <h2 class="section-title" id="how-title">From LEDs to xLights<br>in five steps</h2>
+        <h2 class="section-title" id="how-title">From LEDs to xLights</h2>
 
         <!-- ── In the App stepper ── -->
         <p class="workflow__phase-title">In the App</p>
@@ -1737,7 +1804,7 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <video
+                         <video
                           data-src="resources/video/edited-connect-discover-segments.mp4"
                           autoplay
                           loop
@@ -1745,7 +1812,7 @@
                           playsinline
                           style="width:100%; height:100%; object-fit:cover; display:block;"
                           aria-label="Screen recording of automatic mDNS controller discovery, naming and connection">
-                        </video>
+                        </video>                      
                       </div>
                     </div>
                   </div>
@@ -1779,7 +1846,16 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/ar.jpeg" alt="AR scan screen showing LED overlay in real time" loading="lazy">
+                        <video
+                      data-src="resources/video/short-incremental-scan.mp4"
+                      autoplay
+                      loop
+                      muted
+                      playsinline
+                      style="width:100%; height:100%; object-fit:cover; display:block;"
+                      aria-label="Screen recording of interactive 3D LED preview with pan, zoom, and rotate controls, select an LED to manually move, or simply delete calculated position and interpolate it's position using neighbours">
+                    </video>
+                        
                       </div>
                     </div>
                   </div>
@@ -1814,7 +1890,15 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/results.jpeg" alt="Results screen showing scan metrics summary" loading="lazy">
+                         <video
+                            data-src="resources/video/results.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            style="width:100%; height:100%; object-fit:cover; display:block;"
+                            aria-label="Screen recording of an example result report for a scan">
+                          </video>
                       </div>
                     </div>
                   </div>
@@ -1822,7 +1906,11 @@
                 <div class="stepper__content">
                   <h3>Report</h3>
                   <p>When scanning is complete the app summarises results, providing metrics on the scanned object.</p>
-                  <p>Go back to rescan, proceed to preview, or export directly.</p>
+                  <p>Go back to perform more scans, proceed to preview, or export directly.</p>
+
+                  <p>Export options enable the user to set the cell size and flip axis toggle.</p>
+                  <p><strong>Cell Size</strong> controls the resolution of the underlying model. LED positions are quantised to fit into this resolution. The "grid" toggle on the 3d preview screen lets you see the effect of the quantisation on the model before exporting.</p>
+                  <p><strong>Flip Y/Z Axes</strong> enables models to be scanned horizonatlly (on the floor), and then exported in the vertical orientation, for wall hung installations.</p>
                 </div>
               </div>
             </div>
@@ -1846,7 +1934,15 @@
                     <div class="phone-bezel__frame">
                       <div class="phone-bezel__screen">
                         <div class="phone-bezel__notch" aria-hidden="true"></div>
-                        <img src="resources/screenshot/preview.jpeg" alt="3D preview screen with transform gizmo controls" loading="lazy">
+                            <video
+                            data-src="resources/video/edit-led-in-preview.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            style="width:100%; height:100%; object-fit:cover; display:block;"
+                            aria-label="Screen recording of manually moving led in 3d preview">
+                          </video>
                       </div>
                     </div>
                   </div>
@@ -1854,8 +1950,8 @@
                 <div class="stepper__content">
                   <h3>Preview</h3>
                   <p>Open the 3D preview to inspect results.</p>
-                  <p>Use the transform gizmo to adjust its position.</p>
-                  <p>Delete the calculated position and replace with an interpolated position based on its neighbours.</p>
+                  <p>An LED position can be moved, by clicking on it and using the gizmo axes to adjust its position.</p>
+                  <p>Or the LEDs calculated position can be replaced with it's interpolated position based on its neighbours.</p>
                 </div>
               </div>
             </div>
@@ -1873,11 +1969,29 @@
               <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-5">
-              <div class="stepper__body stepper__body--text-only">
+              <div class="stepper__body stepper__body">
+                <div class="stepper__media">
+                  <div class="phone-bezel">
+                    <div class="phone-bezel__frame">
+                      <div class="phone-bezel__screen">
+                        <div class="phone-bezel__notch" aria-hidden="true"></div>
+                            <video
+                            data-src="resources/video/results-export.mp4"
+                            autoplay
+                            loop
+                            muted
+                            playsinline
+                            style="width:100%; height:100%; object-fit:cover; display:block;"
+                            aria-label="Screen recording of manually moving led in 3d preview">
+                          </video>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <div class="stepper__content">
                   <h3>Export</h3>
-                  <p>Tap the export button</p>
-                  <p>Use the iOS share sheet to save the <code>.xmodel</code> file to the Files app or AirDrop it directly to your Mac.</p>
+                  <p>From the results page - tap the export button</p>
+                  <p>Use the iOS share sheet to email or save the <code>.xmodel</code> file to the Files app or AirDrop it directly to your Mac.</p>
                 </div>
               </div>
             </div>
@@ -1901,10 +2015,27 @@
               <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-1">
-              <div class="stepper__body stepper__body--text-only">
+              <div class="stepper__body stepper__body--with-screenshot">
                 <div class="stepper__content">
                   <h3>Open xLights</h3>
-                  <p>Open xLights and go to the <strong>Layout</strong> tab.</p>
+                  <p>Open xLights and go to the <strong>Layout</strong> tab. This is where you manage your prop models — each LED fixture lives here as a named object.</p>
+                </div>
+                <div class="stepper__screenshot-frame">
+                  <div class="stepper__screenshot-titlebar">
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--red"   aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--yellow" aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--green"  aria-hidden="true"></span>
+                    <span class="stepper__screenshot-title">xLights (Ver 2026.03) — Layout</span>
+                  </div>
+                  <img
+                    class="stepper__screenshot-img"
+                    src="resources/screenshot/xlights-open.png"
+                    alt="xLights Layout tab showing the Models panel on the left and a 3D grid preview on the right"
+                    loading="lazy"
+                    decoding="async"
+                    width="1440"
+                    height="810"
+                  >
                 </div>
               </div>
             </div>
@@ -1922,16 +2053,33 @@
               <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-2">
-              <div class="stepper__body stepper__body--text-only">
+              <div class="stepper__body stepper__body--with-screenshot">
                 <div class="stepper__content">
                   <h3>Import Model</h3>
-                  <p>Click the <strong>Import Model</strong> button in the toolbar.</p>
+                  <p>Click the <strong>Import Model</strong> button in the toolbar.</p>  
+                </div>
+                <div class="stepper__screenshot-frame">
+                  <div class="stepper__screenshot-titlebar">
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--red"   aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--yellow" aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--green"  aria-hidden="true"></span>
+                    <span class="stepper__screenshot-title">xLights (Ver 2026.03) — Layout</span>
+                  </div>
+                  <img
+                    class="stepper__screenshot-img"
+                    src="resources/screenshot/xlights-click-import.png"
+                    alt="xLights Layout tab showing the Models panel on the left and a 3D grid preview on the right"
+                    loading="lazy"
+                    decoding="async"
+                    width="1440"
+                    height="810"
+                  >
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Step 3: Place Model -->
+          <!-- Step 3: Select Model File -->
           <div class="stepper__item">
             <button
               class="stepper__header"
@@ -1939,20 +2087,38 @@
               aria-controls="panel-xlights-3"
             >
               <span class="stepper__badge" aria-hidden="true">3</span>
-              <span class="stepper__title">Place Model</span>
+              <span class="stepper__title">Select Model File</span>
               <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-3">
-              <div class="stepper__body stepper__body--text-only">
+              <div class="stepper__body stepper__body--with-screenshot">
                 <div class="stepper__content">
                   <h3>Place Model</h3>
-                  <p>Drag on the canvas to place the model's position in your layout, then release — a file picker opens.</p>
+                  <p>Click on the canvas to place the model's position in your layout, then release — a file picker opens.</p>
+                  <p>Select the exported <strong>.xmodel</strong> file.</p>
+                </div>
+                <div class="stepper__screenshot-frame">
+                  <div class="stepper__screenshot-titlebar">
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--red"   aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--yellow" aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--green"  aria-hidden="true"></span>
+                    <span class="stepper__screenshot-title">xLights (Ver 2026.03) — Layout</span>
+                  </div>
+                  <img
+                    class="stepper__screenshot-img"
+                    src="resources/screenshot/xlights-choose-custom-model.png"
+                    alt="xLights Layout tab showing the Models panel on the left and a 3D grid preview on the right"
+                    loading="lazy"
+                    decoding="async"
+                    width="1440"
+                    height="810"
+                  >
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Step 4: Select File -->
+          <!-- Step 4: Adjust Size -->
           <div class="stepper__item">
             <button
               class="stepper__header"
@@ -1960,14 +2126,33 @@
               aria-controls="panel-xlights-4"
             >
               <span class="stepper__badge" aria-hidden="true">4</span>
-              <span class="stepper__title">Select File</span>
+              <span class="stepper__title">Adjust Size</span>
               <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-xlights-4">
-              <div class="stepper__body stepper__body--text-only">
+              <div class="stepper__body stepper__body--with-screenshot">
                 <div class="stepper__content">
-                  <h3>Select File</h3>
-                  <p>Select the exported <strong>.xmodel</strong> file.</p>
+                  <h3>Adjust Size</h3>
+                  <p>The custom <strong>.xmodel</strong> is dropped on to the layout.</p>
+                  <p>Adjust the <strong>X</strong>, <strong>Y</strong>, <strong>Z</strong> properties to move the model.</p>
+                  <p>Adjust the <strong>ScaleX</strong>, <strong>ScaleY</strong>, <strong>ScaleZ</strong> properties to set the model size.</p>
+                </div>
+                <div class="stepper__screenshot-frame">
+                  <div class="stepper__screenshot-titlebar">
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--red"   aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--yellow" aria-hidden="true"></span>
+                    <span class="stepper__screenshot-dot stepper__screenshot-dot--green"  aria-hidden="true"></span>
+                    <span class="stepper__screenshot-title">xLights (Ver 2026.03) — Layout</span>
+                  </div>
+                  <img
+                    class="stepper__screenshot-img"
+                    src="resources/screenshot/xlights-model-scaled-moved.png"
+                    alt="xLights Layout tab showing the scaled custom model imported."
+                    loading="lazy"
+                    decoding="async"
+                    width="1440"
+                    height="810"
+                  >
                 </div>
               </div>
             </div>
@@ -1999,7 +2184,7 @@
     </section>
 
     <!-- ══ Using Your Export ══ -->
-    <section id="export" class="section" aria-labelledby="export-title">
+   <!-- <section id="export" class="section" aria-labelledby="export-title">
       <div class="container">
         <div class="pitch__inner">
           <div>
@@ -2027,7 +2212,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
 
     <!-- ══ Requirements ══ -->
     <section id="requirements" class="section" aria-labelledby="req-title">
