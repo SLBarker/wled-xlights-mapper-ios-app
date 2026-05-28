@@ -65,7 +65,6 @@
       --danger:    #ff3b30;
       --radius-sm: 16px;
       --radius-md: 28px;
-      --radius-lg: 40px;
       --shadow:    0 4px 32px rgba(0,0,0,0.08);
       --shadow-lg: 0 16px 64px rgba(0,0,0,0.14);
       --transition: 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
@@ -615,14 +614,6 @@
       background: var(--surface);
     }
 
-    /* .workflow {
-      margin-top: 60px;
-    } */
-
-    /* .workflow__phase {
-      margin-bottom: 60px;
-    } */
-
     .workflow__phase-title {
       font-size: 0.75rem;
       font-weight: 600;
@@ -631,45 +622,6 @@
       color: var(--accent);
       margin-bottom: 1.5rem;
     }
-
-    /* .workflow__steps {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 1rem;
-    } */
-
-    /* .step-card {
-      background: var(--bg);
-      border-radius: var(--radius-sm);
-      padding: 1.5rem;
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
-    .step-card.visible { opacity: 1; transform: translateY(0); }
-
-    .step-card__num {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-
-    .step-card h4 {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .step-card p {
-      font-size: 0.8125rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom:1.25em;
-    } */
 
     /* Quality tier pills */
     .quality-tiers {
@@ -705,48 +657,6 @@
     .tier-orange::before { background: var(--warn); }
     .tier-red    { background: rgba(255,59,48,0.12);  color: #7a1010; }
     .tier-red::before    { background: var(--danger); }
-
-    /* xlights import steps */
-    /* .numbered-list {
-      list-style: none;
-      counter-reset: steps;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .numbered-list li {
-      counter-increment: steps;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-    }
-
-    .numbered-list li::before {
-      content: counter(steps);
-      flex-shrink: 0;
-      width: 28px;
-      height: 28px;
-      background: var(--accent);
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.75rem;
-      font-weight: 700;
-      margin-top: 0.15rem;
-    }
-
-    .numbered-list li span {
-      font-size: 0.9375rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .numbered-list strong { color: var(--text); } */
-
 
     /* ── Stepper ── */
 
@@ -961,11 +871,6 @@
       width: 24px;
       height: 24px;
       flex-shrink: 0;
-    }
-
-    /* ── Export / using section ── */
-    #export {
-      background: var(--bg);
     }
 
     /* ── Requirements ── */
@@ -1267,7 +1172,6 @@
 
       /* Grid single-column overrides */
       .feature-cards   { grid-template-columns: 1fr; }
-      /* .workflow__steps { grid-template-columns: 1fr; } */
       .req-grid        { grid-template-columns: 1fr; }
       .privacy-grid    { grid-template-columns: 1fr; }
 
@@ -1590,6 +1494,7 @@
             </p>
           </div>
         </div>
+      </div>
     </section>
 
     <!-- ══ Features ══ -->
@@ -1910,7 +1815,7 @@
 
                   <p>Export options enable the user to set the cell size and flip axis toggle.</p>
                   <p><strong>Cell Size</strong> controls the resolution of the underlying model. LED positions are quantised to fit into this resolution. The "grid" toggle on the 3d preview screen lets you see the effect of the quantisation on the model before exporting.</p>
-                  <p><strong>Flip Y/Z Axes</strong> enables models to be scanned horizonatlly (on the floor), and then exported in the vertical orientation, for wall hung installations.</p>
+                  <p><strong>Flip Y/Z Axes</strong> enables models to be scanned horizontally (on the floor), and then exported in the vertical orientation, for wall hung installations.</p>
                 </div>
               </div>
             </div>
@@ -1969,7 +1874,7 @@
               <svg class="stepper__chevron" aria-hidden="true" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
             <div class="stepper__panel" id="panel-app-5">
-              <div class="stepper__body stepper__body">
+              <div class="stepper__body">
                 <div class="stepper__media">
                   <div class="phone-bezel">
                     <div class="phone-bezel__frame">
