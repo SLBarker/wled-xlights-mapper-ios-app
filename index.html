@@ -152,18 +152,14 @@
     .site-nav__cta {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      background: var(--accent);
-      color: #fff !important;
-      border-radius: 20px;
-      padding: 0.4rem 1rem !important;
       text-decoration: none;
-      transition: transform var(--transition), box-shadow var(--transition) !important;
+      border-radius: 8px;
+      transition: transform var(--transition), opacity var(--transition);
     }
 
     .site-nav__cta:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0,113,227,0.5);
+      opacity: 0.85;
     }
 
     /* ── Section layout ── */
@@ -292,14 +288,17 @@
     .btn:hover { transform: translateY(-2px); opacity: 0.92; }
     .btn-primary:hover { box-shadow: 0 12px 40px rgba(0,113,227,0.5); }
 
-    [aria-disabled="true"] {
-      opacity: 0.6;
-      cursor: not-allowed;
-      pointer-events: none;
+    .app-store-link {
+      display: inline-flex;
+      border-radius: 12px;
+      transition: transform var(--transition), opacity var(--transition);
     }
-    .site-nav__cta[aria-disabled="true"]:hover { transform: none; box-shadow: none; }
-    .btn[aria-disabled="true"]:hover { transform: none; opacity: 0.6; }
-    .btn-primary[aria-disabled="true"]:hover { box-shadow: none; }
+    .app-store-link:hover {
+      transform: translateY(-3px);
+      opacity: 0.88;
+    }
+    .app-store-link img { display: block; }
+
 
     /* ── Phone bezel ── */
     .phone-bezel {
@@ -1305,8 +1304,12 @@
         <li><a href="#privacy">Privacy</a></li>
       </ul>
       <div class="site-nav__right">
-        <a class="site-nav__cta" aria-disabled="true">
-          Coming Soon
+        <a class="site-nav__cta"
+           href="https://apps.apple.com/us/app/wled-to-xlights/id6770612293"
+           target="_blank"
+           rel="noopener"
+           aria-label="Download WLED to XLights on the App Store">
+          <img src="resources/app-store-badge.svg" alt="Download on the App Store" height="32" width="96">
         </a>
       </div>
     </div>
@@ -1336,8 +1339,12 @@
           Accurate LED mapping of WLED instances to xLights without manual editing, using a standard iPhone — LiDAR not required.
         </p>
         <div class="hero__cta-group">
-          <a class="btn btn-primary" aria-disabled="true">
-            Coming Soon
+          <a class="app-store-link"
+             href="https://apps.apple.com/us/app/wled-to-xlights/id6770612293"
+             target="_blank"
+             rel="noopener"
+             aria-label="Download WLED to XLights on the App Store">
+            <img src="resources/app-store-badge.svg" alt="Download on the App Store" height="54" width="162">
           </a>
         </div>
 
